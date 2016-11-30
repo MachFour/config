@@ -1,0 +1,6 @@
+
+# don't include nvim packages
+nvim/pack
+
+# or any wav files (I'm looking at you, systemd/data)
+**.wav
