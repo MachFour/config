@@ -1,0 +1,14 @@
+[Unit]
+Description=Awesome window manager
+Requires=x11.target
+After=x11.target
+Conflicts=i3.service
+
+[Service]
+ExecStart=/home/max/bin/startawesome
+ExecReload=/usr/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+Alias=desktop-session.service
+WantedBy=desktop.target

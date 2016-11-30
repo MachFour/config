@@ -1,0 +1,108 @@
+function vimman {
+	local novim=0
+	local manargs=''
+	if [[ $# -eq 0 ]]; then
+		echo "What manual page do you want?"
+		return 1
+	elif [[ $# -eq 1 ]]; then
+		manargs=$1
+	# check first character of first argument after program name for a man page section
+elif [[ $# -eq 2 ]] && [[ ${1:0:1} != '-' ]] && [[ ${1:0:1} -gt 0 ]]; then
+		# e.g. for man 3 readline
+		manargs="$1 $2"
+	else
+		novim=1
+	fi
+
+	if [[ $novim -eq 1 ]]; then
+		# it's not the standard man command, just let the actual man handle it
+		command man $@
+	else
+		# use vim!
+		vim -c 'set nocompatible buftype=nofile eventignore+=FileType undolevels=-1 shellcmdflag=-c filetype=man nolist background=dark' -c 'nmap q :q<CR>' -c 'nmap K \K' -c 'nnoremap <Down> <C-E>' -c 'nnoremap <Up> <C-Y>' -c 'runtime! ftplugin/man.vim' -c ":Man $manargs" -c 'set nomodifiable'
+	fi
+
+}
+# don't need now that vimpager is a thing
+#alias man='vimman'
+#if [[ `basename $SHELL` -eq "zsh" ]]; then
+#	autoload compinit
+#	compdef _man vimman
+#fi
+
+# calls pacman with sudo only if necessary
+function pacman {
+	local PACMAN=/usr/bin/pacman
+	# this is conservative, in the sense that
+	# it calls sudo more than necessary
+	# (if the lowercase letter options below
+	# are given separately or two characters
+	# after the capital, this case statement
+	# won't pick that up)
+	case $1 in
+		-D | -D[^k]* | -Dkk)
+			local NEEDS_SUDO=1 ;;
+		-S | -S[^spilg]* )
+			local NEEDS_SUDO=1 ;;
+		-R | -R[^p]* )
+			local NEEDS_SUDO=1 ;;
+		-U | -U[^p]* )
+			local NEEDS_SUDO=1 ;;
+		*)
+			local NEEDS_SUDO= ;;
+    esac
+	if [[ -n $NEEDS_SUDO ]]; then
+		sudo $PACMAN "$@"
+	else
+		$PACMAN "$@"
+	fi
+}
+
+function stop_bumming_around {
+	echo "Good idea. Go to bed!"
+	sleep 1
+	echo "Shutting down..."
+	sleep 1
+	shutdown now
+}
+
+function rund {
+	nohup "$1" &> /dev/null &
+}
+
+function cs {
+cd "$1"
+ls
+}
+
+function search {
+	find / -name "$1" 2>/dev/null
+}
+
+function nomonitor {
+	xrandr --size 1366x768
+	synclient TouchpadOff=0
+	killall syndaemon
+	syndaemon -t -d -k -i 1.5
+}
+
+function pyprint {
+	python3 -c "print($1)"
+}
+
+function cat_r {
+	find -type f -printf '%P: ' -exec cat '{}' ';'
+}
+
+#return to ranger if it's already running, else start ranger with args
+function ranger {
+	if [ -z "$RANGER_LEVEL" ]; then
+		/usr/bin/ranger "$@"
+	else
+		echo "RANGER_LEVEL = $RANGER_LEVEL"
+		sleep 1
+		exit
+	fi
+}
+
+# vim: ft=sh

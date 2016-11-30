@@ -1,0 +1,5 @@
+set selection-clipboard "clipboard"
+set guioptions "sv"
+set window-title-basename "true"
+set adjust-open "width"
+set font "fira-mono bold 10"

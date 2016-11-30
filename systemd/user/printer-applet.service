@@ -1,0 +1,15 @@
+
+
+[Unit]
+Description=Cups Printer Applet
+Requires=x11.target
+After=x11.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/system-config-printer-applet
+
+[Install]
+WantedBy=desktop.target
+

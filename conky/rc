@@ -1,0 +1,103 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+	-- disable X11 integration
+	--out_to_x = true,
+	-- the following options are ignored
+	alignment = 'bottom_left',
+	-- HOORAY!!!!!!!!!!!!!
+	-- multi monitor now possible
+	xinerama_head = 0,
+	--alignment = 'none',
+	--background = true,
+	-- looks good on home monitor, kludgey but works on laptop too
+	--minimum_width = 1598,
+	border_width = 0,
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+	default_outline_color = 'white',
+	default_color = 'white',
+	default_shade_color = 'black',
+	double_buffer = true,
+	draw_borders = false,
+	draw_graph_borders = true,
+	draw_outline = false,
+	draw_shades = true,
+	extra_newline = false,
+	font = 'Source Code Pro:size=9',
+	gap_x = 0,
+	gap_y = 0,
+	--imlib_image_alpha = true,
+	no_buffers = true,
+	-- appears as an undecorated window on the desktop but not in the taskbar or pager
+	own_window = true,
+	own_window_class = 'Conky',
+	own_window_type = 'desktop',
+	--own_window_type = 'panel',
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 60,
+	stippled_borders = 0,
+	use_xft = true,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	if_up_strictness = "address",
+	--out_to_console = true,
+	out_to_stderr = false,
+	pad_percents = 2,
+	update_interval = 1.0,
+	uppercase = false,
+	use_spacer = 'left',
+	format_human_readable = true,
+}
+
+conky.text =
+	          " ${color grey}uptime$color $uptime_short" ..
+	"${color} | ${color grey}battery $color ${battery_percent}%" ..
+	"${color} | ${color grey}cpu$color ${freq 0} MHz, ${cpu cpu0}%" ..
+	"${color} | ${color grey}mem$color $mem" ..
+	"${color} | ${color grey}io ${color white}${diskio sda}" ..
+	"${color} | ${color white}${fs_free /home} ${color grey}free on /home" ..
+	"${color} | ${color grey}proc$color $processes" ..
+	"${color} | ${color grey}top$color ${top name 1} (${top pid 1})" ..
+	"${if_up wlp2s0b1}" ..
+	"${color} | ${color grey}wlan ${color}up" ..
+	"${color} | ${color grey}SSID ${color white}${wireless_essid wlp2s0b1}" ..
+	--(${wireless_freq wlp2s0b1} ch${wireless_channel wlp2s0b1}, ${wireless_bitrate wlp2s0b1})" ..
+	"${color} | ${color grey}Signal${color white}${wireless_link_qual wlp2s0b1}%" ..
+	"${color} | ${color grey}IP $color${addr wlp2s0b1}" ..
+	"${else}" ..
+	"${color} | ${color grey}wlan ${color}down" ..
+	"${endif}" ..
+	"${if_up enp8s0}" ..
+	"${color} | ${color grey}ethernet ${color}up" ..
+	"${color} | ${color grey}IP $color${addr enp8s0}" ..
+	"${else}" ..
+	"${color} | ${color grey}eth ${color}down" ..
+	"${endif}" ..
+	" "

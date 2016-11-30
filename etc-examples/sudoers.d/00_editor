@@ -1,0 +1,6 @@
+
+# Choose editor to use with sudo from first executable in this list
+# left to its own devices, sudoedit seems to consider only the last item of this list,
+# so we'll add nvim-sudoedit twice
+Defaults editor="/usr/bin/nvim-sudoedit:/usr/bin/nvim:/bin/vi:/usr/bin/nvim-sudoedit"
+Defaults env_editor

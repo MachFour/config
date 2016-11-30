@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Udiskie automounter
+Requires=x11.target
+After=x11.target
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/udiskie --config ${XDG_CONFIG_HOME}/udiskie/config.yml --tray --automount --notify
+
+[Install]
+WantedBy=desktop.target

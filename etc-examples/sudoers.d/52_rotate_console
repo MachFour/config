@@ -1,0 +1,3 @@
+
+# allow console rotation, either all or single
+%wheel ALL=(ALL) NOPASSWD: /usr/bin/tee /sys/class/graphics/fbcon/rotate, /usr/bin/tee /sys/class/graphics/fbcon/rotate_all

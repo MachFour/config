@@ -1,0 +1,15 @@
+[Unit]
+Description=i3 window manager
+Requires=x11.target
+After=x11.target
+Before=desktop.target
+Conflicts=awesome.service
+
+[Service]
+ExecStart=/usr/bin/i3
+ExecReload=/usr/bin/kill -HUP $MAINPID
+Restart=on-success
+
+[Install]
+Alias=desktop-session.service
+WantedBy=desktop.target

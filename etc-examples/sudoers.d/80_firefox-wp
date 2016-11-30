@@ -1,0 +1,4 @@
+
+# allow all users to run /usr/bin/firefox-wp as group firefox
+
+ALL ALL = (:firefox) NOPASSWD: /usr/bin/firefox-wp, /home/max/bin/firefox-wp, /usr/bin/firefox, /usr/bin/strace

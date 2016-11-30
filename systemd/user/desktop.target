@@ -1,0 +1,17 @@
+#
+# desktop.target
+# Represents a fully initialised desktop environment
+# with all autostart programs running correctly
+# on top of a running X server (i.e. x11.target)
+# This could be either a managed x11 (by a display manager)
+# or self started by systemd --user
+# Autostart behaviour can be enabled by adding services to
+# desktop.target.wants
+
+[Unit]
+Description=Graphical User Desktop
+Requires=basic.target x11.target
+# only go after desktop-session if that needs to be run
+# (dummy desktop)
+After=basic.target x11.target desktop-session.service
+AllowIsolate=yes

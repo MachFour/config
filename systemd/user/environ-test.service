@@ -1,0 +1,9 @@
+
+[Unit]
+Description=DISPLAY environment variable test
+Before=xinit.service
+Before=desktop.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/max/bin/echodisplay

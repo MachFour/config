@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Cairo Composite Manager
+Requires=x11.target
+After=x11.target
+Conflicts=compton.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cairo-compmgr
+
+[Install]
+WantedBy=desktop.target

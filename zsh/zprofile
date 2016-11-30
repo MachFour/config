@@ -1,0 +1,21 @@
+
+# .zprofile
+
+# Get the aliases and functions
+if [ -f ~/.zshrc ]; then
+	. ~/.zshrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$HOME/bin:$PATH
+export PATH
+
+# start X automatically, without display manager
+
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+	echo "Not Starting X server on display :0..."
+	#export DISPLAY=:0
+	#systemctl --user import-environment XDG_VTNR DISPLAY
+	#systemctl --user isolate desktop.target
+fi

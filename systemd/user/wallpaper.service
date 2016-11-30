@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Wallpaper setter
+Requires=x11.target
+After=x11.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/feh --bg-fill --no-xinerama "${HOME}/.config/systemd/data/wallpaper"
+RemainAfterExit=no
+
+[Install]
+WantedBy=desktop.target

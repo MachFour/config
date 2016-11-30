@@ -1,0 +1,32 @@
+# xorg.service
+# Systemd unit file for an Xorg server running in a user session
+# DISPLAY=:0 is hardcoded into the socket file
+
+[Unit]
+Description=Xorg X11 server
+Documentation=man:Xorg(1)
+Requires=environ-test.service
+Before=x11.target exit.target
+# hopefully this will get xorg to exit before shutdown
+Conflicts=exit.target
+# we shouldn't activate this manually, it should be pulled in when starting X clients with systemd
+RefuseManualStart=true
+
+
+[Service]
+Type=simple
+# have to set $DISPLAY=:0 properly beforehand for other processes
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/Xorg ${DISPLAY} -nolisten tcp -noreset vt${XDG_VTNR} -keeptty -verbose 1 -logverbose 4
+# set up environment and other things for systemd-controlled X clients
+ExecStartPost=/usr/bin/bash ${HOME}/.xinitrc-systemd
+#KillSignal=SIGTERM
+SendSIGHUP=no
+Restart=no
+#Restart=on-abnormal
+
+[Install]
+#Alias=x11.service
+Also=x11.target
+#For auto activation/enabline
+#WantedBy=desktop.target

@@ -1,0 +1,15 @@
+# x11.socket
+# socket file for systemd socket activation of an X11 server
+# DISPLAY=:0 is hardcoded
+
+[Unit]
+Description=X11 server socket
+Before=x11.target
+
+[Socket]
+ListenStream=/tmp/.X11-unix/X0
+RemoveOnStop=true
+TimeoutSec=5
+
+[Install]
+WantedBy=sockets.target

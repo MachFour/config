@@ -1,0 +1,3 @@
+
+# allow loading of pcspeaker and snd-hda-intel easily
+%wheel ALL=(ALL) NOPASSWD: /usr/bin/modprobe snd-hda-intel, /usr/bin/modprobe pcspkr

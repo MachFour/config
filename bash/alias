@@ -1,0 +1,39 @@
+# User specific aliases and functions
+if [[ -x /usr/bin/trash ]]; then
+	# use XDG-compliant trash script (bashtrash)
+	alias rm='trash'
+else
+	# fallback to sometimes interactive rm
+	echo "You should install some sort of trash tool so you don't rm things by accident"
+	alias rm='rm -I'
+fi
+alias mv='mv -i'
+alias cp='cp -i'
+alias physsh='ssh -Y mfisher@silliac.physics.usyd.edu.au'
+alias ls='ls --color=auto --sort=extension --human-readable'
+alias lsh='ls -A --ignore="*"'
+alias dirsize='du -chd 1'
+alias mouseon='synclient TouchpadOff=0'
+alias resetscrn='xrandr --size 1366x768 --output VGA1 --off --output HDMI1 --off --output LVDS1 --preferred'
+alias ucpu2='ssh mfis1267@ucpu2.ug.it.usyd.edu.au'
+alias kbreset='xset r rate 275 250'
+alias hdmi='xrandr --output HDMI1 --preferred && xrandr --output LVDS1 --preferred --panning 1600x1200'
+alias javad='firefox -new-tab file:///data3/max/Computer/Java/docs/api/index.html'
+alias san='systemd-analyze'
+alias stl='systemctl'
+alias stlu='systemctl --user'
+alias jtl='journalctl'
+alias jtlu='journalctl --user'
+alias chmox='chmod +x'
+alias remove='pacman -Rsn'
+alias owns='pacman -Ql'
+alias fowns='pacman -Qo'
+alias pkinfo='pacman -Si'
+alias igrep='grep -i'
+alias ffplay='ffplay -nodisp'
+alias v='nvim'
+alias i3cheatsheet="egrep '^bind' ~/config/i3/config | cut -d '\'' '\''  -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\''"
+
+alias vim='echo USE NVIM! #'
+
+# vim: ft=sh

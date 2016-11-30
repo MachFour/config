@@ -1,0 +1,24 @@
+
+# shell environment variables for bash/zsh
+
+export EDITOR=nvim
+export SUDO_EDITOR="/usr/bin/nvim-sudoedit"
+export PAGER=/usr/bin/less
+export MANPAGER=/usr/bin/less
+export PATH=/home/max/bin:$PATH
+export PYTHONSTARTUP=/home/max/.pystartup
+export BROWSER=firefox
+export QUOTING_STYLE=literal
+# fixes java menus in Awesome WM
+#export _JAVA_AWT_WM_NONREPARENTING=1
+#export MATLAB_JAVA="/usr/lib/jvm/java-8-jdk/jre"
+export AURDEST="/home/max/pkg"
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb'
+
+# set up colours for ls
+eval $(dircolors ~/.dircolors)
+
+export LESSHISTFILE=/dev/null
+export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS --squeeze-blank-lines --quit-on-intr"
+# need these two together
+export SYSTEMD_LESS="$LESS --chop-long-lines --no-init --quit-if-one-screen"

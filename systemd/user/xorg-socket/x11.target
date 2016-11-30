@@ -1,0 +1,7 @@
+# Target representing a X server ready to accept client connections
+# X clients should add this unit in their Requires= and After= configuration
+
+[Unit]
+Description=X11 server
+Requires=xorg.service x11.socket environ-test.service
+After=xorg.service x11.socket

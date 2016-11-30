@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Compton Compositor
+Requires=x11.target
+After=x11.target
+Conflicts=cairo-compmgr.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/compton
+
+[Install]
+WantedBy=desktop.target

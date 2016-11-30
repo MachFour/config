@@ -1,0 +1,12 @@
+
+[Unit]
+Description=Synapse application launcher
+Requires=x11.target
+After=x11.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/synapse -s
+
+[Install]
+WantedBy=desktop.target

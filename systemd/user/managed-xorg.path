@@ -1,0 +1,9 @@
+# check for Xorg socket file before launching managed-desktop-unit
+[Unit]
+Description=Detection of existing Xorg instance
+RequiresMountsFor=/tmp
+[Path]
+PathExists=/tmp/.X0-lock
+PathExists=/tmp/.X11-unix/X0
+Unit=managed-xorg.target
+

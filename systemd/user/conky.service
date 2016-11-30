@@ -1,0 +1,15 @@
+[Unit]
+Description=Conky status bar
+Requires=x11.target
+# needs to be after awesome since otherwise bar is drawn to top of screen
+After=x11.target awesome.service
+
+[Service]
+Type=simple
+
+ExecStart=/usr/bin/conky -c ${XDG_CONFIG_HOME}/conky/rc
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+
+[Install]
+WantedBy=desktop.target

@@ -1,0 +1,19 @@
+
+program_options:
+  # Configure defaults for command line options
+
+  udisks_version:   2       # [int] Specify the version of udisks
+                            # to be used. Set to 0 to use automatic
+                            # discovery.
+
+  tray:             true    # [bool] Enable the tray icon. "auto"
+                            # means auto-hide the tray icon when
+                            # there are no handled devices.
+
+  automount:        false   # [bool] Enable automatic mounting.
+
+  notify:           true    # [bool] Enable notifications.
+
+  file_manager:     pcmanfm
+    # [string] Set program to open directories. It will be invoked
+    # with the folder path as its # command line first argument.

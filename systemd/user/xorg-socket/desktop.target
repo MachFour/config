@@ -1,0 +1,13 @@
+
+#
+# Desktop target
+# Represents a working desktop environment with an X server
+# Autostart behaviour can be enabled by adding services to
+# desktop.target.wants
+
+[Unit]
+Description=Graphical User Desktop
+Requires=basic.target x11.target
+After=basic.target x11.target
+Wants=desktop-session.service
+AllowIsolate=yes

@@ -1,0 +1,6 @@
+
+# 10 minutes between password entries for users
+Defaults timestamp_timeout=10
+
+# Password prompt times out after 30 seconds
+Defaults passwd_timeout=0.5

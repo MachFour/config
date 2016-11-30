@@ -1,0 +1,56 @@
+# Created by newuser for 5.0.7
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=3000
+setopt appendhistory autocd beep
+# don't give the 'no matches found' error
+unsetopt nomatch
+
+#completion options
+# don't beep on ambiguous completion
+unsetopt list_beep
+setopt menucomplete
+setopt auto_param_slash
+setopt auto_list
+
+# colour prompt
+#autoload -U colors && colors
+#PROMPT="%{$fg_bold[red]%}%? %{$fg_no_bold[green]%}%n %{$fg_no_bold[magenta]%}%1~ %{$reset_color%}%# "
+
+# keybindings
+source ~/.zkbd/$TERM 2>/dev/null || source ~/.zkbd/default
+
+[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" up-line-or-history
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" down-line-or-history
+[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
+[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+[[ -n ${key[CLeft]} ]] && bindkey "${key[CLeft]}" backward-word
+[[ -n ${key[CRight]} ]] && bindkey "${key[CRight]}" forward-word
+# [[ -n ${key[CBackspace]} ]] && bindkey "${key[CBackspace]}"
+[[ -n ${key[CDelete]} ]] && bindkey "${key[CDelete]}" delete-word
+# help command
+
+autoload -U run-help
+alias help=run-help
+
+# red stderr
+#[ -f ~/.stderredrc ] && . ~/.stderredrc
+
+# get aliases, functions and environment variables
+[ -f ~/.alias ] && . ~/.alias
+[ -f ~/.func ] && . ~/.func
+[ -f ~/.env ] && . ~/.env
+
+# set up termite config
+if [[ $TERM == xterm-termite ]]; then
+	source /etc/profile.d/vte.sh
+	__vte_osc7
+fi

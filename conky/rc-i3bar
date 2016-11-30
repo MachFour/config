@@ -1,0 +1,106 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+
+conky.config = {
+	-- disable X11 integration
+	out_to_x = false,
+	cpu_avg_samples = 2,
+	net_avg_samples = 2,
+	if_up_strictness = "address",
+	out_to_console = true,
+	out_to_stderr = false,
+	--pad_percents = 2,
+	update_interval = 1,
+	uppercase = false,
+	use_spacer = 'left',
+	format_human_readable = true,
+	top_name_width = 12,
+}
+
+-- concatenates string values of elements in a table
+-- using the given strings for the first, last, and
+-- separating strings
+function concat_table(tbl, first, last, sep)
+	local t = { }
+	for k,v in ipairs(tbl) do
+		t[#t+1] = tostring(v)
+	end
+	return first .. table.concat(t, sep) .. last
+end
+
+function json_attribute(name, value, dontquote)
+	if dontquote == true
+	then
+		return "\"" .. name .. "\": "   .. value
+	else
+		return "\"" .. name .. "\": \"" .. value .. "\""
+	end
+end
+
+-- attributes is a table
+function i3bar_create_block(attributes)
+	-- check mandatory options
+	if type(attributes.full_text) ~= "string" then
+		error("Full text required for block")
+	--elseif type(options.width) ~= "number" then
+	--	error("no width")
+	end
+	json_attributes = {json_attribute("full_text", attributes.full_text), }
+
+	-- add optional attributes
+
+	if type(attributes.name) == "string" then
+		table.insert(json_attributes,
+			json_attribute("name", attributes.name))
+	end
+
+	if type(attributes.color) == "string" then
+		table.insert(json_attributes,
+			json_attribute("color", "\\" .. attributes.color))
+	end
+	if type(attributes.separator) == "boolean" then
+		table.insert(json_attributes,
+			json_attribute("separator", tostring(attributes.separator), true))
+	end
+
+	return concat_table(json_attributes, "{", "}", ", ")
+end
+
+function i3bar_create_line(blocks)
+	return concat_table(blocks, "[", "],", ", ")
+end
+
+
+data_full_text = "$uptime_short on" ..
+	" | bat ${battery_percent}%" ..
+	" | cpu ${freq_g 0} GHz | mem $mem" ..
+	" | ${fs_free /home} ~ ${fs_free /} / space" ..
+	" | ${top name 1}" ..
+	"${if_up wlp2s0b1}" ..
+	" | wl ${addr wlp2s0b1}" ..
+	"${endif}" ..
+	"${if_up enp8s0}" ..
+	" | eth ip ${addr enp8s0}" ..
+	"${endif}" ..
+	" |"
+
+data_block = i3bar_create_block({
+		full_text = data_full_text,
+		name = "data",
+		color = "#ffffcc",
+		separator = false
+	})
+
+clock_full_text = "${time %H:%M %a %d/%m} |"
+
+clock_block = i3bar_create_block({
+		full_text = clock_full_text,
+		name = "clock",
+		color = "#ffff00",
+		separator = false
+	})
+
+
+conky.text = i3bar_create_line({
+		data_block,
+		clock_block
+	})

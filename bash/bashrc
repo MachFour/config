@@ -1,0 +1,50 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+#Git prompt
+[ -f ~/.git-prompt.sh ] && source ~/.git-prompt.sh
+
+#red stderr
+#[ -f ~/.stderredrc ] && . ~/.stderredrc
+
+# get aliases, functions and environment variables
+[ -f ~/.alias ] && . ~/.alias
+[ -f ~/.func ] && . ~/.func
+[ -f ~/.env ] && . ~/.env
+
+function build_ps1() {
+	local git='$(__git_ps1 " (%s)")'
+
+	local reset=$(tput sgr0)
+
+	local  red=$(tput setaf 1)
+	local  gre=$(tput setaf 2)
+	local orng=$(tput setaf 3)
+	local blue=$(tput setaf 4)
+	local purp=$(tput setaf 5)
+	local cyan=$(tput setaf 6)
+	local grey=$(tput setaf 7)
+	local lgre=$(tput setaf 40)
+	local yell=$(tput setaf 11)
+	local blu2=$(tput setaf 33)
+	
+	PS1="[\[${orng}\]\u@\h:\[${grey}\]\w\[${reset}\]]\[${blu}\]${git} \[${reset}\]\$ "
+}
+build_ps1
+
+set -o histexpand
+export HISTCONTROL=ignorespace
+export PROMPT_DIRTRIM=2
+shopt -u dotglob
+trap 'RET=$?; tput setaf 1; echo exit $RET ; tput sgr0' ERR
+
+
+# set up termite config
+if [[ $TERM == xterm-termite ]]; then
+	source /etc/profile.d/vte.sh
+	__vte_prompt_command
+fi

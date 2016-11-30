@@ -1,0 +1,5 @@
+Cmnd_Alias	PACKAGES = /usr/bin/pacman, /usr/bin/abs
+
+## Easy pacman installs
+%wheel ALL=(ALL) NOPASSWD: PACKAGES
+

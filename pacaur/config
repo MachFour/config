@@ -1,0 +1,5 @@
+editor=/usr/bin/nvim
+displaybuildfiles=diff
+fallback=true
+sudoloop=true
+color=auto
