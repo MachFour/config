@@ -2,5 +2,5 @@
 
 cd ~
 for zfile in zprofile zshrc zkbd; do
-	ln -s ".config/zsh/$zfile" ".${zfile}"
+	ln -sfv ".config/zsh/$zfile" ".${zfile}"
 done

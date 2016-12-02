@@ -16,7 +16,11 @@ export AURDEST="/home/max/pkg"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb'
 
 # set up colours for ls
-eval $(dircolors ~/.dircolors)
+if [[ -f ~/.dircolors ]]; then
+	eval $(dircolors ~/.dircolors)
+else
+	eval $(dircolors)
+fi
 
 export LESSHISTFILE=/dev/null
 export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS --squeeze-blank-lines --quit-on-intr"

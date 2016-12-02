@@ -6,29 +6,46 @@
 # after system xinit scripts are sources
 
 function set_xdg_vars {
-	# taken from startlxqt
-	export XDG_DATA_HOME="$HOME/.local/share"
-	export XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share"
+	XDG_DATA_HOME="$HOME/.local/share"
+	XDG_DATA_DIRS="$XDG_DATA_HOME:/usr/local/share:/usr/share"
+	XDG_CONFIG_HOME="$HOME/.config"
+	XDG_CONFIG_DIRS="/etc/xdg"
+	XDG_CACHE_HOME="$HOME/.cache"
+	export XDG_CURRENT_DESKTOP=i3
 
-	export XDG_CONFIG_HOME="$HOME/.config"
-	export XDG_CONFIG_DIRS="/etc/xdg"
-
-	export XDG_CACHE_HOME="$HOME/.cache"
+	export XDG_DATA_HOME
+	export XDG_DATA_DIRS
+	export XDG_CONFIG_HOME
+	export XDG_CONFIG_DIRS
+	export XDG_CACHE_HOME
+	export XDG_CURRENT_DESKTOP
 
 	# Ensure the existance of the 'Desktop' folder
 	if [ -e "$XDG_CONFIG_HOME/user-dirs.dirs" ]; then
 		. "$XDG_CONFIG_HOME/user-dirs.dirs"
-		export XDG_{DESKTOP,DOWNLOAD,TEMPLATES,PUBLICSHARE,DOCUMENTS,MUSIC,PICTURES,VIDEOS}_DIR
+		export XDG_DESKTOP_DIR
+		export XDG_DOWNLOAD_DIR
+		export XDG_TEMPLATES_DIR
+		export XDG_PUBLICSHARE_DIR
+		export XDG_DOCUMENTS_DIR
+		export XDG_MUSIC_DIR
+		export XDG_PICTURES_DIR
+		export XDG_VIDEOS_DIR
 	else
-		export XDG_DESKTOP_DIR="$HOME/Desktop"
+		XDG_DESKTOP_DIR="$HOME/Desktop"
+		export XDG_DESKTOP_DIR
 	fi
 	mkdir -p "$XDG_DESKTOP_DIR"
 
-	export XDG_CURRENT_DESKTOP=i3
 
 	# get all of this environment into systemd
-	systemctl --user import-environment XDG_{DATA,CONFIG,CACHE}_{HOME,DIRS}
-	systemctl --user import-environment XDG_{DESKTOP,DOWNLOAD,TEMPLATES,PUBLICSHARE,DOCUMENTS,MUSIC,PICTURES,VIDEOS}_DIR
+	for envvar in DATA_HOME DATA_DIRS CONFIG_HOME CONFIG_DIRS CACHE_HOME CURRENT_DESKTOP; do
+		systemctl --user import-environment XDG_${envvar}
+	done
+
+	for envvar in DESKTOP DOWNLOAD TEMPLATES PUBLICSHARE DOCUMENTS MUSIC PICTURES VIDEOS; do
+		systemctl --user import-environment XDG_${envvar}_DIR
+	done
 }
 
 set_xdg_vars
@@ -38,7 +55,8 @@ set_xdg_vars
 #
 
 xset r rate 275 25
-configure_monitors
+#configure_monitors
+xrandr --output VGA-1 --primary
 
 GLOBAL_PROFILE=/etc/profile
 ENV_FILE="$HOME"/.env
@@ -50,7 +68,7 @@ STARTUP_FILE="$HOME"/.startup
 
 systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
 # activates x11 detection and run a window manager if necessary
-systemctl --user start managed-xorg.path dummy-desktop.path
+#systemctl --user start managed-xorg.path dummy-desktop.path
 
 # pulseaudio bell
 #pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav
