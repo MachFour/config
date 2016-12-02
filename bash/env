@@ -1,13 +1,15 @@
 
 # shell environment variables for bash/zsh
+CONFIG_HOME=${XDG_CONFIG_HOME:-~/.config}
 
 export EDITOR=nvim
 export SUDO_EDITOR="/usr/bin/nvim-sudoedit"
 export PAGER=/usr/bin/less
 export MANPAGER=/usr/bin/less
 export PATH=/home/max/bin:$PATH
-export PYTHONSTARTUP=/home/max/.pystartup
+export PYTHONSTARTUP="${CONFIG_HOME}/python/py3rc"
 export BROWSER=firefox
+# for ls
 export QUOTING_STYLE=literal
 # fixes java menus in Awesome WM
 #export _JAVA_AWT_WM_NONREPARENTING=1
