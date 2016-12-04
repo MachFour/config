@@ -55,8 +55,8 @@ set_xdg_vars
 #
 
 xset r rate 275 25
-#configure_monitors
-xrandr --output VGA-1 --primary
+configure_monitors
+#xrandr --output VGA-1 --primary
 
 GLOBAL_PROFILE=/etc/profile
 ENV_FILE="$HOME"/.env
@@ -68,7 +68,7 @@ STARTUP_FILE="$HOME"/.startup
 
 systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
 # activates x11 detection and run a window manager if necessary
-#systemctl --user start managed-xorg.path dummy-desktop.path
+systemctl --user start managed-xorg.path dummy-desktop.path
 
 # pulseaudio bell
 #pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav

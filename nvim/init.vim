@@ -149,7 +149,7 @@ let g:tex_indent_and = 0
 augroup ftspecific
 	autocmd! ftspecific
 	autocmd FileType python 	setlocal noexpandtab tabstop=4
-	autocmd FileType matlab 	setlocal textwidth=85 colorcolumn=+2,+3
+	autocmd FileType matlab 	setlocal textwidth=85 colorcolumn=+2,+3 noexpandtab
 	autocmd FileType tex     call vimtex#init()
 	" wrap text using newline chars at textwidth; draw a red bar there.
 	autocmd FileType tex     setlocal textwidth=79 colorcolumn=+0
@@ -197,11 +197,11 @@ let g:syntastic_stl_format = "[syntax: %E{%e err - %fe}%B{, }%W{%w warn - %fw}]"
 " Fill Vim's location/quickfix window automatically.
 " if 0, have to use :Errors to see the errors
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 " column on left indicating error lines
-let g:syntastic_enable_signs = 1
+let g:syntastic_enable_signs = 0
 
 "let g:syntastic_matlab_mlint_arge
 

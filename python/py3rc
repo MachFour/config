@@ -1,0 +1,38 @@
+
+# set up completion. This function was copied from Python 3.4's site.py
+def register_readline():
+		import atexit
+		try:
+			import readline
+			import rlcompleter
+		except ImportError:
+			return
+
+		# use shift-tab to complete
+		# readline.parse_and_bind(r'"[Z": complete')
+		# use shift-tab to actually insert a tab
+		readline.parse_and_bind(r'"[Z": tab-insert')
+		readline.parse_and_bind('"": menu-complete')
+		readline.parse_and_bind('tab: complete')
+
+		try:
+			readline.read_init_file()
+		except OSError:
+			pass
+
+		if readline.get_current_history_length() == 0:
+			history = os.path.join(os.path.expanduser('~'), '.python_history')
+			try:
+				readline.read_history_file(history)
+			except IOError:
+				pass
+			atexit.register(readline.write_history_file, history)
+
+import sys
+sys.__interactivehook__ = register_readline
+del sys, register_readline
+
+# automatically import os module
+import os
+
+# vim: ft=python

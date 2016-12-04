@@ -347,10 +347,38 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ Drum\ Grid");
+    $app->signal_connect('activate', sub {system "drumstick\-drumgrid &"});
+    $app->set_property('tooltip_text', "Drumstick\ Drum\ Grid");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ MIDI\ Player");
+    $app->signal_connect('activate', sub {system "drumstick\-guiplayer &"});
+    $app->set_property('tooltip_text', "Drumstick\ MIDI\ Player");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ Virtual\ Piano");
+    $app->signal_connect('activate', sub {system "drumstick\-vpiano &"});
+    $app->set_property('tooltip_text', "Drumstick\ Virtual\ Piano");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("LibreOffice\ Math");
     $app->signal_connect('activate', sub {system "libreoffice\ \-\-math &"});
     $app->set_property('tooltip_text', "Create\ and\ edit\ scientific\ formulas\ and\ equations\ by\ using\ Math\.");
     $app->set_image('Gtk2::Image'->new_from_icon_name("libreoffice\-math",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("VMPK");
+    $app->signal_connect('activate', sub {system "vmpk &"});
+    $app->set_property('tooltip_text', "Virtual\ MIDI\ Piano\ Keyboard");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("vmpk",q{menu}));
     $apps->append($app);
 }
     $cat->set_submenu($apps);
@@ -505,6 +533,27 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ Drum\ Grid");
+    $app->signal_connect('activate', sub {system "drumstick\-drumgrid &"});
+    $app->set_property('tooltip_text', "Drumstick\ Drum\ Grid");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ MIDI\ Player");
+    $app->signal_connect('activate', sub {system "drumstick\-guiplayer &"});
+    $app->set_property('tooltip_text', "Drumstick\ MIDI\ Player");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Drumstick\ Virtual\ Piano");
+    $app->signal_connect('activate', sub {system "drumstick\-vpiano &"});
+    $app->set_property('tooltip_text', "Drumstick\ Virtual\ Piano");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("drumstick",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("FFADO\ Mixer");
     $app->signal_connect('activate', sub {system "ffado\-mixer &"});
     $app->set_property('tooltip_text', "Audio\ mixer\ for\ Firewire\ devices");
@@ -633,6 +682,13 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "\/usr\/bin\/vlc\ \-\-started\-from\-file &"});
     $app->set_property('tooltip_text', "Read\,\ capture\,\ broadcast\ your\ multimedia\ streams");
     $app->set_image('Gtk2::Image'->new_from_icon_name("vlc",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("VMPK");
+    $app->signal_connect('activate', sub {system "vmpk &"});
+    $app->set_property('tooltip_text', "Virtual\ MIDI\ Piano\ Keyboard");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("vmpk",q{menu}));
     $apps->append($app);
 }
     $cat->set_submenu($apps);

@@ -18,8 +18,8 @@ export AURDEST="/home/max/pkg"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb'
 
 # set up colours for ls
-if [[ -f ~/.dircolors ]]; then
-	eval $(dircolors ~/.dircolors)
+if [[ -f  "$CONFIG_HOME/dircolors/dircolors" ]]; then
+	eval $(dircolors "$CONFIG_HOME/dircolors/dircolors")
 else
 	eval $(dircolors)
 fi

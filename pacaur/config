@@ -1,5 +1,8 @@
-editor=/usr/bin/nvim
+# use $EDITOR instead
+#editor=/usr/bin/nvim
 displaybuildfiles=diff
-fallback=true
+fallback=false
+sortby=name
+sortorder=ascending
 sudoloop=true
 color=auto
