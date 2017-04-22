@@ -2,8 +2,7 @@
 
 [Unit]
 Description=Cbatticon battery monitor
-Requires=x11.target
-After=x11.target
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -11,5 +10,5 @@ Type=simple
 ExecStart=/usr/bin/cbatticon --hide-notification
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target
 

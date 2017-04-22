@@ -148,13 +148,17 @@ let g:tex_indent_and = 0
 " Filetype-specific settings and commands
 augroup ftspecific
 	autocmd! ftspecific
-	autocmd FileType python 	setlocal noexpandtab tabstop=4
-	autocmd FileType matlab 	setlocal textwidth=85 colorcolumn=+2,+3 noexpandtab
-	autocmd FileType tex     call vimtex#init()
+	autocmd FileType python 	setlocal noexpandtab tabstop=4 textwidth=79 number
+	autocmd FileType matlab 	setlocal textwidth=83 colorcolumn=+2,+3 noexpandtab number
+	autocmd FileType tex 		call vimtex#init()
 	" wrap text using newline chars at textwidth; draw a red bar there.
-	autocmd FileType tex     setlocal textwidth=79 colorcolumn=+0
-	autocmd FileType text    setlocal linebreak
+	autocmd FileType tex 		setlocal textwidth=79 colorcolumn=+0
+	autocmd FileType text 		setlocal linebreak
 	"autocmd Filetype tex runtime after/syntax/tex.vim
+	autocmd Filetype cpp 		setlocal textwidth=79 number
+	autocmd Filetype arduino 	setlocal textwidth=79 number
+	autocmd Filetype c 			setlocal textwidth=79 number
+	autocmd Filetype sql 		setlocal textwidth=79 number
 augroup END
 
 " statusline examples
@@ -215,6 +219,11 @@ let g:syntastic_mode_map = {
 "		\ "regex":   '\m\[C03\d\d\]',
 "		\ "file:p":  ['\m^/usr/include/', '\m\c\.h$'] }
 
+" }}}
+
+" supertab options {{{
+" stop completion after various comment characters
+let g:SuperTabNoCompleteAfter = ['^', '\s', '#', '"', '/', '%', ',', ';']
 " }}}
 
 let g:highlight_whitespace = 1

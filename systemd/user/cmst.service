@@ -1,13 +1,12 @@
-
 [Unit]
-Description=Udiskie automounter
+Description=Connman system tray applet
 PartOf=graphical-session.target
+# for system tray
 After=desktop-manager.service
 
 [Service]
 Type=simple
-
-ExecStart=/usr/bin/udiskie --config ${XDG_CONFIG_HOME}/udiskie/config.yml --tray --automount --notify
+ExecStart=/usr/bin/cmst --minimized
 
 [Install]
 WantedBy=graphical-session.target

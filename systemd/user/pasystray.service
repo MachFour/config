@@ -1,13 +1,12 @@
 
 [Unit]
 Description=PulseAudio System Tray
-Requires=x11.target
-After=x11.target
+PartOf=graphical-session.target
+After=desktop-manager.service
 
 [Service]
-Type=forking
-# use dex to start desktop file
-ExecStart=/usr/bin/dex ${XDG_CONFIG_DIRS}/autostart/pasystray.desktop
+Type=simple
+ExecStart=/usr/bin/pasystray
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target

@@ -1,11 +1,10 @@
-
 [Unit]
-Description=Wallpaper setter
+Description=Startup sound
 PartOf=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/feh --bg-fill --no-xinerama "${HOME}/.config/systemd/data/wallpaper"
+ExecStart=/usr/bin/paplay "${HOME}/.config/systemd/data/xp-startup.wav"
 RemainAfterExit=no
 
 [Install]

@@ -1,9 +1,8 @@
 
-
 [Unit]
 Description=Cups Printer Applet
-Requires=x11.target
-After=x11.target
+PartOf=graphical-session.target
+After=desktop-manager.service
 
 [Service]
 Type=simple
@@ -11,5 +10,5 @@ Type=simple
 ExecStart=/usr/bin/system-config-printer-applet
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target
 

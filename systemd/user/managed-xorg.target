@@ -1,8 +1,0 @@
-
-# service to represent a running Xorg service launched by a display manager
-[Unit]
-Description=Xorg server (managed by display manager)
-Conflicts=xorg.service
-Wants=desktop.target
-Before=desktop.target
-RefuseManualStart=true

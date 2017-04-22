@@ -31,9 +31,10 @@ alias fowns='pacman -Qo'
 alias pkinfo='pacman -Si'
 alias igrep='grep -i'
 alias ffplay='ffplay -nodisp'
-alias v='nvim'
+alias nv='nvim'
 alias i3cheatsheet="egrep '^bind' ~/config/i3/config | cut -d '\'' '\''  -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\''"
 
 alias vim='echo USE NVIM! #'
+alias foods='nvim /home/max/foods.txt'
 
 # vim: ft=sh

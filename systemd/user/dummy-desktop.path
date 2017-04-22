@@ -1,9 +1,0 @@
-# check for dummy desktop session and then execute window manager
-[Unit]
-Description=Dummy desktop session activator
-RequiresMountsFor=/tmp
-
-[Path]
-PathExistsGlob=/tmp/dummy.*
-Unit=desktop-session.service
-

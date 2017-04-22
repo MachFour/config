@@ -3,6 +3,7 @@
 Description=DISPLAY environment variable test
 Before=xinit.service
 Before=desktop.target
+PartOf=graphical-session-pre.target
 
 [Service]
 Type=oneshot

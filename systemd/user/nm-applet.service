@@ -1,13 +1,11 @@
-
 [Unit]
 Description=NetworkManager system tray applet
-Requires=x11.target
-After=x11.target
+PartOf=graphical-session.target
 
 [Service]
-Type=forking
+Type=simple
 # use dex to start desktop file
-ExecStart=/usr/bin/dex ${XDG_CONFIG_DIRS}/autostart/nm-applet.desktop
+ExecStart=/usr/bin/nm-applet
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target

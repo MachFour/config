@@ -1,13 +1,11 @@
-
 [Unit]
 Description=Menutray applications menu
-Requires=x11.target
-After=x11.target
+PartOf=graphical-session.target
+After=desktop-manager.service
 
 [Service]
 Type=simple
-
 ExecStart=/usr/bin/menutray -i
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target

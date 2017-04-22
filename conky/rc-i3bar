@@ -71,36 +71,59 @@ end
 
 
 data_full_text = "$uptime_short on" ..
-	" | bat ${battery_percent}%" ..
-	" | cpu ${freq_g 0} GHz | mem $mem" ..
-	" | ${fs_free /home} ~ ${fs_free /} / space" ..
-	" | ${top name 1}" ..
+	" | batt ${battery_percent}%" ..
+	" | cpu ${freq_g 0} GHz " ..
 	"${if_up wlp2s0b1}" ..
-	" | wl ${addr wlp2s0b1}" ..
+	" | wl ${wireless_essid wlp2s0b1} (${addr wlp2s0b1})" ..
 	"${endif}" ..
 	"${if_up enp8s0}" ..
 	" | eth ip ${addr enp8s0}" ..
 	"${endif}" ..
-	" |"
+	" "
 
 data_block = i3bar_create_block({
 		full_text = data_full_text,
 		name = "data",
 		color = "#ffffcc",
-		separator = false
+		separator = true
 	})
 
-clock_full_text = "${time %H:%M %a %d/%m} |"
+mem_full_text = " mem used $mem "
+
+mem_block = i3bar_create_block({
+		full_text = mem_full_text,
+		name = "mem",
+		color = "#ccffff",
+		separator = true
+	})
+
+space_full_text = " ${fs_free /home} ~ ${fs_free /} / space "
+
+space_block = i3bar_create_block({
+		full_text = space_full_text,
+		name = "space",
+		color = "#ffccff",
+		separator = true
+	})
+
+clock_full_text = " ${time %H:%M %a %d/%m} "
 
 clock_block = i3bar_create_block({
 		full_text = clock_full_text,
 		name = "clock",
 		color = "#ffff00",
-		separator = false
+		separator = true
 	})
 
+end_block = i3bar_create_block({
+		full_text = '',
+		separator = true
+		})
 
 conky.text = i3bar_create_line({
 		data_block,
-		clock_block
+		mem_block,
+		space_block,
+		clock_block,
+		end_block
 	})

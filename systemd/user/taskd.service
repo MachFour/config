@@ -2,7 +2,8 @@
 Description=Taskd task management daemon
 # if a graphical environment is active, wait till X starts, so we
 # don't try and call it on the TTY
-After=desktop.target
+After=graphical-session.target
+PartOf=graphical-session.target
 
 [Service]
 Type=simple
@@ -11,4 +12,4 @@ ExecStart=/home/max/bin/taskd
 #ExecStop=/usr/bin/killall taskd
 
 [Install]
-WantedBy=desktop.target
+WantedBy=graphical-session.target

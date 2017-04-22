@@ -10,8 +10,8 @@
 
 [Unit]
 Description=Graphical User Desktop
-Requires=basic.target x11.target
-# only go after desktop-session if that needs to be run
+BindsTo=graphical-session.target x11.target
+Wants=desktop-manager.service
+# only go after desktop-manager if that needs to be run
 # (dummy desktop)
-After=basic.target x11.target desktop-session.service
-AllowIsolate=yes
+After=desktop-manager.service x11.target

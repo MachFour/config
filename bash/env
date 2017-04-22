@@ -8,14 +8,11 @@ export PAGER=/usr/bin/less
 export MANPAGER=/usr/bin/less
 export PATH=/home/max/bin:$PATH
 export PYTHONSTARTUP="${CONFIG_HOME}/python/py3rc"
-export BROWSER=firefox
+export BROWSER=inox
 # for ls
 export QUOTING_STYLE=literal
-# fixes java menus in Awesome WM
-#export _JAVA_AWT_WM_NONREPARENTING=1
 #export MATLAB_JAVA="/usr/lib/jvm/java-8-jdk/jre"
 export AURDEST="/home/max/pkg"
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd_hrgb'
 
 # set up colours for ls
 if [[ -f  "$CONFIG_HOME/dircolors/dircolors" ]]; then
