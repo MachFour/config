@@ -55,7 +55,7 @@
 =cut
 
 our $CONFIG = {
-  "editor"                 => "/home/max/bin/neovim-open",
+  "editor"                 => "$ENV{HOME}/bin/neovim-open",
   "gdk_interpolation_type" => "hyper",
   "icon_size"              => [16, 16],
   "icon_type"              => "menu",
@@ -75,5 +75,5 @@ our $CONFIG = {
   "name_keys"              => ["Name"],
   "set_tooltips"           => 1,
   "tooltip_keys"           => ["Comment"],
-  "VERSION"                => 0.47,
+  "VERSION"                => 0.48,
 }

@@ -7,8 +7,10 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 10
-scrollback_lines = 5000
+#font = Source Code Pro 10
+font = Noto Mono 10
+
+scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
 geometry = 800x480

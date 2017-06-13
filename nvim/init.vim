@@ -43,12 +43,13 @@ set listchars=tab:→\ ,trail:·,nbsp:·
 " See also the winfixheight and winfixwidth options.
 set noequalalways
 
+set runtimepath+=/usr/share/vim/vimfiles
 
 filetype plugin indent on
 
 " }}}
 
-" Mappings {{{
+" Mappings {{{jjjjjjjjjjjjjjjj
 " stops arrow keys
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
@@ -87,8 +88,8 @@ nnoremap Y y$
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 inoremap  <C-W>
 
-" save with SW
-nnoremap ZW :w<CR>
+" save with WW
+nnoremap WW :w<CR>
 
 " Exit with Ctrl-D
 nnoremap <C-D> :confirm quit<CR>
@@ -104,6 +105,9 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Don't use Ex mode, use Q for formatting
 nnoremap Q gq
+
+" leave cursor after pasted text
+nnoremap p gp
 
 " }}}
 
@@ -191,9 +195,11 @@ highlight ColorColumn term=inverse ctermbg=DarkGrey
 "let g:syntastic_tex_chktex_quiet_messages = {"level": "warning", "type": "style"}
 
 " Add the syntastic function to Vim's statusline
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+if exists("loaded_syntastic_plugin")
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+endif
 
 " Format string for the info produced by Syntastic (not Vim syntax)
 let g:syntastic_stl_format = "[syntax: %E{%e err - %fe}%B{, }%W{%w warn - %fw}]"
@@ -226,6 +232,13 @@ let g:syntastic_mode_map = {
 let g:SuperTabNoCompleteAfter = ['^', '\s', '#', '"', '/', '%', ',', ';']
 " }}}
 
+" nvim-R options {{{
+let g:R_assign = 0
+let g:R_term = "termite"
+let g:R_term_cmd = "termite-R"
+let g:R_in_buffer = 0
+" }}}
+
 let g:highlight_whitespace = 1
 " from https://github.com/jcs/dotfiles/blob/master/.vimrc
 
@@ -241,6 +254,8 @@ if g:highlight_whitespace
 		autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 	augroup END
 endif
+
+autocmd BufEnter * silent lcd %:p:h
 
 " performance hack
 if version >= 702

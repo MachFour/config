@@ -1,8 +1,8 @@
 # Created by newuser for 5.0.7
 
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=3000
+HISTSIZE=5000
+SAVEHIST=5000
 setopt appendhistory autocd beep
 # don't give the 'no matches found' error
 unsetopt nomatch

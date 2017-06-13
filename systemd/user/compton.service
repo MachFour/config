@@ -1,0 +1,10 @@
+[Unit]
+Description=Compton compositor
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/compton --config /dev/null --dbe
+Restart=on-success
+
+[Install]
+WantedBy=graphical-session.target

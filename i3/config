@@ -16,8 +16,8 @@ set $alt Mod1
 # is used in the bar {} block below.
 #font pango:monospace 8
 
-set $winfont "xft:Droid Sans Mono Bold 8"
-set $barfont "xft:Droid Sans Mono Bold 9"
+set $winfont "xft:Noto Mono Bold 8"
+set $barfont "xft:Noto Mono Bold 9"
 #font xft:Source Code Pro Bold 8
 font $winfont
 
@@ -108,6 +108,8 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 # enter fullscreen mode for the focused container
 bindsym $mod+F11 fullscreen toggle
+bindsym $mod+u border toggle
+for_window [class=".*"] border pixel 2
 
 ## PROGRAM HOTKEYS
 bindsym $mod+f exec browser
@@ -115,11 +117,11 @@ bindsym $mod+t exec i3-sensible-terminal
 bindsym $mod+Return exec termite -t 'floaty'
 for_window [class="Termite" title="floaty"] floating enable
 
-bindsym $mod+y exec termite -t "System Update" -e sysupdate
+bindsym $mod+y exec termite -t "System Update" sysupdate
 for_window [class="Termite" title="System Update"] floating enable
 
 bindsym $mod+x exec pcmanfm
-bindsym $mod+g exec termite -e ranger
+bindsym $mod+g exec termite ranger
 # super + escape
 bindcode $mod+9 exec --no-startup-id i3-logout
 # super + shift + end = shutdown
@@ -147,10 +149,10 @@ bindsym $mod+space floating toggle
 bindsym $mod+Shift+Tab focus mode_toggle
 
 # focus the parent container
-bindsym $mod+u focus parent
+bindsym $mod+Ctrl+k focus parent
 
 # focus the child container
-bindsym $mod+n focus child
+bindsym $mod+Ctrl+j focus child
 
 
 # MOUSE CONTROL
@@ -176,7 +178,7 @@ bindsym $mod+minus scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+a reload
-bindsym $mod+Shift+c exec 'i3-edit-config'
+bindsym $mod+Shift+c exec i3-edit-config
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -204,23 +206,23 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize shrink height 5 px or 5 ppt
+        bindsym Up resize grow height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 
-bindsym $mod+w mode "resize"
+bindsym $mod+m mode "resize"
 
 # set wallpaper -> now done by systemd --user
 #exec --no-startup-id "/usr/bin/nitrogen --restore"

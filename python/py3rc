@@ -35,4 +35,6 @@ del sys, register_readline
 # automatically import os module
 import os
 
+from math import sqrt, exp, pi
+
 # vim: ft=python

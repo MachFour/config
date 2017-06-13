@@ -13,7 +13,7 @@ PartOf=graphical-session-pre.target
 Type=oneshot
 Environment=DISPLAY=:0
 ExecStart=/usr/bin/bash ${HOME}/bin/configure_monitors
-ExecStart=/usr/bin/xset r rate 275 25
+ExecStart=/usr/bin/xset r rate 200 25
 ExecStart=/usr/bin/bash ${HOME}/bin/set-wallpaper
 SuccessExitStatus=0
 
