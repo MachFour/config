@@ -1,0 +1,9 @@
+[user]
+	name = Max Fisher
+	email = f.mach4@gmail.com
+
+[push]
+	default = simple
+
+[color]
+	ui = auto

@@ -49,7 +49,7 @@ filetype plugin indent on
 
 " }}}
 
-" Mappings {{{jjjjjjjjjjjjjjjj
+" Mappings {{{
 " stops arrow keys
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
