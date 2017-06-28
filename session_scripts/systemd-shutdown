@@ -1,0 +1,9 @@
+#! /bin/bash
+
+#don't run this directly! it won't work
+
+SHUTDOWN_SOUND=${HOME}/.config/systemd/data/shutdown.wav
+# hack to shut down computer when Xorg systemd service needs to be explicitly stopped
+#systemctl --user stop xorg.service
+paplay "${SHUTDOWN_SOUND}"
+systemctl poweroff

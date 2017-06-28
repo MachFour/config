@@ -1,0 +1,3 @@
+#! /bin/bash
+
+/usr/bin/feh --bg-fill --no-xinerama "${HOME}/.config/systemd/data/wallpaper"

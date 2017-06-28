@@ -1,0 +1,10 @@
+#! /bin/bash
+
+if [[ -z $DISPLAY ]]; then
+	echo "Error: DISPLAY not set" >&2
+	exit 1
+else
+	echo "DISPLAY is $DISPLAY"
+fi
+
+#vim: ft=sh

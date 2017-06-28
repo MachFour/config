@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# output json version for i3bar
+echo '{ "version": 1, "click_events": true }'
+# output beginning of infinite array
+echo '['
+
+# conky handles JSON
+conky -c "${XDG_CONFIG_HOME}/conky/rc-i3bar" &
+
+while read line; do
+	# check for left mouse click
+	if echo "$line" | grep -q '\"button\":1'; then
+		if echo "$line" | grep -q clock; then
+			gsimplecal &
+		elif echo "$line" | grep -q mem; then
+			lxtask &
+		elif echo "$line" | grep -q space; then
+			baobab &
+		fi
+	fi
+done
+
+
+# vim: ft=sh

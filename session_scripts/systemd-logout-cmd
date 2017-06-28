@@ -1,0 +1,50 @@
+#! /bin/bash
+
+# The purpose of this script is to gracefully terminate the desktop session and associated services,
+# before logging out or shutting down the compter. This script should be run with 'systemd-run --user ...'
+
+# prints the ID of the current systemd session
+function get_session_id {
+	if loginctl > /dev/null; then
+		# assume if we can run loginctl correctly then everything following will work
+		loginctl show-user --property='Display' $(id -u) | sed 's/.*=//'
+	else
+		echo 'Error connecting to login manager' >&2
+		return 1
+	fi
+}
+
+function stop_session_services {
+	systemctl --user stop graphical-session.target
+	systemctl --user stop desktop-manager.service
+}
+
+function play_shutdown_sound {
+	paplay "${XDG_CONFIG_HOME}/systemd/data/shutdown.wav"
+}
+
+if [[ $# -lt 1 ]]; then
+	echo "systemd-logout-cmd (logout|shutdown|reboot)"
+	exit 1
+fi
+
+pgrep i3-nagbar && killall i3-nagbar
+
+case $1 in
+	(logout)
+		stop_session_services
+		session_id=$(get_session_id)
+		loginctl terminate-session ${session_id}
+		;;
+	(shutdown)
+		play_shutdown_sound
+		systemctl poweroff
+		;;
+	(reboot)
+		systemctl reboot
+		;;
+	(*)
+		echo "Unknown action: ${1}"
+		exit 1
+		;;
+esac
