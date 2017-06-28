@@ -4,33 +4,57 @@
 
 # when xf86-video-intel driver is used, there is no dash. When modesetting is used, there is a dash
 DASH=
-LVDS=LVDS${DASH}1
-HDMI=HDMI${DASH}1
-VGA=VGA${DASH}1
 
+# the following logic is used to figure out which (system-specific) display adapters are to be used
+# when configuring displays with xrandr. They should be a subset of what's found in /sys/class/drm/
+
+SYSTEM=$(cat /sys/devices/virtual/dmi/id/product_name)
+
+case $SYSTEM in
+	20HRCTO1WW)
+		# ThinkPad X1 Carbon 5th
+		# no non-dash support yet
+		LAPTOP=eDP${DASH}1
+		LAPTOP_RES=1920x1080
+		EXT1=HDMI${DASH}1
+		EXT2=DP${DASH}1
+		;;
+	3354CTO)
+		# ThinkPad Edge E330
+		LAPTOP=LVDS${DASH}1
+		LAPTOP_RES=1366x768
+		EXT1=HDMI${DASH}1
+		EXT2=VGA${DASH}1
+		;;
+	*)
+		echo "This script isn't configured for your computer!"
+		exit 1
+		;;
 
 # laptop setup (index 0)
 #|================================|
 #|                                |
 #|                                |
-#|             LVDS1              |
-#|           (1366x768)           |
+#|                                |
+#|       LVDS-1 (1366x768)        |
+#|   OR   eDP-1 (1920x1080)       |
+#|                                |
 #|                                |
 #|                                |
 #|================================|
 
 
 # single setup (index 1)
-# HDMI-1 and LVDS-1 mirrored
+# EXT1 and LAPTOP mirrored
 
 # home 'up' setup (index 2)
 #|====================================|========================|
 #|                                    |                        |
 #|                                    |                        |
 #|                                    |                        |
-#|               HDMI-1               |                        |
+#|               EXT1                 |                        |
 #|            (1600x1200)             |                        |
-#|                                    |         VGA-1          |
+#|                                    |         EXT2           |
 #|                                    |      (1200x1600)       |
 #|                                    | (monitor rotated left) |
 #|                                    | (screen rotated right) |
@@ -50,14 +74,14 @@ VGA=VGA${DASH}1
 #                                     |                        |
 #                                     |                        |
 #                                     |                        |
-#                                     |         VGA-1          |
-#                                     |      (1200x1600)       |
-#|====================================| (monitor rotated left) |
+#                                     |         EXT2           |
+#|====================================|      (1200x1600)       |
+#|                                    | (monitor rotated left) |
 #|                                    | (screen rotated right) |
 #|                                    |                        |
-#|                                    |                        |
-#|               HDMI-1               |                        |
+#|               EXT1                 |                        |
 #|            (1600x1200)             |                        |
+#|                                    |                        |
 #|                                    |                        |
 #|                                    |                        |
 #|                                    |                        |
@@ -75,9 +99,9 @@ function failure_msg () {
 
 # assumes both HDMI and VGA connected
 function home_up_setup {
-	xrandr --output ${LVDS} --off
-	xrandr --verbose --output ${HDMI} --mode 1600x1200 --rotate normal --primary --pos 0x0
-	xrandr --verbose --output ${VGA} --mode 1600x1200 --rotate right --pos 1600x0
+	xrandr --output ${LAPTOP} --off
+	xrandr --verbose --output ${EXT1} --mode 1600x1200 --rotate normal --primary --pos 0x0
+	xrandr --verbose --output ${EXT2} --mode 1600x1200 --rotate right --pos 1600x0
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
 		return 1
@@ -88,9 +112,9 @@ function home_up_setup {
 }
 
 function home_down_setup {
-	xrandr --output ${LVDS} --off
-	xrandr --verbose --output ${HDMI} --mode 1600x1200 --rotate normal --primary --pos 0x400
-	xrandr --verbose --output ${VGA} --mode 1600x1200 --rotate right --pos 1600x0
+	xrandr --output ${LAPTOP} --off
+	xrandr --verbose --output ${EXT1} --mode 1600x1200 --rotate normal --primary --pos 0x400
+	xrandr --verbose --output ${EXT2} --mode 1600x1200 --rotate right --pos 1600x0
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
 		return 1
@@ -101,8 +125,8 @@ function home_down_setup {
 }
 
 function laptop_setup {
-	xrandr --output ${VGA} --off --output ${HDMI} --off
-	xrandr --output ${LVDS} --primary --auto
+	xrandr --output ${EXT1} --off --output ${EXT2} --off
+	xrandr --output ${LAPTOP} --primary --auto
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
 		return 1
@@ -114,15 +138,15 @@ function laptop_setup {
 
 # assumes one of HDMI or VGA is connected
 function single_setup {
-	if is_connected ${HDMI}; then
-		xrandr --verbose --output ${HDMI} --auto --primary \
-			--output ${VGA} --off --output ${LVDS} --off
-	elif is_connected ${VGA}; then
-		xrandr --verbose --output ${VGA} --auto --primary \
-			--output ${HDMI} --off --output ${LVDS} --off
+	if is_connected ${EXT1}; then
+		xrandr --verbose --output ${EXT1} --auto --primary \
+			--output ${EXT2} --off --output ${LAPTOP} --off
+	elif is_connected ${EXT2}; then
+		xrandr --verbose --output ${EXT2} --auto --primary \
+			--output ${EXT1} --off --output ${LAPTOP} --off
 	else
-		xrandr --verbose --output ${LVDS} --auto --primary \
-			--output ${HDMI} --off --output ${VGA} --off
+		xrandr --verbose --output ${LAPTOP} --auto --primary \
+			--output ${EXT1} --off --output ${EXT2} --off
 	fi
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
@@ -136,7 +160,8 @@ function single_setup {
 #uses Xrandr to detect if display $1 is connected
 # this function should not print anything
 function is_connected {
-	if xrandr | grep -E -e "$1 connected" &>/dev/null; then
+	#if xrandr | grep -E -e "$1 connected" &>/dev/null; then
+	if [[ $(cat /sys/class/drm/card0-$1/status == "connected" ]]; then
 		return 0
 	else
 		return 1
@@ -146,9 +171,9 @@ function is_connected {
 # Writes to stdout the index of the suggested setup
 # essentially returns the number of externally connected displays
 function auto_detect_setup () {
-	if is_connected ${HDMI} && is_connected ${VGA}; then
+	if is_connected ${EXT1} && is_connected ${EXT2}; then
 		echo 2
-	elif is_connected ${HDMI} || is_connected ${VGA}; then
+	elif is_connected ${EXT1} || is_connected ${EXT2}; then
 		echo 1
 	else
 		echo 0
