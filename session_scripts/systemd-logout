@@ -1,0 +1,38 @@
+
+#! /bin/bash
+
+# prints the ID of the current systemd session
+function get_session_id {
+	if loginctl > /dev/null; then
+		# assume if we can run loginctl correctly then everything following will work
+		loginctl show-user --property='Display' $(id -u) | sed 's/.*=//'
+	else
+		echo 'Error connecting to login manager' >&2
+		return 1
+	fi
+}
+
+
+function get_action {
+zenity --title='Exit desktop session' --question --switch --text='Would you like to exit the desktop session?' --extra-button='Logout' --extra-button='Shut Down' --extra-button='Restart' --extra-button='Cancel' --default-cancel
+}
+
+function unknown_action_dialog {
+	zenity --warning --text="Unknown action requested. Try again?"
+}
+
+ACTION=$(get_action)
+if [[ $ACTION == "" || $ACTION == "Cancel" ]]; then
+	exit 1
+elif [[ $ACTION == "Logout" ]]; then
+	loginctl terminate-session $(get_session_id)
+elif [[ $ACTION == "Shut Down" ]]; then
+	systemd-run --user ${HOME}/bin/systemd-shutdown
+elif [[ $ACTION == "Restart" ]]; then
+	systemctl reboot
+else
+	unknown_action_dialog
+	exit 1
+fi
+
+# vim: ft=sh

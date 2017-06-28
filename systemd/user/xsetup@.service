@@ -12,11 +12,12 @@ PartOf=graphical-session-pre.target
 [Service]
 Type=oneshot
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/bash ${HOME}/bin/configure_monitors %i
+ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/configure_monitors %i
 ExecStart=/usr/bin/xset r rate 250 25
-ExecStart=/usr/bin/bash ${HOME}/bin/touchpad-configure.sh
-ExecStart=/usr/bin/bash ${HOME}/bin/set-wallpaper
+ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/touchpad-configure.sh
+ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper
 SuccessExitStatus=0
 
 [Install]
 WantedBy=x11.target
+DefaultInstance=auto

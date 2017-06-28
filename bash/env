@@ -6,7 +6,7 @@ export EDITOR=nvim
 export SUDO_EDITOR="/usr/bin/nvim-sudoedit"
 export PAGER=/usr/bin/less
 export MANPAGER=/usr/bin/less
-export PATH=/home/max/bin:$PATH
+export PATH=/home/max/bin:${CONFIG_HOME}/session_scripts:"$PATH"
 export PYTHONSTARTUP="${CONFIG_HOME}/python/py3rc"
 export BROWSER=inox
 # for ls

@@ -1,0 +1,202 @@
+#! /bin/bash
+
+# uses Xrandr to configure monitor outputs to one of a number of preset configurations
+
+# when xf86-video-intel driver is used, there is no dash. When modesetting is used, there is a dash
+DASH=
+LVDS=LVDS${DASH}1
+HDMI=HDMI${DASH}1
+VGA=VGA${DASH}1
+
+
+# laptop setup (index 0)
+#|================================|
+#|                                |
+#|                                |
+#|             LVDS1              |
+#|           (1366x768)           |
+#|                                |
+#|                                |
+#|================================|
+
+
+# single setup (index 1)
+# HDMI-1 and LVDS-1 mirrored
+
+# home 'up' setup (index 2)
+#|====================================|========================|
+#|                                    |                        |
+#|                                    |                        |
+#|                                    |                        |
+#|               HDMI-1               |                        |
+#|            (1600x1200)             |                        |
+#|                                    |         VGA-1          |
+#|                                    |      (1200x1600)       |
+#|                                    | (monitor rotated left) |
+#|                                    | (screen rotated right) |
+#|                                    |                        |
+#|====================================|                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |========================|
+
+# home 'down' setup (index 3)
+#                                     |========================|
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |                        |
+#                                     |         VGA-1          |
+#                                     |      (1200x1600)       |
+#|====================================| (monitor rotated left) |
+#|                                    | (screen rotated right) |
+#|                                    |                        |
+#|                                    |                        |
+#|               HDMI-1               |                        |
+#|            (1600x1200)             |                        |
+#|                                    |                        |
+#|                                    |                        |
+#|                                    |                        |
+#|====================================|========================|
+# in both of the following functions
+# $1 is the name of the mode that was requested
+
+function success_msg () {
+	echo 'Reconfigured monitors for' "$1"
+}
+
+function failure_msg () {
+	echo 'Failed to reconfigure monitors for' "$1" >&2
+}
+
+# assumes both HDMI and VGA connected
+function home_up_setup {
+	xrandr --output ${LVDS} --off
+	xrandr --verbose --output ${HDMI} --mode 1600x1200 --rotate normal --primary --pos 0x0
+	xrandr --verbose --output ${VGA} --mode 1600x1200 --rotate right --pos 1600x0
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
+function home_down_setup {
+	xrandr --output ${LVDS} --off
+	xrandr --verbose --output ${HDMI} --mode 1600x1200 --rotate normal --primary --pos 0x400
+	xrandr --verbose --output ${VGA} --mode 1600x1200 --rotate right --pos 1600x0
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
+function laptop_setup {
+	xrandr --output ${VGA} --off --output ${HDMI} --off
+	xrandr --output ${LVDS} --primary --auto
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
+# assumes one of HDMI or VGA is connected
+function single_setup {
+	if is_connected ${HDMI}; then
+		xrandr --verbose --output ${HDMI} --auto --primary \
+			--output ${VGA} --off --output ${LVDS} --off
+	elif is_connected ${VGA}; then
+		xrandr --verbose --output ${VGA} --auto --primary \
+			--output ${HDMI} --off --output ${LVDS} --off
+	else
+		xrandr --verbose --output ${LVDS} --auto --primary \
+			--output ${HDMI} --off --output ${VGA} --off
+	fi
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
+#uses Xrandr to detect if display $1 is connected
+# this function should not print anything
+function is_connected {
+	if xrandr | grep -E -e "$1 connected" &>/dev/null; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Writes to stdout the index of the suggested setup
+# essentially returns the number of externally connected displays
+function auto_detect_setup () {
+	if is_connected ${HDMI} && is_connected ${VGA}; then
+		echo 2
+	elif is_connected ${HDMI} || is_connected ${VGA}; then
+		echo 1
+	else
+		echo 0
+	fi
+}
+
+function apply_setup {
+	case $1 in
+		(3 | home_down)
+			home_down_setup
+			;;
+		(2 | home_up)
+			home_up_setup
+			;;
+		(1 | single)
+			single_setup
+			;;
+		(0 | laptop)
+			laptop_setup
+			;;
+		(*)
+			echo 'No or unrecognised configuration given, performing auto-detect...'
+			setup=$(auto_detect_setup)
+			echo "Detected setup $setup, applying..."
+			apply_setup $setup
+			;;
+	esac
+}
+
+if [[ ! -v DISPLAY ]]; then
+	echo 'Could not read DISPLAY environment variable, please provide it' >&2
+	exit 1
+fi
+
+case $1 in
+	(--dryrun)
+		echo -n 'Auto detecting setup... '
+		auto_detect_setup
+		;;
+	(*)
+		apply_setup $1
+		;;
+esac
+
+# propagate any error return values from setup functions
+if [[ $? -ne 0 ]]; then
+	echo "Return value from xrandr in configure_monitors was nonzero; returning 0 anyway..."
+	exit 0
+else
+	exit 0
+fi

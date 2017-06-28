@@ -1,0 +1,3 @@
+#! /bin/bash
+
+exec i3-sensible-terminal ${EDITOR:-/bin/vim} ${XDG_CONFIG_HOME:-/home/max/.config}/i3/config
