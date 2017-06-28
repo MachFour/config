@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Systemd-based
+Comment=Dummy desktop for Systemd-based DE
+#Exec=systemd-dummy-de
+Exec=systemctl --user start --wait desktop-manager.service
+Type=Application

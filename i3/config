@@ -31,6 +31,7 @@ font $winfont
 
 # kill focused window
 bindsym $mod+BackSpace kill
+bindsym $mod+Shift+q kill
 
 # change focus
 bindsym $mod+h focus left
@@ -92,7 +93,6 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 #bindsym $mod+0 workspace 10
 
-workspace 1 output HDMI-1
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -191,6 +191,8 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Galculator"] floating enable
 for_window [class="VirtualBox" title="(?!Oracle VM VirtualBox Manager)"] floating enable
+for_window [class="VirtualBox" title=".* - Oracle VM VirtualBox"] resize set 900 700
+for_window [class="VBoxSDL" title=".* - Oracle VM VirtualBox"] resize set 900 700
 
 # put ff on own workspace on horizontal monitor
 assign [class="^Firefox$"] "3: web"
@@ -249,9 +251,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
+workspace 1 output HDMI1
+
 bar {
-	output LVDS-1
-	output HDMI-1
+	output LVDS1
+	output HDMI1
 	font $barfont
 	tray_output primary
 	status_command "i3status-conky"
@@ -263,7 +267,7 @@ bar {
 
 #secondary bar for secondar monitor
 bar {
-	output VGA-1
+	output VGA1
 	font $barfont
 	tray_output primary
 

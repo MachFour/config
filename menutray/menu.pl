@@ -69,10 +69,31 @@ sub load_menu {
     my $cat = 'Gtk2::ImageMenuItem'->new("Accessories");
     $cat->set_image('Gtk2::Image'->new_from_icon_name("applications\-utilities",q{menu}));
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("About\ Xfce");
+    $app->signal_connect('activate', sub {system "xfce4\-about &"});
+    $app->set_property('tooltip_text', "Information\ about\ the\ Xfce\ Desktop\ Environment");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("help\-about",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Bulk\ Rename");
+    $app->signal_connect('activate', sub {system "\/usr\/lib\/Thunar\/ThunarBulkRename &"});
+    $app->set_property('tooltip_text', "Rename\ Multiple\ Files");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("Thunar",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("compton");
     $app->signal_connect('activate', sub {system "compton\ \-\-xrender\-sync\-fence &"});
     $app->set_property('tooltip_text', "Compositor\ for\ X11");
     $app->set_image('Gtk2::Image'->new_from_icon_name("compton",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("File\ Manager");
+    $app->signal_connect('activate', sub {system "exo\-open\ \-\-launch\ FileManager &"});
+    $app->set_property('tooltip_text', "Browse\ the\ file\ system");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("system\-file\-manager",q{menu}));
     $apps->append($app);
 }
 {
@@ -115,6 +136,20 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "redshift\-gtk &"});
     $app->set_property('tooltip_text', "Color\ temperature\ adjustment\ tool");
     $app->set_image('Gtk2::Image'->new_from_icon_name("redshift",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Terminal\ Emulator");
+    $app->signal_connect('activate', sub {system "exo\-open\ \-\-launch\ TerminalEmulator &"});
+    $app->set_property('tooltip_text', "Use\ the\ command\ line");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("utilities\-terminal",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Thunar\ File\ Manager");
+    $app->signal_connect('activate', sub {system "thunar &"});
+    $app->set_property('tooltip_text', "Browse\ the\ filesystem\ with\ the\ file\ manager");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("Thunar",q{menu}));
     $apps->append($app);
 }
 {
@@ -730,6 +765,13 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Mail\ Reader");
+    $app->signal_connect('activate', sub {system "exo\-open\ \-\-launch\ MailReader &"});
+    $app->set_property('tooltip_text', "Read\ your\ email");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("internet\-mail",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("Skype\ for\ Linux\ Beta");
     $app->signal_connect('activate', sub {system "\/usr\/bin\/skypeforlinux &"});
     $app->set_property('tooltip_text', "Skype\ Internet\ Telephony");
@@ -748,6 +790,13 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "unison\-x11 &"});
     $app->set_property('tooltip_text', "File\ synchronisation\ tool\ for\ X11");
     $app->set_image('Gtk2::Image'->new_from_icon_name("unison",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Web\ Browser");
+    $app->signal_connect('activate', sub {system "exo\-open\ \-\-launch\ WebBrowser &"});
+    $app->set_property('tooltip_text', "Browse\ the\ web");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("web\-browser",q{menu}));
     $apps->append($app);
 }
 {
@@ -909,10 +958,24 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Desktop");
+    $app->signal_connect('activate', sub {system "xfdesktop\-settings &"});
+    $app->set_property('tooltip_text', "Set\ desktop\ background\ and\ menu\ and\ icon\ behavior");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("preferences\-desktop\-wallpaper",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("Desktop\ Preferences");
     $app->signal_connect('activate', sub {system "pcmanfm\ \-\-desktop\-pref &"});
     $app->set_property('tooltip_text', "Change\ desktop\ wallpapers\ and\ behavior\ of\ desktop\ manager");
     $app->set_image('Gtk2::Image'->new_from_icon_name("user\-desktop",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("File\ Manager");
+    $app->signal_connect('activate', sub {system "thunar\-settings &"});
+    $app->set_property('tooltip_text', "Configure\ the\ Thunar\ file\ manager");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("system\-file\-manager",q{menu}));
     $apps->append($app);
 }
 {
@@ -950,10 +1013,24 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Panel");
+    $app->signal_connect('activate', sub {system "xfce4\-panel\ \-\-preferences &"});
+    $app->set_property('tooltip_text', "Customize\ the\ panel");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("xfce4\-panel",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("Popup\ Notifications");
     $app->signal_connect('activate', sub {system "mate\-notification\-properties &"});
     $app->set_property('tooltip_text', "Set\ your\ popup\ notification\ preferences");
     $app->set_image('Gtk2::Image'->new_from_icon_name("mate\-notification\-properties",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Preferred\ Applications");
+    $app->signal_connect('activate', sub {system "exo\-preferred\-applications &"});
+    $app->set_property('tooltip_text', "Preferred\ Applications\ \(Web\ Browser\,\ Mail\ Reader\ and\ Terminal\ Emulator\)");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("preferences\-desktop\-default\-applications",q{menu}));
     $apps->append($app);
 }
 {
@@ -971,10 +1048,38 @@ sub load_menu {
     $apps->append($app);
 }
 {
+    my $app = 'Gtk2::ImageMenuItem'->new("Session\ and\ Startup");
+    $app->signal_connect('activate', sub {system "xfce4\-session\-settings &"});
+    $app->set_property('tooltip_text', "Customize\ desktop\ startup\ and\ splash\ screen");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("xfce4\-session",q{menu}));
+    $apps->append($app);
+}
+{
     my $app = 'Gtk2::ImageMenuItem'->new("Tint2\ Settings");
     $app->signal_connect('activate', sub {system "tint2conf &"});
     $app->set_property('tooltip_text', "Tool\ to\ configure\ the\ tint2\ panel");
     $app->set_image('Gtk2::Image'->new_from_icon_name("tint2conf",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Window\ Manager");
+    $app->signal_connect('activate', sub {system "xfwm4\-settings &"});
+    $app->set_property('tooltip_text', "Configure\ window\ behavior\ and\ shortcuts");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("xfwm4",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Window\ Manager\ Tweaks");
+    $app->signal_connect('activate', sub {system "xfwm4\-tweaks\-settings &"});
+    $app->set_property('tooltip_text', "Fine\-tune\ window\ behaviour\ and\ effects");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("wmtweaks",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Workspaces");
+    $app->signal_connect('activate', sub {system "xfwm4\-workspace\-settings &"});
+    $app->set_property('tooltip_text', "Configure\ layout\,\ names\ and\ margins");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("xfce4\-workspaces",q{menu}));
     $apps->append($app);
 }
     $cat->set_submenu($apps);
@@ -991,6 +1096,13 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "\/usr\/bin\/avahi\-discover &"});
     $app->set_property('tooltip_text', "Browse\ for\ Zeroconf\ services\ available\ on\ your\ network");
     $app->set_image('Gtk2::Image'->new_from_icon_name("network\-wired",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Bulk\ Rename");
+    $app->signal_connect('activate', sub {system "\/usr\/lib\/Thunar\/ThunarBulkRename &"});
+    $app->set_property('tooltip_text', "Rename\ Multiple\ Files");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("Thunar",q{menu}));
     $apps->append($app);
 }
 {
@@ -1033,6 +1145,13 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "termite\ \-e\ \'htop\' &"});
     $app->set_property('tooltip_text', "Show\ System\ Processes");
     $app->set_image('Gtk2::Image'->new_from_icon_name("htop",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Log\ Out");
+    $app->signal_connect('activate', sub {system "xfce4\-session\-logout &"});
+    $app->set_property('tooltip_text', "Log\ out\ of\ the\ Xfce\ Desktop");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("system\-log\-out",q{menu}));
     $apps->append($app);
 }
 {
@@ -1095,6 +1214,13 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "termite &"});
     $app->set_property('tooltip_text', "Use\ the\ command\ line");
     $app->set_image('Gtk2::Image'->new_from_icon_name("utilities\-terminal",q{menu}));
+    $apps->append($app);
+}
+{
+    my $app = 'Gtk2::ImageMenuItem'->new("Thunar\ File\ Manager");
+    $app->signal_connect('activate', sub {system "thunar &"});
+    $app->set_property('tooltip_text', "Browse\ the\ filesystem\ with\ the\ file\ manager");
+    $app->set_image('Gtk2::Image'->new_from_icon_name("Thunar",q{menu}));
     $apps->append($app);
 }
 {

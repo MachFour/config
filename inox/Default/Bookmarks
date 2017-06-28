@@ -1,12 +1,12 @@
 {
-   "checksum": "46b71fcf7c7f097703301fa6372e63ec",
+   "checksum": "392893df7aabdf7fabf25cbc28bca457",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "date_added": "13005720459000000",
             "id": "6",
             "meta_info": {
-               "last_visited_desktop": "13141788821749416"
+               "last_visited_desktop": "13143099932129956"
             },
             "name": "Gmail",
             "type": "url",
@@ -15,7 +15,7 @@
             "date_added": "13065321896000000",
             "id": "7",
             "meta_info": {
-               "last_visited_desktop": "13141811368384701"
+               "last_visited_desktop": "13142909026499459"
             },
             "name": "NetBank",
             "type": "url",
@@ -24,7 +24,7 @@
             "date_added": "13067955392000000",
             "id": "8",
             "meta_info": {
-               "last_visited_desktop": "13140528706182524"
+               "last_visited_desktop": "13142147508178835"
             },
             "name": "UNSW",
             "type": "url",
@@ -41,9 +41,6 @@
          }, {
             "date_added": "13098785087000000",
             "id": "10",
-            "meta_info": {
-               "last_visited_desktop": "13141646660401633"
-            },
             "name": "zMail",
             "type": "url",
             "url": "https://login.microsoftonline.com/"
@@ -51,7 +48,7 @@
             "date_added": "13092531017000000",
             "id": "159",
             "meta_info": {
-               "last_visited_desktop": "13139759571259641"
+               "last_visited_desktop": "13142668536223582"
             },
             "name": "Sydney Forecast",
             "type": "url",
@@ -60,20 +57,246 @@
             "date_added": "13140490723566615",
             "id": "210",
             "meta_info": {
-               "last_visited_desktop": "13140592939454129"
+               "last_visited_desktop": "13142853556270413"
             },
             "name": "NUTTAB 2010 electronic database files",
             "type": "url",
             "url": "http://www.foodstandards.gov.au/science/monitoringnutrients/nutrientables/nuttab/Pages/NUTTAB-2010-electronic-database-files.aspx"
+         }, {
+            "date_added": "13142145317618741",
+            "id": "237",
+            "meta_info": {
+               "last_visited_desktop": "13143090874642331"
+            },
+            "name": "virtualbox.org • View topic - Graphics freeze on boot with Windows guests + Guest Additions",
+            "type": "url",
+            "url": "https://forums.virtualbox.org/viewtopic.php?f=7&t=83489"
+         }, {
+            "date_added": "13142308711371196",
+            "id": "240",
+            "meta_info": {
+               "last_visited_desktop": "13143090875098837"
+            },
+            "name": "Virtualbox #16843",
+            "type": "url",
+            "url": "https://www.virtualbox.org/ticket/16843#comment:1"
          } ],
          "date_added": "13136857316322549",
-         "date_modified": "13140930998408122",
+         "date_modified": "13142676695475150",
          "id": "1",
          "name": "Bookmarks bar",
          "type": "folder"
       },
       "other": {
          "children": [ {
+            "children": [ {
+               "date_added": "13129889005000000",
+               "id": "38",
+               "name": "Toms Deutschseite - Hilfestellung beim Erlernen der deutschen Sprache",
+               "type": "url",
+               "url": "http://www.deutschseite.de/inhalt.html"
+            }, {
+               "date_added": "13129889022000000",
+               "id": "39",
+               "name": "Audiotrainer - Lessons | DW.COM",
+               "type": "url",
+               "url": "http://www.dw.com/en/learn-german/audiotrainer-lessons/s-9678"
+            }, {
+               "date_added": "13129889031000000",
+               "id": "40",
+               "name": "Practise German free of charge - Goethe-Institut",
+               "type": "url",
+               "url": "https://www.goethe.de/en/spr/ueb.html"
+            }, {
+               "date_added": "13129889050000000",
+               "id": "41",
+               "name": "Online-Aufgaben Deutsch als Fremdsprache",
+               "type": "url",
+               "url": "http://www.schubert-verlag.de/aufgaben/"
+            }, {
+               "date_added": "13129889054000000",
+               "id": "42",
+               "name": "Links to online German language resources",
+               "type": "url",
+               "url": "http://www.omniglot.com/links/german.php"
+            }, {
+               "date_added": "13129889062000000",
+               "id": "43",
+               "name": "Grammar Review",
+               "type": "url",
+               "url": "http://www.dartmouth.edu/~deutsch/Grammatik/Grammatik.html"
+            }, {
+               "date_added": "13129889068000000",
+               "id": "44",
+               "name": "BBC - Learn German with free online lessons",
+               "type": "url",
+               "url": "http://www.bbc.co.uk/languages/german/"
+            } ],
+            "date_added": "13136869264840338",
+            "date_modified": "0",
+            "id": "37",
+            "name": "deutsche",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13119063830000000",
+               "id": "175",
+               "name": "Schematic Pal",
+               "type": "url",
+               "url": "http://www.schematicpal.com/"
+            } ],
+            "date_added": "13136869264850952",
+            "date_modified": "0",
+            "id": "174",
+            "name": "electronics",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13141196495123860",
+               "id": "216",
+               "meta_info": {
+                  "last_visited_desktop": "13142486073115239"
+               },
+               "name": "Applied Analysis of Variance and Experimental Design",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=117085&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13141196528899710",
+               "id": "218",
+               "meta_info": {
+                  "last_visited_desktop": "13142486076350879"
+               },
+               "name": "Smoothing and Nonparametric Regression with Examples",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=116882&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13141196543042157",
+               "id": "219",
+               "meta_info": {
+                  "last_visited_desktop": "13142494693254117"
+               },
+               "name": "Advanced Topics in Computational Statistics",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=118845&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13141196554500284",
+               "id": "220",
+               "meta_info": {
+                  "last_visited_desktop": "13142486078625183"
+               },
+               "name": "Mathematical Optimisation",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=115740&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13141207466613765",
+               "id": "223",
+               "meta_info": {
+                  "last_visited_desktop": "13142486079455199"
+               },
+               "name": "Algebra I",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=116565&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13141207853256662",
+               "id": "224",
+               "meta_info": {
+                  "last_visited_desktop": "13142494343170943"
+               },
+               "name": "Applied Biostatistics",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=117187&semkez=2017W&lang=en"
+            }, {
+               "date_added": "13142494360909203",
+               "id": "243",
+               "meta_info": {
+                  "last_visited_desktop": "13142494360911799"
+               },
+               "name": "Num. CSE",
+               "type": "url",
+               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=117132&semkez=2017W&lang=en"
+            } ],
+            "date_added": "13141196524918254",
+            "date_modified": "13142494369899990",
+            "id": "217",
+            "name": "ETH Courses",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "12875525309000000",
+               "id": "18",
+               "name": "The Mushroom Kingdom: Super Mario Bros. downloads and information",
+               "type": "url",
+               "url": "http://themushroomkingdom.net/"
+            }, {
+               "date_added": "12880935190000000",
+               "id": "19",
+               "name": ":: Brawl Snapshot Decrypter ::",
+               "type": "url",
+               "url": "http://xane.gamez-interactive.de/Brawl/Decrypter/"
+            }, {
+               "date_added": "12891857994000000",
+               "id": "20",
+               "name": "Slime Volleyball: One Slime",
+               "type": "url",
+               "url": "http://oneslime.net/"
+            }, {
+               "date_added": "12880935190000000",
+               "id": "21",
+               "name": ":: Brawl Snapshot Decrypter ::",
+               "type": "url",
+               "url": "http://xane.gamez-interactive.de/Brawl/Decrypter/"
+            }, {
+               "date_added": "12875525309000000",
+               "id": "22",
+               "name": "The Mushroom Kingdom: Super Mario Bros. downloads and information",
+               "type": "url",
+               "url": "http://themushroomkingdom.net/"
+            }, {
+               "date_added": "12895922645000000",
+               "id": "23",
+               "name": "Slime Games",
+               "type": "url",
+               "url": "http://homepage.ntlworld.com/bartle/"
+            }, {
+               "date_added": "12927799198000000",
+               "id": "24",
+               "name": "BMTron Game (dark skin)",
+               "type": "url",
+               "url": "http://kryshen.net/games/bmtron-skin2.html"
+            }, {
+               "date_added": "12935798097000000",
+               "id": "25",
+               "name": "YouTube - Pokemon RNG Abuse: Egg IVs Part 1",
+               "type": "url",
+               "url": "http://www.youtube.com/results?search_query=Pokemon+RNG+Abuse%3A+Egg+IVs+Part+1+&aq=f"
+            }, {
+               "date_added": "12947127235000000",
+               "id": "26",
+               "name": "rsmap-25may10.jpg (JPEG Image, 3713×3329 pixels)",
+               "type": "url",
+               "url": "http://www.runescape.com/img/main/kbase/downloads_and_wallpapers/rsmap-25may10.jpg"
+            }, {
+               "date_added": "12875062056000000",
+               "id": "27",
+               "meta_info": {
+                  "last_visited_desktop": "13141040930587518"
+               },
+               "name": "Nintendo.com.au - Home",
+               "type": "url",
+               "url": "http://www.nintendo.com.au/"
+            }, {
+               "date_added": "12894276394000000",
+               "id": "28",
+               "name": "Blue Blaze Games - Original Slime Games Page",
+               "type": "url",
+               "url": "http://blueblazegames.trap17.com/Slime.htm"
+            } ],
+            "date_added": "13136869264838955",
+            "date_modified": "0",
+            "id": "17",
+            "name": "Games",
+            "type": "folder"
+         }, {
             "children": [ {
                "date_added": "12979816707000000",
                "id": "112",
@@ -487,110 +710,6 @@
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "13069253783000000",
-               "id": "14",
-               "name": "Second Year Semester 2 Courses | School of Mathematics and Statistics",
-               "type": "url",
-               "url": "http://www.maths.unsw.edu.au/currentstudents/second-year-semester-2-courses"
-            }, {
-               "date_added": "13069253798000000",
-               "id": "15",
-               "name": "Second Year Semester 1 Courses | School of Mathematics and Statistics",
-               "type": "url",
-               "url": "http://www.maths.unsw.edu.au/currentstudents/second-year-semester-1-courses"
-            }, {
-               "date_added": "13069253422000000",
-               "id": "16",
-               "meta_info": {
-                  "last_visited_desktop": "13136869317431115"
-               },
-               "name": "COMP2911: Engineering Design in Computing",
-               "type": "url",
-               "url": "http://www.cse.unsw.edu.au/~cs2911/"
-            } ],
-            "date_added": "13136869264838689",
-            "date_modified": "0",
-            "id": "13",
-            "name": "UNSW",
-            "type": "folder"
-         }, {
-            "children": [ {
-               "date_added": "12875525309000000",
-               "id": "18",
-               "name": "The Mushroom Kingdom: Super Mario Bros. downloads and information",
-               "type": "url",
-               "url": "http://themushroomkingdom.net/"
-            }, {
-               "date_added": "12880935190000000",
-               "id": "19",
-               "name": ":: Brawl Snapshot Decrypter ::",
-               "type": "url",
-               "url": "http://xane.gamez-interactive.de/Brawl/Decrypter/"
-            }, {
-               "date_added": "12891857994000000",
-               "id": "20",
-               "name": "Slime Volleyball: One Slime",
-               "type": "url",
-               "url": "http://oneslime.net/"
-            }, {
-               "date_added": "12880935190000000",
-               "id": "21",
-               "name": ":: Brawl Snapshot Decrypter ::",
-               "type": "url",
-               "url": "http://xane.gamez-interactive.de/Brawl/Decrypter/"
-            }, {
-               "date_added": "12875525309000000",
-               "id": "22",
-               "name": "The Mushroom Kingdom: Super Mario Bros. downloads and information",
-               "type": "url",
-               "url": "http://themushroomkingdom.net/"
-            }, {
-               "date_added": "12895922645000000",
-               "id": "23",
-               "name": "Slime Games",
-               "type": "url",
-               "url": "http://homepage.ntlworld.com/bartle/"
-            }, {
-               "date_added": "12927799198000000",
-               "id": "24",
-               "name": "BMTron Game (dark skin)",
-               "type": "url",
-               "url": "http://kryshen.net/games/bmtron-skin2.html"
-            }, {
-               "date_added": "12935798097000000",
-               "id": "25",
-               "name": "YouTube - Pokemon RNG Abuse: Egg IVs Part 1",
-               "type": "url",
-               "url": "http://www.youtube.com/results?search_query=Pokemon+RNG+Abuse%3A+Egg+IVs+Part+1+&aq=f"
-            }, {
-               "date_added": "12947127235000000",
-               "id": "26",
-               "name": "rsmap-25may10.jpg (JPEG Image, 3713×3329 pixels)",
-               "type": "url",
-               "url": "http://www.runescape.com/img/main/kbase/downloads_and_wallpapers/rsmap-25may10.jpg"
-            }, {
-               "date_added": "12875062056000000",
-               "id": "27",
-               "meta_info": {
-                  "last_visited_desktop": "13141040930587518"
-               },
-               "name": "Nintendo.com.au - Home",
-               "type": "url",
-               "url": "http://www.nintendo.com.au/"
-            }, {
-               "date_added": "12894276394000000",
-               "id": "28",
-               "name": "Blue Blaze Games - Original Slime Games Page",
-               "type": "url",
-               "url": "http://blueblazegames.trap17.com/Slime.htm"
-            } ],
-            "date_added": "13136869264838955",
-            "date_modified": "0",
-            "id": "17",
-            "name": "Games",
-            "type": "folder"
-         }, {
-            "children": [ {
                "date_added": "12880801543000000",
                "id": "30",
                "name": "Sliver Me Timbers! : Daily MTG : Magic: The Gathering",
@@ -640,52 +759,58 @@
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "13129889005000000",
-               "id": "38",
-               "name": "Toms Deutschseite - Hilfestellung beim Erlernen der deutschen Sprache",
+               "date_added": "12858590744000000",
+               "id": "46",
+               "name": "About Us",
                "type": "url",
-               "url": "http://www.deutschseite.de/inhalt.html"
+               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/about/"
             }, {
-               "date_added": "13129889022000000",
-               "id": "39",
-               "name": "Audiotrainer - Lessons | DW.COM",
+               "date_added": "12858590744000000",
+               "id": "47",
+               "name": "Customise Firefox",
                "type": "url",
-               "url": "http://www.dw.com/en/learn-german/audiotrainer-lessons/s-9678"
+               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/customize/"
             }, {
-               "date_added": "13129889031000000",
-               "id": "40",
-               "name": "Practise German free of charge - Goethe-Institut",
+               "date_added": "12858590744000000",
+               "id": "48",
+               "name": "Get Involved",
                "type": "url",
-               "url": "https://www.goethe.de/en/spr/ueb.html"
+               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/community/"
             }, {
-               "date_added": "13129889050000000",
-               "id": "41",
-               "name": "Online-Aufgaben Deutsch als Fremdsprache",
+               "date_added": "12858590744000000",
+               "id": "49",
+               "name": "Help and Tutorials",
                "type": "url",
-               "url": "http://www.schubert-verlag.de/aufgaben/"
+               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/help/"
             }, {
-               "date_added": "13129889054000000",
-               "id": "42",
-               "name": "Links to online German language resources",
+               "date_added": "13022066393000000",
+               "id": "50",
+               "name": "Help and Tutorials",
                "type": "url",
-               "url": "http://www.omniglot.com/links/german.php"
+               "url": "http://www.mozilla.com/en-US/firefox/help/"
             }, {
-               "date_added": "13129889062000000",
-               "id": "43",
-               "name": "Grammar Review",
+               "date_added": "13022066393000000",
+               "id": "51",
+               "name": "Customize Firefox",
                "type": "url",
-               "url": "http://www.dartmouth.edu/~deutsch/Grammatik/Grammatik.html"
+               "url": "http://www.mozilla.com/en-US/firefox/customize/"
             }, {
-               "date_added": "13129889068000000",
-               "id": "44",
-               "name": "BBC - Learn German with free online lessons",
+               "date_added": "13022066393000000",
+               "id": "52",
+               "name": "Get Involved",
                "type": "url",
-               "url": "http://www.bbc.co.uk/languages/german/"
+               "url": "http://www.mozilla.com/en-US/firefox/community/"
+            }, {
+               "date_added": "13022066393000000",
+               "id": "53",
+               "name": "About Us",
+               "type": "url",
+               "url": "http://www.mozilla.com/en-US/about/"
             } ],
-            "date_added": "13136869264840338",
+            "date_added": "13136869264840858",
             "date_modified": "0",
-            "id": "37",
-            "name": "deutsche",
+            "id": "45",
+            "name": "Mozilla Firefox",
             "type": "folder"
          }, {
             "children": [ {
@@ -726,64 +851,145 @@
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "13104166117000000",
-               "id": "61",
-               "name": "NUCLEO-F410RB | STM32 Nucleo-64 Board F410RB 128K Flash | STMicroelectronics",
+               "date_added": "13024671558000000",
+               "id": "182",
+               "name": "Research Activities - Physics - The University of Sydney",
                "type": "url",
-               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/9173766/"
+               "url": "http://sydney.edu.au/science/physics/research/"
             }, {
-               "date_added": "13104166126000000",
-               "id": "62",
-               "name": "NUCLEO-L476RG | Nucleo Development Board, NUCLEO-L476RG | STMicroelectronics",
+               "date_added": "13025519327000000",
+               "id": "183",
+               "name": "CUSP - Course & Unit of Study Portal - The University of Sydney",
                "type": "url",
-               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/8967721/"
+               "url": "http://cusp1.sydney.edu.au/students/view-units-page/did/742"
             }, {
-               "date_added": "13104166135000000",
-               "id": "63",
-               "name": "STM32 Nucleo-64 boards - 0900766b81440071.pdf",
+               "date_added": "13052838346000000",
+               "id": "184",
+               "name": "Joe Giampaoli: M-Audio Fast Track Pro for Debian Linux @ 24 bit with RT Kernel",
                "type": "url",
-               "url": "http://docs-asia.electrocomponents.com/webdocs/1440/0900766b81440071.pdf"
+               "url": "http://joegiampaoli.blogspot.com.au/2011/06/m-audio-fast-track-pro-for-debian-linux.html"
             }, {
-               "date_added": "13104166143000000",
-               "id": "64",
-               "name": "STM32F407G-DISC1 | STM32F4 Discovery Board STM32F407VG MCU | STMicroelectronics",
+               "date_added": "13060006516000000",
+               "id": "185",
+               "name": "Archive - Mark Manson",
                "type": "url",
-               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/9107951/"
+               "url": "http://markmanson.net/archive"
             }, {
-               "date_added": "13104166154000000",
-               "id": "65",
-               "name": "Programming the DSP - maemo.org wiki",
+               "date_added": "13063764311000000",
+               "id": "186",
+               "name": "Hex Preview - the command-line-like color app.",
                "type": "url",
-               "url": "https://wiki.maemo.org/Programming_the_DSP"
+               "url": "http://hexpreview.com/"
             }, {
-               "date_added": "13104166159000000",
-               "id": "66",
-               "name": "STM32L4 Series - STMicroelectronics",
+               "date_added": "13072189533000000",
+               "id": "187",
+               "meta_info": {
+                  "last_visited_desktop": "13136869367299646"
+               },
+               "name": "Automatic differentiation - Wikipedia, the free encyclopedia",
                "type": "url",
-               "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1580"
+               "url": "https://en.wikipedia.org/wiki/Automatic_differentiation"
             }, {
-               "date_added": "13104166163000000",
-               "id": "67",
-               "name": "STM32 MCU Nucleo - STMicroelectronics",
+               "date_added": "13080467652000000",
+               "id": "188",
+               "name": "Plug and Prey: Malicious USB Devices",
                "type": "url",
-               "url": "http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847"
+               "url": "http://www.irongeek.com/i.php?page=security/plug-and-prey-malicious-usb-devices#5._Possible_extensions_to_the_USB_standards_"
             }, {
-               "date_added": "13104166167000000",
-               "id": "68",
-               "name": "STM32F4 Series - STMicroelectronics",
+               "date_added": "13081955187000000",
+               "id": "189",
+               "meta_info": {
+                  "last_visited_desktop": "13137249532079569"
+               },
+               "name": "Programming in C",
                "type": "url",
-               "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577"
+               "url": "http://www.cs.cf.ac.uk/Dave/C/"
             }, {
-               "date_added": "13104166171000000",
-               "id": "69",
-               "name": "STM32 Discovery Development on Linux",
+               "date_added": "13082195959000000",
+               "id": "190",
+               "name": "Carrot, Pea, and Mint Salad | Serious Eats : Recipes",
                "type": "url",
-               "url": "http://www.wolinlabs.com/blog/linux.stm32.discovery.gcc.html#"
+               "url": "http://www.seriouseats.com/recipes/2013/04/spring-carrot-pea-min-salad-recipe.html"
+            }, {
+               "date_added": "13109740522000000",
+               "id": "191",
+               "name": "Joe McCarthy's Stylistic Coordination - Vic Firth",
+               "type": "url",
+               "url": "http://vicfirth.com/joe-mccarthy-stylistic-coordination/"
+            }, {
+               "date_added": "13110298292000000",
+               "id": "192",
+               "name": "[ROOT][Kernel][TWRP] repack of the stock ker… | Sony Xperia Z5",
+               "type": "url",
+               "url": "http://forum.xda-developers.com/xperia-z5/development/root-automatic-repack-stock-kernel-dm-t3301605"
+            }, {
+               "date_added": "13110636264000000",
+               "id": "193",
+               "name": "Most People Think You Go To Either Heaven Or Hell, What I Experienced Was Much, Much Worse | Thought Catalog",
+               "type": "url",
+               "url": "http://thoughtcatalog.com/elias-witherow/2016/06/most-people-think-you-go-to-either-heaven-or-hell-what-i-experienced-was-much-much-worse/"
+            }, {
+               "date_added": "13112182371000000",
+               "id": "194",
+               "meta_info": {
+                  "last_visited_desktop": "13142746158461834"
+               },
+               "name": "Exetel Pty Ltd - Login",
+               "type": "url",
+               "url": "https://webmail.exetel.com.au/src/login.php"
+            }, {
+               "date_added": "13120628799000000",
+               "id": "195",
+               "name": "Borg Documentation — Borg - Deduplicating Archiver 1.0.7 documentation",
+               "type": "url",
+               "url": "https://borgbackup.readthedocs.io/en/stable/"
+            }, {
+               "date_added": "13123375998000000",
+               "id": "196",
+               "name": "PyFormat: Using % and .format() for great good!",
+               "type": "url",
+               "url": "https://pyformat.info/"
+            }, {
+               "date_added": "13125792997000000",
+               "id": "197",
+               "name": "polyphonic synth midi learn linux - Google Search",
+               "type": "url",
+               "url": "https://www.google.com/search?q=polyphonic+synth+midi+learn&ie=utf-8&oe=utf-8&client=firefox-b-ab#q=polyphonic+synth+midi+learn+linux"
+            }, {
+               "date_added": "13126692555000000",
+               "id": "198",
+               "name": "UNSW Global Education Office Endeavour Portal",
+               "type": "url",
+               "url": "https://unsw.openacademies.com/interfaces/compass/?applicationFileName=endeavour.loader.swf&moduleName=outboundExchangeStudents&windowTitle=UNSW%20Global%20Education%20Office%20Endeavour%20Portal&token=0.5088017575228773"
+            }, {
+               "date_added": "13127313924000000",
+               "id": "199",
+               "meta_info": {
+                  "last_visited_desktop": "13138615024278229"
+               },
+               "name": "midi in Sydney Region, NSW | Books, Music & Games | Gumtree Australia Free Local Classifieds",
+               "type": "url",
+               "url": "http://www.gumtree.com.au/s-books-music-games/sydney/midi/k0c18393l3003435"
+            }, {
+               "date_added": "13127313926000000",
+               "id": "200",
+               "meta_info": {
+                  "last_visited_desktop": "13137249524672066"
+               },
+               "name": "midi in Sydney Region, NSW | Electronics & Computer | Gumtree Australia Free Local Classifieds",
+               "type": "url",
+               "url": "http://www.gumtree.com.au/s-electronics-computer/sydney/midi/k0c20045l3003435"
+            }, {
+               "date_added": "13127376016000000",
+               "id": "201",
+               "name": "awdrums - CYMBAL CARE",
+               "type": "url",
+               "url": "http://www.awdrums.com/cymbal-care"
             } ],
-            "date_added": "13136869264841860",
+            "date_added": "13136869264851462",
             "date_modified": "0",
-            "id": "60",
-            "name": "stm32",
+            "id": "181",
+            "name": "Other Bookmarks",
             "type": "folder"
          }, {
             "children": [ {
@@ -1040,220 +1246,170 @@
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "12858590744000000",
-               "id": "46",
-               "name": "About Us",
+               "date_added": "13104166117000000",
+               "id": "61",
+               "name": "NUCLEO-F410RB | STM32 Nucleo-64 Board F410RB 128K Flash | STMicroelectronics",
                "type": "url",
-               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/about/"
+               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/9173766/"
             }, {
-               "date_added": "12858590744000000",
-               "id": "47",
-               "name": "Customise Firefox",
+               "date_added": "13104166126000000",
+               "id": "62",
+               "name": "NUCLEO-L476RG | Nucleo Development Board, NUCLEO-L476RG | STMicroelectronics",
                "type": "url",
-               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/customize/"
+               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/8967721/"
             }, {
-               "date_added": "12858590744000000",
-               "id": "48",
-               "name": "Get Involved",
+               "date_added": "13104166135000000",
+               "id": "63",
+               "name": "STM32 Nucleo-64 boards - 0900766b81440071.pdf",
                "type": "url",
-               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/community/"
+               "url": "http://docs-asia.electrocomponents.com/webdocs/1440/0900766b81440071.pdf"
             }, {
-               "date_added": "12858590744000000",
-               "id": "49",
-               "name": "Help and Tutorials",
+               "date_added": "13104166143000000",
+               "id": "64",
+               "name": "STM32F407G-DISC1 | STM32F4 Discovery Board STM32F407VG MCU | STMicroelectronics",
                "type": "url",
-               "url": "http://en-gb.www.mozilla.com/en-GB/firefox/help/"
+               "url": "http://au.rs-online.com/web/p/processor-microcontroller-development-kits/9107951/"
             }, {
-               "date_added": "13022066393000000",
-               "id": "50",
-               "name": "Help and Tutorials",
+               "date_added": "13104166154000000",
+               "id": "65",
+               "name": "Programming the DSP - maemo.org wiki",
                "type": "url",
-               "url": "http://www.mozilla.com/en-US/firefox/help/"
+               "url": "https://wiki.maemo.org/Programming_the_DSP"
             }, {
-               "date_added": "13022066393000000",
-               "id": "51",
-               "name": "Customize Firefox",
+               "date_added": "13104166159000000",
+               "id": "66",
+               "name": "STM32L4 Series - STMicroelectronics",
                "type": "url",
-               "url": "http://www.mozilla.com/en-US/firefox/customize/"
+               "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1580"
             }, {
-               "date_added": "13022066393000000",
-               "id": "52",
-               "name": "Get Involved",
+               "date_added": "13104166163000000",
+               "id": "67",
+               "name": "STM32 MCU Nucleo - STMicroelectronics",
                "type": "url",
-               "url": "http://www.mozilla.com/en-US/firefox/community/"
+               "url": "http://www.st.com/web/catalog/tools/FM116/SC959/SS1532/LN1847"
             }, {
-               "date_added": "13022066393000000",
-               "id": "53",
-               "name": "About Us",
+               "date_added": "13104166167000000",
+               "id": "68",
+               "name": "STM32F4 Series - STMicroelectronics",
                "type": "url",
-               "url": "http://www.mozilla.com/en-US/about/"
+               "url": "http://www.st.com/web/en/catalog/mmc/FM141/SC1169/SS1577"
+            }, {
+               "date_added": "13104166171000000",
+               "id": "69",
+               "name": "STM32 Discovery Development on Linux",
+               "type": "url",
+               "url": "http://www.wolinlabs.com/blog/linux.stm32.discovery.gcc.html#"
             } ],
-            "date_added": "13136869264840858",
+            "date_added": "13136869264841860",
             "date_modified": "0",
-            "id": "45",
-            "name": "Mozilla Firefox",
+            "id": "60",
+            "name": "stm32",
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "13119063830000000",
-               "id": "175",
-               "name": "Schematic Pal",
+               "date_added": "13069253783000000",
+               "id": "14",
+               "name": "Second Year Semester 2 Courses | School of Mathematics and Statistics",
                "type": "url",
-               "url": "http://www.schematicpal.com/"
+               "url": "http://www.maths.unsw.edu.au/currentstudents/second-year-semester-2-courses"
+            }, {
+               "date_added": "13069253798000000",
+               "id": "15",
+               "name": "Second Year Semester 1 Courses | School of Mathematics and Statistics",
+               "type": "url",
+               "url": "http://www.maths.unsw.edu.au/currentstudents/second-year-semester-1-courses"
+            }, {
+               "date_added": "13069253422000000",
+               "id": "16",
+               "meta_info": {
+                  "last_visited_desktop": "13136869317431115"
+               },
+               "name": "COMP2911: Engineering Design in Computing",
+               "type": "url",
+               "url": "http://www.cse.unsw.edu.au/~cs2911/"
             } ],
-            "date_added": "13136869264850952",
+            "date_added": "13136869264838689",
             "date_modified": "0",
-            "id": "174",
-            "name": "electronics",
+            "id": "13",
+            "name": "UNSW",
             "type": "folder"
          }, {
             "children": [ {
-               "date_added": "13024671558000000",
-               "id": "182",
-               "name": "Research Activities - Physics - The University of Sydney",
-               "type": "url",
-               "url": "http://sydney.edu.au/science/physics/research/"
-            }, {
-               "date_added": "13025519327000000",
-               "id": "183",
-               "name": "CUSP - Course & Unit of Study Portal - The University of Sydney",
-               "type": "url",
-               "url": "http://cusp1.sydney.edu.au/students/view-units-page/did/742"
-            }, {
-               "date_added": "13052838346000000",
-               "id": "184",
-               "name": "Joe Giampaoli: M-Audio Fast Track Pro for Debian Linux @ 24 bit with RT Kernel",
-               "type": "url",
-               "url": "http://joegiampaoli.blogspot.com.au/2011/06/m-audio-fast-track-pro-for-debian-linux.html"
-            }, {
-               "date_added": "13060006516000000",
-               "id": "185",
-               "name": "Archive - Mark Manson",
-               "type": "url",
-               "url": "http://markmanson.net/archive"
-            }, {
-               "date_added": "13063764311000000",
-               "id": "186",
-               "name": "Hex Preview - the command-line-like color app.",
-               "type": "url",
-               "url": "http://hexpreview.com/"
-            }, {
-               "date_added": "13072189533000000",
-               "id": "187",
+               "date_added": "13142676765095838",
+               "id": "247",
                "meta_info": {
-                  "last_visited_desktop": "13136869367299646"
+                  "last_visited_desktop": "13142676765096057"
                },
-               "name": "Automatic differentiation - Wikipedia, the free encyclopedia",
+               "name": "The musings of bluz71",
                "type": "url",
-               "url": "https://en.wikipedia.org/wiki/Automatic_differentiation"
+               "url": "https://bluz71.github.io/2017/05/15/vim-tips-tricks.html"
             }, {
-               "date_added": "13080467652000000",
-               "id": "188",
-               "name": "Plug and Prey: Malicious USB Devices",
-               "type": "url",
-               "url": "http://www.irongeek.com/i.php?page=security/plug-and-prey-malicious-usb-devices#5._Possible_extensions_to_the_USB_standards_"
-            }, {
-               "date_added": "13081955187000000",
-               "id": "189",
+               "date_added": "13142676772042027",
+               "id": "248",
                "meta_info": {
-                  "last_visited_desktop": "13137249532079569"
+                  "last_visited_desktop": "13142676772042226"
                },
-               "name": "Programming in C",
+               "name": "Ex-Mode Addresses",
                "type": "url",
-               "url": "http://www.cs.cf.ac.uk/Dave/C/"
-            }, {
-               "date_added": "13082195959000000",
-               "id": "190",
-               "name": "Carrot, Pea, and Mint Salad | Serious Eats : Recipes",
-               "type": "url",
-               "url": "http://www.seriouseats.com/recipes/2013/04/spring-carrot-pea-min-salad-recipe.html"
-            }, {
-               "date_added": "13109740522000000",
-               "id": "191",
-               "name": "Joe McCarthy's Stylistic Coordination - Vic Firth",
-               "type": "url",
-               "url": "http://vicfirth.com/joe-mccarthy-stylistic-coordination/"
-            }, {
-               "date_added": "13110298292000000",
-               "id": "192",
-               "name": "[ROOT][Kernel][TWRP] repack of the stock ker… | Sony Xperia Z5",
-               "type": "url",
-               "url": "http://forum.xda-developers.com/xperia-z5/development/root-automatic-repack-stock-kernel-dm-t3301605"
-            }, {
-               "date_added": "13110636264000000",
-               "id": "193",
-               "name": "Most People Think You Go To Either Heaven Or Hell, What I Experienced Was Much, Much Worse | Thought Catalog",
-               "type": "url",
-               "url": "http://thoughtcatalog.com/elias-witherow/2016/06/most-people-think-you-go-to-either-heaven-or-hell-what-i-experienced-was-much-much-worse/"
-            }, {
-               "date_added": "13112182371000000",
-               "id": "194",
-               "name": "Exetel Pty Ltd - Login",
-               "type": "url",
-               "url": "https://webmail.exetel.com.au/src/login.php"
-            }, {
-               "date_added": "13120628799000000",
-               "id": "195",
-               "name": "Borg Documentation — Borg - Deduplicating Archiver 1.0.7 documentation",
-               "type": "url",
-               "url": "https://borgbackup.readthedocs.io/en/stable/"
-            }, {
-               "date_added": "13123375998000000",
-               "id": "196",
-               "name": "PyFormat: Using % and .format() for great good!",
-               "type": "url",
-               "url": "https://pyformat.info/"
-            }, {
-               "date_added": "13125792997000000",
-               "id": "197",
-               "name": "polyphonic synth midi learn linux - Google Search",
-               "type": "url",
-               "url": "https://www.google.com/search?q=polyphonic+synth+midi+learn&ie=utf-8&oe=utf-8&client=firefox-b-ab#q=polyphonic+synth+midi+learn+linux"
-            }, {
-               "date_added": "13126692555000000",
-               "id": "198",
-               "name": "UNSW Global Education Office Endeavour Portal",
-               "type": "url",
-               "url": "https://unsw.openacademies.com/interfaces/compass/?applicationFileName=endeavour.loader.swf&moduleName=outboundExchangeStudents&windowTitle=UNSW%20Global%20Education%20Office%20Endeavour%20Portal&token=0.5088017575228773"
-            }, {
-               "date_added": "13127313924000000",
-               "id": "199",
-               "meta_info": {
-                  "last_visited_desktop": "13138615024278229"
-               },
-               "name": "midi in Sydney Region, NSW | Books, Music & Games | Gumtree Australia Free Local Classifieds",
-               "type": "url",
-               "url": "http://www.gumtree.com.au/s-books-music-games/sydney/midi/k0c18393l3003435"
-            }, {
-               "date_added": "13127313926000000",
-               "id": "200",
-               "meta_info": {
-                  "last_visited_desktop": "13137249524672066"
-               },
-               "name": "midi in Sydney Region, NSW | Electronics & Computer | Gumtree Australia Free Local Classifieds",
-               "type": "url",
-               "url": "http://www.gumtree.com.au/s-electronics-computer/sydney/midi/k0c20045l3003435"
-            }, {
-               "date_added": "13127376016000000",
-               "id": "201",
-               "name": "awdrums - CYMBAL CARE",
-               "type": "url",
-               "url": "http://www.awdrums.com/cymbal-care"
+               "url": "http://dahu.github.io/vim_waz_ere/2_line_addresses.html"
             } ],
-            "date_added": "13136869264851462",
-            "date_modified": "0",
-            "id": "181",
-            "name": "Other Bookmarks",
+            "date_added": "13142676687939310",
+            "date_modified": "13142676772042027",
+            "id": "246",
+            "name": "Vim",
             "type": "folder"
          }, {
-            "date_added": "13137515136322933",
-            "id": "204",
+            "children": [ {
+               "date_added": "13141895535572444",
+               "id": "230",
+               "meta_info": {
+                  "last_visited_desktop": "13143096787830259"
+               },
+               "name": "Lenovo ThinkPad X1 Carbon (Gen 5) - ArchWiki",
+               "type": "url",
+               "url": "https://wiki.archlinux.org/index.php/Lenovo_ThinkPad_X1_Carbon_(Gen_5)"
+            }, {
+               "date_added": "13141895551798935",
+               "id": "232",
+               "meta_info": {
+                  "last_visited_desktop": "13141895621440788"
+               },
+               "name": "TLP - ArchWiki",
+               "type": "url",
+               "url": "https://wiki.archlinux.org/index.php/TLP"
+            }, {
+               "date_added": "13141895554072546",
+               "id": "233",
+               "meta_info": {
+                  "last_visited_desktop": "13142997325601622"
+               },
+               "name": "systemd-boot - ArchWiki",
+               "type": "url",
+               "url": "https://wiki.archlinux.org/index.php/Systemd-boot"
+            }, {
+               "date_added": "13141895556142348",
+               "id": "234",
+               "meta_info": {
+                  "last_visited_desktop": "13141895556142661"
+               },
+               "name": "Dual boot with Windows - ArchWiki",
+               "type": "url",
+               "url": "https://wiki.archlinux.org/index.php/Dual_boot_with_Windows"
+            } ],
+            "date_added": "13141895550025789",
+            "date_modified": "13142145317618741",
+            "id": "231",
+            "name": "X1C5",
+            "type": "folder"
+         }, {
+            "date_added": "13141894964295539",
+            "id": "229",
             "meta_info": {
-               "last_visited_desktop": "13137515136323366"
+               "last_visited_desktop": "13141894964295839"
             },
-            "name": "Most Common User Agents - Tech Blog (wh)",
+            "name": "DRIVE IT YOURSELF: USB CAR | Linux Voice",
             "type": "url",
-            "url": "https://techblog.willshouse.com/2012/01/03/most-common-user-agents/"
+            "url": "https://www.linuxvoice.com/drive-it-yourself-usb-car-6/"
          }, {
             "date_added": "13140930998408122",
             "id": "213",
@@ -1264,69 +1420,26 @@
             "type": "url",
             "url": "http://stores.ebay.com.au/Sydney-BestBay?_trksid=p2047675.l2563"
          }, {
-            "children": [ {
-               "date_added": "13141196495123860",
-               "id": "216",
-               "meta_info": {
-                  "last_visited_desktop": "13141353245568769"
-               },
-               "name": "Applied Analysis of Variance and Experimental Design",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=117085&semkez=2017W&lang=en"
-            }, {
-               "date_added": "13141196528899710",
-               "id": "218",
-               "meta_info": {
-                  "last_visited_desktop": "13141215804297785"
-               },
-               "name": "Smoothing and Nonparametric Regression with Examples",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=116882&semkez=2017W&lang=en"
-            }, {
-               "date_added": "13141196543042157",
-               "id": "219",
-               "meta_info": {
-                  "last_visited_desktop": "13141196969295199"
-               },
-               "name": "Advanced Topics in Computational Statistics",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=118845&semkez=2017W&lang=en"
-            }, {
-               "date_added": "13141196554500284",
-               "id": "220",
-               "meta_info": {
-                  "last_visited_desktop": "13141196554500604"
-               },
-               "name": "Mathematical Optimisation",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=115740&semkez=2017W&lang=en"
-            }, {
-               "date_added": "13141207466613765",
-               "id": "223",
-               "meta_info": {
-                  "last_visited_desktop": "13141207496880534"
-               },
-               "name": "Algebra I",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=116565&semkez=2017W&lang=en"
-            }, {
-               "date_added": "13141207853256662",
-               "id": "224",
-               "meta_info": {
-                  "last_visited_desktop": "13141207853256995"
-               },
-               "name": "Applied Biostatistics",
-               "type": "url",
-               "url": "http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheitPre.do?lerneinheitId=117187&semkez=2017W&lang=en"
-            } ],
-            "date_added": "13141196524918254",
-            "date_modified": "13141207853256662",
-            "id": "217",
-            "name": "ETH Courses",
-            "type": "folder"
+            "date_added": "13137515136322933",
+            "id": "204",
+            "meta_info": {
+               "last_visited_desktop": "13137515136323366"
+            },
+            "name": "Most Common User Agents - Tech Blog (wh)",
+            "type": "url",
+            "url": "https://techblog.willshouse.com/2012/01/03/most-common-user-agents/"
+         }, {
+            "date_added": "13141894957497177",
+            "id": "228",
+            "meta_info": {
+               "last_visited_desktop": "13141894957497522"
+            },
+            "name": "USB in a NutShell - Chapter 1 - Introduction",
+            "type": "url",
+            "url": "http://www.beyondlogic.org/usbnutshell/usb1.shtml"
          } ],
          "date_added": "13136857316322555",
-         "date_modified": "13141196495123860",
+         "date_modified": "13142676765095838",
          "id": "2",
          "name": "Other bookmarks",
          "type": "folder"

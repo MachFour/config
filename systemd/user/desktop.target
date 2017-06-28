@@ -11,7 +11,7 @@
 [Unit]
 Description=Graphical User Desktop
 BindsTo=graphical-session.target x11.target
-Wants=desktop-manager.service
+#Wants=desktop-manager.service
 # only go after desktop-manager if that needs to be run
 # (dummy desktop)
 After=desktop-manager.service x11.target

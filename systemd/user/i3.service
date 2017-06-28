@@ -3,7 +3,8 @@ Description=i3 window manager
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/i3
+#ExecStart=/usr/bin/i3 -V -d all
+ExecStart=/home/max/bin/i3-debug
 ExecReload=/usr/bin/kill -HUP $MAINPID
 Restart=on-success
 
