@@ -1,12 +1,12 @@
 {
-   "checksum": "392893df7aabdf7fabf25cbc28bca457",
+   "checksum": "41f60aa2e8bd73ee3662ec5da4455620",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "date_added": "13005720459000000",
             "id": "6",
             "meta_info": {
-               "last_visited_desktop": "13143099932129956"
+               "last_visited_desktop": "13143292119259624"
             },
             "name": "Gmail",
             "type": "url",
@@ -15,7 +15,7 @@
             "date_added": "13065321896000000",
             "id": "7",
             "meta_info": {
-               "last_visited_desktop": "13142909026499459"
+               "last_visited_desktop": "13143213807225891"
             },
             "name": "NetBank",
             "type": "url",
@@ -66,7 +66,7 @@
             "date_added": "13142145317618741",
             "id": "237",
             "meta_info": {
-               "last_visited_desktop": "13143090874642331"
+               "last_visited_desktop": "13143269559898345"
             },
             "name": "virtualbox.org • View topic - Graphics freeze on boot with Windows guests + Guest Additions",
             "type": "url",
@@ -75,7 +75,7 @@
             "date_added": "13142308711371196",
             "id": "240",
             "meta_info": {
-               "last_visited_desktop": "13143090875098837"
+               "last_visited_desktop": "13143269560385234"
             },
             "name": "Virtualbox #16843",
             "type": "url",
@@ -1335,10 +1335,26 @@
             "type": "folder"
          }, {
             "children": [ {
+               "date_added": "13143174282189402",
+               "id": "251",
+               "meta_info": {
+                  "last_visited_desktop": "13143174282189766"
+               },
+               "name": "1.1. The Way of the Program — How to Think like a Computer Scientist: Interactive Edition",
+               "type": "url",
+               "url": "http://interactivepython.org/runestone/static/thinkcspy/GeneralIntro/intro-TheWayoftheProgram.html"
+            } ],
+            "date_added": "13143174299195084",
+            "date_modified": "13143174299195131",
+            "id": "252",
+            "name": "Python programming",
+            "type": "folder"
+         }, {
+            "children": [ {
                "date_added": "13142676765095838",
                "id": "247",
                "meta_info": {
-                  "last_visited_desktop": "13142676765096057"
+                  "last_visited_desktop": "13143356608268571"
                },
                "name": "The musings of bluz71",
                "type": "url",
@@ -1354,7 +1370,7 @@
                "url": "http://dahu.github.io/vim_waz_ere/2_line_addresses.html"
             } ],
             "date_added": "13142676687939310",
-            "date_modified": "13142676772042027",
+            "date_modified": "13143174282189402",
             "id": "246",
             "name": "Vim",
             "type": "folder"
@@ -1439,7 +1455,7 @@
             "url": "http://www.beyondlogic.org/usbnutshell/usb1.shtml"
          } ],
          "date_added": "13136857316322555",
-         "date_modified": "13142676765095838",
+         "date_modified": "13143356605852141",
          "id": "2",
          "name": "Other bookmarks",
          "type": "folder"
