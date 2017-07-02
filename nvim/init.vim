@@ -10,13 +10,17 @@ set ruler
 set title
 " case insensitive searches unless you use a capital letter
 "set noignorecase
-"set smartcase
+set smartcase
+set infercase
 
 " searches wrap around the end of the file
 set wrapscan
 
 set history=200
 set showcmd
+
+set nohlsearch
+set incsearch
 
 " Don't backup files matching this pattern
 set backupskip=/tmp/*,*~
@@ -98,6 +102,11 @@ nnoremap <C-D> :confirm quit<CR>
 nnoremap ds d/\S<CR>:nohlsearch<CR>
 nnoremap cs d/\S<CR>:nohlsearch<CR>i
 
+" screen centering
+nnoremap <C-O> <C-O>zz
+nnoremap n nzz
+nnoremap N Nzz
+
 nnoremap <C-N> :!make<CR>
 
 " Sudo save trick
@@ -152,17 +161,17 @@ let g:tex_indent_and = 0
 " Filetype-specific settings and commands
 augroup ftspecific
 	autocmd! ftspecific
-	autocmd FileType python 	setlocal noexpandtab tabstop=4 textwidth=79 number
-	autocmd FileType matlab 	setlocal textwidth=83 colorcolumn=+2,+3 noexpandtab number
+	autocmd FileType python 	setlocal noexpandtab tabstop=4 textwidth=79 relativenumber
+	autocmd FileType matlab 	setlocal textwidth=83 colorcolumn=+2,+3 noexpandtab relativenumber
 	autocmd FileType tex 		call vimtex#init()
 	" wrap text using newline chars at textwidth; draw a red bar there.
 	autocmd FileType tex 		setlocal textwidth=79 colorcolumn=+0
 	autocmd FileType text 		setlocal linebreak
 	"autocmd Filetype tex runtime after/syntax/tex.vim
-	autocmd Filetype cpp 		setlocal textwidth=79 number
-	autocmd Filetype arduino 	setlocal textwidth=79 number
-	autocmd Filetype c 			setlocal textwidth=79 number
-	autocmd Filetype sql 		setlocal textwidth=79 number
+	autocmd Filetype cpp 		setlocal textwidth=79 relativenumber
+	autocmd Filetype arduino 	setlocal textwidth=79 relativenumber
+	autocmd Filetype c 			setlocal textwidth=79 relativenumber
+	autocmd Filetype sql 		setlocal textwidth=79 relativenumber
 augroup END
 
 " statusline examples

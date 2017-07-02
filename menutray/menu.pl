@@ -1013,13 +1013,6 @@ sub load_menu {
     $apps->append($app);
 }
 {
-    my $app = 'Gtk2::ImageMenuItem'->new("Panel");
-    $app->signal_connect('activate', sub {system "xfce4\-panel\ \-\-preferences &"});
-    $app->set_property('tooltip_text', "Customize\ the\ panel");
-    $app->set_image('Gtk2::Image'->new_from_icon_name("xfce4\-panel",q{menu}));
-    $apps->append($app);
-}
-{
     my $app = 'Gtk2::ImageMenuItem'->new("Popup\ Notifications");
     $app->signal_connect('activate', sub {system "mate\-notification\-properties &"});
     $app->set_property('tooltip_text', "Set\ your\ popup\ notification\ preferences");
@@ -1045,13 +1038,6 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "system\-config\-printer &"});
     $app->set_property('tooltip_text', "Configure\ printers");
     $app->set_image('Gtk2::Image'->new_from_icon_name("printer",q{menu}));
-    $apps->append($app);
-}
-{
-    my $app = 'Gtk2::ImageMenuItem'->new("Session\ and\ Startup");
-    $app->signal_connect('activate', sub {system "xfce4\-session\-settings &"});
-    $app->set_property('tooltip_text', "Customize\ desktop\ startup\ and\ splash\ screen");
-    $app->set_image('Gtk2::Image'->new_from_icon_name("xfce4\-session",q{menu}));
     $apps->append($app);
 }
 {
@@ -1145,13 +1131,6 @@ sub load_menu {
     $app->signal_connect('activate', sub {system "termite\ \-e\ \'htop\' &"});
     $app->set_property('tooltip_text', "Show\ System\ Processes");
     $app->set_image('Gtk2::Image'->new_from_icon_name("htop",q{menu}));
-    $apps->append($app);
-}
-{
-    my $app = 'Gtk2::ImageMenuItem'->new("Log\ Out");
-    $app->signal_connect('activate', sub {system "xfce4\-session\-logout &"});
-    $app->set_property('tooltip_text', "Log\ out\ of\ the\ Xfce\ Desktop");
-    $app->set_image('Gtk2::Image'->new_from_icon_name("system\-log\-out",q{menu}));
     $apps->append($app);
 }
 {

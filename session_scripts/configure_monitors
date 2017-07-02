@@ -3,7 +3,7 @@
 # uses Xrandr to configure monitor outputs to one of a number of preset configurations
 
 # when xf86-video-intel driver is used, there is no dash. When modesetting is used, there is a dash
-DASH=-
+DASH=
 
 # the following logic is used to figure out which (system-specific) display adapters are to be used
 # when configuring displays with xrandr. They should be a subset of what's found in /sys/class/drm/
