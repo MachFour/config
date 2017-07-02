@@ -107,7 +107,7 @@ mem_block = i3bar_create_block({
 	})
 
 space_block = i3bar_create_block({
-		full_text = " ${fs_free /home} ~ ${fs_free /} / space ",
+		full_text = "${fs_free /home} ~ ${fs_free /} / space ",
 		name = "space",
 		color = "#ffccff",
 		separator = true
