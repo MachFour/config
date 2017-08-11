@@ -14,6 +14,8 @@ export QUOTING_STYLE=literal
 #export MATLAB_JAVA="/usr/lib/jvm/java-8-jdk/jre"
 export AURDEST="/home/max/pkg"
 
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+
 # set up colours for ls
 if [[ -f  "$CONFIG_HOME/dircolors/dircolors" ]]; then
 	eval $(dircolors "$CONFIG_HOME/dircolors/dircolors")

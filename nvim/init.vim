@@ -171,7 +171,8 @@ augroup ftspecific
 	autocmd Filetype cpp 		setlocal textwidth=79 relativenumber
 	autocmd Filetype arduino 	setlocal textwidth=79 relativenumber
 	autocmd Filetype c 			setlocal textwidth=79 relativenumber
-	autocmd Filetype sql 		setlocal textwidth=79 relativenumber
+	autocmd Filetype sql 		setlocal textwidth=79 relativenumber expandtab tabstop=4
+	autocmd Filetype java 		setlocal expandtab tabstop=4 relativenumber textwidth=79
 augroup END
 
 " statusline examples

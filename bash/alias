@@ -37,3 +37,4 @@ alias vim='echo USE NVIM! #'
 alias foods='nvim /home/max/foods.txt'
 
 # vim: ft=sh
+alias vpn='sudo systemctl start openvpn-client@syd'

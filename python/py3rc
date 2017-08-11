@@ -37,4 +37,6 @@ import os
 
 from math import sqrt, exp, pi
 
+from imp import reload
+
 # vim: ft=python
