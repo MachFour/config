@@ -17,7 +17,7 @@ set $alt Mod1
 #font pango:monospace 8
 
 set $winfont "xft:Noto Mono Bold 10"
-set $barfont "xft:Noto Mono Bold 11"
+set $barfont "xft:Noto Mono Bold 10"
 #font xft:Source Code Pro Bold 10
 font $winfont
 
@@ -252,8 +252,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 bar {
-	output eDP-1
-	output HDMI-1
+	output eDP1
+	output HDMI1
 	font $barfont
 	tray_output primary
 	status_command "i3status-conky"
@@ -265,7 +265,7 @@ bar {
 
 #secondary bar for secondar monitor
 bar {
-	output DP-1
+	output DP1
 	font $barfont
 	tray_output primary
 
@@ -280,8 +280,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2
 
 bindsym XF86Display exec --no-startup-id systemctl --user start xsetup@auto
 
