@@ -1,12 +1,12 @@
 {
-   "checksum": "41f60aa2e8bd73ee3662ec5da4455620",
+   "checksum": "91442fb2074439dd991ee61b4b27f10a",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "date_added": "13005720459000000",
             "id": "6",
             "meta_info": {
-               "last_visited_desktop": "13143292119259624"
+               "last_visited_desktop": "13146902090023718"
             },
             "name": "Gmail",
             "type": "url",
@@ -15,7 +15,7 @@
             "date_added": "13065321896000000",
             "id": "7",
             "meta_info": {
-               "last_visited_desktop": "13143213807225891"
+               "last_visited_desktop": "13146902105381123"
             },
             "name": "NetBank",
             "type": "url",
@@ -24,7 +24,7 @@
             "date_added": "13067955392000000",
             "id": "8",
             "meta_info": {
-               "last_visited_desktop": "13142147508178835"
+               "last_visited_desktop": "13146632798388185"
             },
             "name": "UNSW",
             "type": "url",
@@ -41,6 +41,9 @@
          }, {
             "date_added": "13098785087000000",
             "id": "10",
+            "meta_info": {
+               "last_visited_desktop": "13146632801548403"
+            },
             "name": "zMail",
             "type": "url",
             "url": "https://login.microsoftonline.com/"
@@ -48,7 +51,7 @@
             "date_added": "13092531017000000",
             "id": "159",
             "meta_info": {
-               "last_visited_desktop": "13142668536223582"
+               "last_visited_desktop": "13144394397208506"
             },
             "name": "Sydney Forecast",
             "type": "url",
@@ -57,7 +60,7 @@
             "date_added": "13140490723566615",
             "id": "210",
             "meta_info": {
-               "last_visited_desktop": "13142853556270413"
+               "last_visited_desktop": "13144394544892748"
             },
             "name": "NUTTAB 2010 electronic database files",
             "type": "url",
@@ -66,7 +69,7 @@
             "date_added": "13142145317618741",
             "id": "237",
             "meta_info": {
-               "last_visited_desktop": "13143269559898345"
+               "last_visited_desktop": "13146566762949112"
             },
             "name": "virtualbox.org • View topic - Graphics freeze on boot with Windows guests + Guest Additions",
             "type": "url",
@@ -75,7 +78,7 @@
             "date_added": "13142308711371196",
             "id": "240",
             "meta_info": {
-               "last_visited_desktop": "13143269560385234"
+               "last_visited_desktop": "13146748096493676"
             },
             "name": "Virtualbox #16843",
             "type": "url",
@@ -89,6 +92,184 @@
       },
       "other": {
          "children": [ {
+            "children": [ {
+               "date_added": "13144118720567609",
+               "id": "255",
+               "meta_info": {
+                  "last_visited_desktop": "13145535553355103"
+               },
+               "name": "Introduction to Android | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/guide/index.html"
+            }, {
+               "date_added": "13144118739763665",
+               "id": "257",
+               "meta_info": {
+                  "last_visited_desktop": "13145516086508795"
+               },
+               "name": "Activity | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/reference/android/app/Activity.html"
+            }, {
+               "date_added": "13144409053386928",
+               "id": "260",
+               "meta_info": {
+                  "last_visited_desktop": "13144409053387543"
+               },
+               "name": "Parcelables and Bundles | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/guide/components/activities/parcelables-and-bundles.html#sdba"
+            }, {
+               "date_added": "13144419589582753",
+               "id": "261",
+               "meta_info": {
+                  "last_visited_desktop": "13145638461231284"
+               },
+               "name": "AdapterView | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/guide/topics/ui/binding.html"
+            }, {
+               "date_added": "13144479311946169",
+               "id": "264",
+               "meta_info": {
+                  "last_visited_desktop": "13145371342638037"
+               },
+               "name": "Loaders | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/guide/components/loaders.html"
+            }, {
+               "date_added": "13144484811826937",
+               "id": "267",
+               "meta_info": {
+                  "last_visited_desktop": "13144724171892137"
+               },
+               "name": "android - How to add dividers and spaces between items in RecyclerView? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/24618829/how-to-add-dividers-and-spaces-between-items-in-recyclerview?noredirect=1&lq=1"
+            }, {
+               "date_added": "13144737019953316",
+               "id": "270",
+               "meta_info": {
+                  "last_visited_desktop": "13144737019953658"
+               },
+               "name": "Saving Data in SQL Databases | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/training/basics/data-storage/databases.html"
+            }, {
+               "date_added": "13145272707802245",
+               "id": "275",
+               "meta_info": {
+                  "last_visited_desktop": "13145273857480645"
+               },
+               "name": "platform_frameworks_base/SQLiteDatabase.java at master · android/platform_frameworks_base",
+               "type": "url",
+               "url": "https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/sqlite/SQLiteDatabase.java"
+            }, {
+               "date_added": "13145272711982327",
+               "id": "276",
+               "meta_info": {
+                  "last_visited_desktop": "13145272711982693"
+               },
+               "name": "platform_frameworks_base/DatabaseUtils.java at master · android/platform_frameworks_base",
+               "type": "url",
+               "url": "https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/DatabaseUtils.java"
+            }, {
+               "date_added": "13145272729826634",
+               "id": "277",
+               "meta_info": {
+                  "last_visited_desktop": "13145273625815500"
+               },
+               "name": "platform_frameworks_base/ContextImpl.java at master · android/platform_frameworks_base",
+               "type": "url",
+               "url": "https://github.com/android/platform_frameworks_base/blob/master/core/java/android/app/ContextImpl.java"
+            }, {
+               "date_added": "13145272742802780",
+               "id": "278",
+               "meta_info": {
+                  "last_visited_desktop": "13145273751215732"
+               },
+               "name": "platform_frameworks_base/SQLiteOpenHelper.java at master · android/platform_frameworks_base",
+               "type": "url",
+               "url": "https://github.com/android/platform_frameworks_base/blob/master/core/java/android/database/sqlite/SQLiteOpenHelper.java"
+            }, {
+               "date_added": "13145374853931660",
+               "id": "281",
+               "meta_info": {
+                  "last_visited_desktop": "13145374853932019"
+               },
+               "name": "googlesamples/android-CardView",
+               "type": "url",
+               "url": "https://github.com/googlesamples/android-CardView/#readme"
+            }, {
+               "date_added": "13145374860407911",
+               "id": "282",
+               "meta_info": {
+                  "last_visited_desktop": "13145374860408222"
+               },
+               "name": "googlesamples/android-RecyclerView",
+               "type": "url",
+               "url": "https://github.com/googlesamples/android-RecyclerView/#readme"
+            }, {
+               "date_added": "13145615714593086",
+               "id": "285",
+               "meta_info": {
+                  "last_visited_desktop": "13145618466231285"
+               },
+               "name": "android - Add Style after creating a View programmatically - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/26820452/add-style-after-creating-a-view-programmatically"
+            }, {
+               "date_added": "13145777402068147",
+               "id": "288",
+               "meta_info": {
+                  "last_visited_desktop": "13145982626447492"
+               },
+               "name": "Creating a Background Service | Android Developers",
+               "type": "url",
+               "url": "https://developer.android.com/training/run-background-service/create-service.html"
+            }, {
+               "date_added": "13146111758158128",
+               "id": "291",
+               "meta_info": {
+                  "last_visited_desktop": "13146111758158695"
+               },
+               "name": "platform_frameworks_support/FragmentStatePagerAdapter.java at master · android/platform_frameworks_support",
+               "type": "url",
+               "url": "https://github.com/android/platform_frameworks_support/blob/master/fragment/java/android/support/v4/app/FragmentStatePagerAdapter.java"
+            }, {
+               "date_added": "13146154542937641",
+               "id": "292",
+               "meta_info": {
+                  "last_visited_desktop": "13146189686598147"
+               },
+               "name": "android - Floating label Spinner? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/31625620/floating-label-spinner"
+            }, {
+               "date_added": "13146665837258629",
+               "id": "295",
+               "meta_info": {
+                  "last_visited_desktop": "13146665837258910"
+               },
+               "name": "Model-View-Presenter: Android guidelines – Francesco Cervone – Medium",
+               "type": "url",
+               "url": "https://medium.com/@cervonefrancesco/model-view-presenter-android-guidelines-94970b430ddf"
+            }, {
+               "date_added": "13146901852341686",
+               "id": "298",
+               "meta_info": {
+                  "last_visited_desktop": "13146901852377298"
+               },
+               "name": "android - How to keep onItemSelected from firing off on a newly instantiated Spinner? - Stack Overflow",
+               "type": "url",
+               "url": "https://stackoverflow.com/questions/2562248/how-to-keep-onitemselected-from-firing-off-on-a-newly-instantiated-spinner?rq=1"
+            } ],
+            "date_added": "13144118731255734",
+            "date_modified": "13146901854890406",
+            "id": "256",
+            "name": "Android",
+            "type": "folder"
+         }, {
             "children": [ {
                "date_added": "13129889005000000",
                "id": "38",
@@ -155,7 +336,7 @@
                "date_added": "13141196495123860",
                "id": "216",
                "meta_info": {
-                  "last_visited_desktop": "13142486073115239"
+                  "last_visited_desktop": "13146902290857303"
                },
                "name": "Applied Analysis of Variance and Experimental Design",
                "type": "url",
@@ -164,7 +345,7 @@
                "date_added": "13141196528899710",
                "id": "218",
                "meta_info": {
-                  "last_visited_desktop": "13142486076350879"
+                  "last_visited_desktop": "13146830796303845"
                },
                "name": "Smoothing and Nonparametric Regression with Examples",
                "type": "url",
@@ -173,7 +354,7 @@
                "date_added": "13141196543042157",
                "id": "219",
                "meta_info": {
-                  "last_visited_desktop": "13142494693254117"
+                  "last_visited_desktop": "13146830833117536"
                },
                "name": "Advanced Topics in Computational Statistics",
                "type": "url",
@@ -182,7 +363,7 @@
                "date_added": "13141196554500284",
                "id": "220",
                "meta_info": {
-                  "last_visited_desktop": "13142486078625183"
+                  "last_visited_desktop": "13146830845936504"
                },
                "name": "Mathematical Optimisation",
                "type": "url",
@@ -209,7 +390,7 @@
                "date_added": "13142494360909203",
                "id": "243",
                "meta_info": {
-                  "last_visited_desktop": "13142494360911799"
+                  "last_visited_desktop": "13146902296129193"
                },
                "name": "Num. CSE",
                "type": "url",
@@ -1379,7 +1560,7 @@
                "date_added": "13141895535572444",
                "id": "230",
                "meta_info": {
-                  "last_visited_desktop": "13143096787830259"
+                  "last_visited_desktop": "13146831100972657"
                },
                "name": "Lenovo ThinkPad X1 Carbon (Gen 5) - ArchWiki",
                "type": "url",
@@ -1453,9 +1634,18 @@
             "name": "USB in a NutShell - Chapter 1 - Introduction",
             "type": "url",
             "url": "http://www.beyondlogic.org/usbnutshell/usb1.shtml"
+         }, {
+            "date_added": "13144755024024310",
+            "id": "271",
+            "meta_info": {
+               "last_visited_desktop": "13144761822968826"
+            },
+            "name": "The Best Core Exercises - GymnasticBodies",
+            "type": "url",
+            "url": "https://www.gymnasticbodies.com/how-to-train-core/"
          } ],
          "date_added": "13136857316322555",
-         "date_modified": "13143356605852141",
+         "date_modified": "13146901852341686",
          "id": "2",
          "name": "Other bookmarks",
          "type": "folder"
