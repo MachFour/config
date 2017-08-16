@@ -193,7 +193,18 @@ function auto_detect_setup () {
 	fi
 }
 
+function ensure_installed () {
+	prog=$1
+	if ! which "$prog" &>/dev/null; then
+		echo "Cannot find required program $1, aborting."
+		exit 1
+	fi
+}
+
 function apply_setup {
+	ensure_installed xrandr
+	ensure_installed xrdb
+
 	case $1 in
 		(3 | home_down)
 			home_down_setup
@@ -216,29 +227,31 @@ function apply_setup {
 	esac
 }
 
-function ensure_installed () {
-	prog=$1
-	if ! which "$prog"; then
-		echo "Cannot find required program $1, aborting."
-		exit 1
-	fi
-
-
-ensure_installed xrandr
-ensure_installed xrdb
+function print_help () {
+	echo "configure_monitors: configures a custom monitor setup."
+	echo "Specify the name of the setup to apply, or anything else to auto-detect."
+	echo
+	echo "--dryrun: Performs an auto detect and displays the detected setup"
+	echo "          without making any changes to the display settings."
+}
 
 if [[ ! -v DISPLAY ]]; then
 	echo 'Could not read DISPLAY environment variable, please provide it' >&2
 	exit 1
 fi
 
+shopt -q -s extglob
+
 case $1 in
 	(--dryrun)
 		echo -n 'Auto detecting setup... '
 		auto_detect_setup
 		;;
-	(*)
+	([^-]*)
 		apply_setup $1
+		;;
+	(*)
+		print_help
 		;;
 esac
 
