@@ -149,7 +149,6 @@ function laptop_setup {
 	fi
 }
 
-# assumes one of HDMI or VGA is connected
 function single_setup {
 	if is_connected ${EXT1}; then
 		xrandr --verbose --output ${EXT1} --auto --primary \
@@ -158,8 +157,7 @@ function single_setup {
 		xrandr --verbose --output ${EXT2} --auto --primary \
 			--output ${EXT1} --off --output ${LAPTOP} --off
 	else
-		xrandr --verbose --output ${LAPTOP} --auto --primary \
-			--output ${EXT1} --off --output ${EXT2} --off
+		laptop_setup
 	fi
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
