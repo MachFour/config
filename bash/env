@@ -13,6 +13,7 @@ export BROWSER=inox
 export QUOTING_STYLE=literal
 #export MATLAB_JAVA="/usr/lib/jvm/java-8-jdk/jre"
 export AURDEST="/home/max/pkg"
+export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
 
 # set up colours for ls
 if [[ -f  "$CONFIG_HOME/dircolors/dircolors" ]]; then
@@ -25,3 +26,5 @@ export LESSHISTFILE=/dev/null
 export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS --squeeze-blank-lines --quit-on-intr"
 # need these two together
 export SYSTEMD_LESS="$LESS --chop-long-lines --no-init --quit-if-one-screen"
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'

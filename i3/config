@@ -193,12 +193,14 @@ for_window [class="Galculator"] floating enable
 for_window [class="VirtualBox" title="(?!Oracle VM VirtualBox Manager)"] floating enable
 for_window [class="VirtualBox" title=".* - Oracle VM VirtualBox"] resize set 900 700
 for_window [class="VBoxSDL" title=".* - Oracle VM VirtualBox"] resize set 900 700
+for_window [class="Dolphin-emu"] floating enable
+for_window [title="Android Emulator.*"] floating enable
 
 # put ff on own workspace on horizontal monitor
 assign [class="^Firefox$"] "3: web"
 assign [class="^Inox$"]    "3: web"
 assign [class="MATLAB"] "5: MATLAB"
-#workspace "ff" output HDMI1
+assign [class="jetbrains-studio"] "5: MATLAB"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

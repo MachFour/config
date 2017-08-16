@@ -16,7 +16,7 @@ case $SYSTEM in
 		# no non-dash support yet
 		LAPTOP=eDP${DASH}1
 		LAPTOP_RES=1920x1080
-		LAPTOP_DPI=160
+		LAPTOP_DPI=120
 		EXT1=HDMI${DASH}1
 		EXT2=DP${DASH}2
 		EXT_DPI=96
@@ -102,14 +102,19 @@ function failure_msg () {
 	echo 'Failed to reconfigure monitors for' "$1" >&2
 }
 
+function set_dpi () {
+	dpi="$1"
+	echo "Xft.dpi: $dpi" | xrdb -override
+	xrandr --dpi $dpi
+}
+
 function home_setup {
 	if [[ $1 == 'down' ]]; then
 		local pos=0x400
 	else
 		local pos=0x0
 	fi
-	echo $EXT_DPI | xset
-	xrandr --dpi $EXT_DPI && \
+	set_dpi $EXT_DPI && \
 	xrandr --verbose --output ${EXT1} --mode 1600x1200 --rotate normal --primary --pos $pos && \
 	xrandr --verbose --output ${EXT2} --mode 1600x1200 --rotate right --pos 1600x0 && \
 	xrandr --output ${LAPTOP} --off
@@ -132,8 +137,7 @@ function home_down_setup {
 }
 
 function laptop_setup {
-	echo $LAPTOP_DPI | xset
-	xrandr --dpi $LAPTOP_DPI && \
+	set_dpi $LAPTOP_DPI && \
 	xrandr --output ${LAPTOP} --primary --auto && \
 	xrandr --output ${EXT1} --off --output ${EXT2} --off
 	if [[ $? -ne 0 ]]; then
@@ -211,6 +215,17 @@ function apply_setup {
 			;;
 	esac
 }
+
+function ensure_installed () {
+	prog=$1
+	if ! which "$prog"; then
+		echo "Cannot find required program $1, aborting."
+		exit 1
+	fi
+
+
+ensure_installed xrandr
+ensure_installed xrdb
 
 if [[ ! -v DISPLAY ]]; then
 	echo 'Could not read DISPLAY environment variable, please provide it' >&2
