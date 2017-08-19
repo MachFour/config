@@ -195,6 +195,7 @@ for_window [class="VirtualBox" title=".* - Oracle VM VirtualBox"] resize set 900
 for_window [class="VBoxSDL" title=".* - Oracle VM VirtualBox"] resize set 900 700
 for_window [class="Dolphin-emu"] floating enable
 for_window [title="Android Emulator.*"] floating enable
+for_window [class="Gsimplecal"] floating enable resize set 250 120
 
 # put ff on own workspace on horizontal monitor
 assign [class="^Firefox$"] "3: web"
@@ -265,9 +266,9 @@ bar {
 	}
 }
 
-#secondary bar for secondar monitor
+#secondary bar for secondary monitor
 bar {
-	output DP1
+	output DP2
 	font $barfont
 	tray_output primary
 
