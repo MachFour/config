@@ -1,0 +1,12 @@
+
+
+set completion-ignore-case on
+set completion-map-case on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set match-hidden-files off
+
+"[1;5D": backward-word
+"[1;5C": forward-word
+"[3;5~": kill-word
+"C-": backward-kill-word

@@ -19,6 +19,7 @@ case $SYSTEM in
 		LAPTOP_DPI=120
 		EXT1=HDMI${DASH}1
 		EXT2=DP${DASH}2
+		EXT3=DP${DASH}1
 		EXT_DPI=96
 		;;
 	3354CTO)
@@ -28,6 +29,8 @@ case $SYSTEM in
 		LAPTOP_DPI=96
 		EXT1=HDMI${DASH}1
 		EXT2=VGA${DASH}1
+		# doesn't exist
+		EXT3=BLAHBLAH
 		EXT_DPI=96
 		;;
 	*)
@@ -94,6 +97,21 @@ esac
 # in both of the following functions
 # $1 is the name of the mode that was requested
 
+# zurich setup (index 4)
+# (laptop off)
+#|==========================================|
+#|                                          |
+#|                                          |
+#|                                          |
+#|                   EXT1                   |
+#|                (1920x1080)               |
+#|                                          |
+#|                                          |
+#|                                          |
+#|                                          |
+#|                                          |
+#|==========================================|
+
 function success_msg () {
 	echo 'Reconfigured monitors for' "$1"
 }
@@ -151,14 +169,34 @@ function laptop_setup {
 
 function single_setup {
 	if is_connected ${EXT1}; then
+		set_dpi $EXT_DPI
 		xrandr --verbose --output ${EXT1} --auto --primary \
 			--output ${EXT2} --off --output ${LAPTOP} --off
 	elif is_connected ${EXT2}; then
+		set_dpi $EXT_DPI
 		xrandr --verbose --output ${EXT2} --auto --primary \
 			--output ${EXT1} --off --output ${LAPTOP} --off
+	elif is_connected ${EXT3}; then
+		set_dpi $EXT_DPI
+		xrandr --verbose --output ${EXT3} --auto --primary \
+			--output ${EXT1} --off --output ${EXT2} --off --output ${LAPTOP} --off
 	else
+		set_dpi $LAPTOP_DPI
 		laptop_setup
 	fi
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
+function zurich_setup {
+	set_dpi $EXT_DPI && \
+	xrandr --verbose --output ${EXT1} --mode 1920x1080 --rotate normal --primary && \
+	xrandr --output ${LAPTOP} --off
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
 		return 1
@@ -184,7 +222,9 @@ function is_connected {
 function auto_detect_setup () {
 	if is_connected ${EXT1} && is_connected ${EXT2}; then
 		echo 2
-	elif is_connected ${EXT1} || is_connected ${EXT2}; then
+	elif is_connected ${EXT1}; then
+		echo 3
+	elif is_connected ${EXT2}; then
 		echo 1
 	else
 		echo 0
@@ -204,6 +244,9 @@ function apply_setup {
 	ensure_installed xrdb
 
 	case $1 in
+		(4 | zurich)
+			zurich_setup
+			;;
 		(3 | home_down)
 			home_down_setup
 			;;

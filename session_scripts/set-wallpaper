@@ -1,3 +1,17 @@
 #! /bin/bash
 
-/usr/bin/feh --bg-fill --no-xinerama "${HOME}/.config/systemd/data/wallpaper"
+WALLPAPER_PATH="${HOME}/.config/systemd/data"
+
+function set_wallpaper {
+	/usr/bin/feh --bg-fill --no-xinerama "$1"
+}
+
+# check for argument
+if [[ -f "${WALLPAPER_PATH}/${1}" ]]; then
+	set_wallpaper "${WALLPAPER_PATH}/${1}"
+elif [[ -f "${WALLPAPER_PATH}/wallpaper-${1}" ]]; then
+	set_wallpaper "${WALLPAPER_PATH}/wallpaper-${1}"
+#fallback
+elif [[ -f "${WALLPAPER_PATH}/wallpaper" ]]; then
+	set_wallpaper "${WALLPAPER_PATH}/wallpaper"
+fi

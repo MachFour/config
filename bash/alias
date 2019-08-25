@@ -10,14 +10,10 @@ fi
 alias mv='mv -i'
 alias cp='cp -i'
 alias physsh='ssh -Y mfisher@silliac.physics.usyd.edu.au'
-alias ls='ls --color=auto --sort=extension --human-readable'
+alias ls='ls --color=auto --sort=extension --human-readable --group-directories-first'
 alias lsh='ls -A --ignore="*"'
 alias dirsize='du -chd 1'
 alias mouseon='synclient TouchpadOff=0'
-alias resetscrn='xrandr --size 1366x768 --output VGA1 --off --output HDMI1 --off --output LVDS1 --preferred'
-alias ucpu2='ssh mfis1267@ucpu2.ug.it.usyd.edu.au'
-alias kbreset='xset r rate 275 250'
-alias hdmi='xrandr --output HDMI1 --preferred && xrandr --output LVDS1 --preferred --panning 1600x1200'
 alias javad='firefox -new-tab file:///data3/max/Computer/Java/docs/api/index.html'
 alias san='systemd-analyze'
 alias stl='systemctl'
@@ -35,5 +31,10 @@ alias i3cheatsheet="egrep '^bind' ~/config/i3/config | cut -d '\'' '\''  -f 2- |
 
 alias vim='echo USE NVIM! #'
 alias foods='nvim /home/max/foods.txt'
+alias mpv='mpv --no-audio-display'
 
 # vim: ft=sh
+alias netctl='sudo netctl'
+alias ssss='systemctl --user start xsetup@single'
+alias python='python -B'
+alias pls='sudo'

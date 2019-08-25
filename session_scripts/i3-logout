@@ -6,9 +6,9 @@ font="xft:Noto Sans Bold 12"
 function get_action_i3 {
 	i3-nagbar -t warning -f "$font" \
 		-m 'Would you like to exit the desktop session?' \
-		-B 'Logout'    "systemd-run --user systemd-logout-cmd logout" \
-		-B 'Shut Down' "systemd-run --user systemd-logout-cmd shutdown" \
-		-B 'Restart'   "systemd-run --user systemd-logout-cmd reboot"
+		-b 'Logout'    "systemd-run --user systemd-logout-cmd logout" \
+		-b 'Shut Down' "systemd-run --user systemd-logout-cmd shutdown" \
+		-b 'Restart'   "systemd-run --user systemd-logout-cmd reboot"
 }
 
 get_action_i3

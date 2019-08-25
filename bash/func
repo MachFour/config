@@ -66,10 +66,6 @@ function stop_bumming_around {
 	shutdown now
 }
 
-function rund {
-	nohup "$1" &> /dev/null &
-}
-
 function cs {
 cd "$1"
 ls
@@ -105,4 +101,10 @@ function ranger {
 	fi
 }
 
+# runs a program with nohup and redirects its output to /dev/null
+function spawn {
+	nohup "$1" &> /dev/null &
+}
+
 # vim: ft=sh
+

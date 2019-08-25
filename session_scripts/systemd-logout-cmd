@@ -20,7 +20,10 @@ function stop_session_services {
 }
 
 function play_shutdown_sound {
-	paplay "${XDG_CONFIG_HOME}/systemd/data/shutdown.wav"
+	SHUTDOWN_SOUND="${XDG_CONFIG_HOME}/systemd/data/shutdown.wav"
+	if [[ -f "$SHUTDOWN_SOUND" ]]; then
+		paplay "$SHUTDOWN_SOUND"
+	fi
 }
 
 if [[ $# -lt 1 ]]; then

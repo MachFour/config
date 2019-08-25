@@ -1,0 +1,14 @@
+#! /bin/sh
+
+# saves i3 output to files named by date
+
+outlogfile="/home/max/.cache/i3/$(date +%F-%T)-out.log"
+errlogfile="/home/max/.cache/i3/$(date +%F-%T)-err.log"
+
+if [[ $1 == 'debug' ]]; then
+	i3args='-V -d all'
+else
+	i3args=
+fi
+
+exec /usr/bin/i3 $i3args > $outlogfile 2> $errlogfile

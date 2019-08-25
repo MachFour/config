@@ -3,7 +3,7 @@
     "dmenu": "dmenu",
     "dmenu-args": [
         "-i",
-		"-fn", "Source Sans Pro-11"
+		"-fn", "Noto Sans 10"
     ],
     "frecency-visits": 10,
     "preselect-last-visit": false,

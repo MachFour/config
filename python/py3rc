@@ -13,7 +13,9 @@ def register_readline():
 		# use shift-tab to actually insert a tab
 		readline.parse_and_bind(r'"[Z": tab-insert')
 		readline.parse_and_bind('"": menu-complete')
-		readline.parse_and_bind('tab: complete')
+		readline.parse_and_bind('tab: menu-complete')
+		readline.parse_and_bind('set show-all-if-ambiguous on')
+		readline.parse_and_bind('set show-all-if-unmodified on')
 
 		try:
 			readline.read_init_file()

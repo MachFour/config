@@ -1,0 +1,10 @@
+[Unit]
+Description=fcitx input method
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fcitx -D
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,13 +1,13 @@
 
 [Unit]
-Description=Udiskie automounter
+Description=Udiskie mount manager
 PartOf=graphical-session.target
 After=desktop-manager.service
 
 [Service]
 Type=simple
 
-ExecStart=/usr/bin/udiskie --config ${XDG_CONFIG_HOME}/udiskie/config.yml --tray --automount --notify
+ExecStart=/usr/bin/udiskie --config ${XDG_CONFIG_HOME}/udiskie/config.yml
 
 [Install]
 WantedBy=graphical-session.target

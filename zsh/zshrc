@@ -3,7 +3,7 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
-setopt appendhistory autocd beep
+setopt appendhistory autocd # beep
 # don't give the 'no matches found' error
 unsetopt nomatch
 
@@ -17,6 +17,36 @@ setopt auto_list
 # colour prompt
 #autoload -U colors && colors
 #PROMPT="%{$fg_bold[red]%}%? %{$fg_no_bold[green]%}%n %{$fg_no_bold[magenta]%}%1~ %{$reset_color%}%# "
+
+# customizing grml prompt
+# from http://www.pedaldrivenprogramming.com/2018/09/customize-grml-zsh-config/
+autoload -U colors && colors
+# vcs (-> git only): show if any unstaged/staged changes in current directory
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:git*' formats "%{${fg[cyan]}%}[%{${fg[blue]}%}%b%{${fg[yellow]}%}%m%u%c%{${fg[cyan]}%}]%{$reset_color%} "
+
+# customize path length (default: '%40<..<%~%<< ')
+# information on how to create this string is found in `man zshmisc`
+# can test it out using print -P
+
+# techniques:
+# - %30<word< truncates the string, replacing the beginning with 'word' such
+#   that the whole string is no more than 30 chars.
+# - %n~ is the CWD, optionally restricted to n trailing or -n leading directories
+# - %<< turns off truncation for the rest of the string
+# - %(5~|A|B) evaluates to A if the current path after prefix substitution has at least
+    # 5 components, otherwise B
+
+zstyle ':prompt:grml:*:items:path' token ' %(5~|%-1~/../%2~|%~) '
+
+# customise which items are on the prompt.
+# default (left): rc change-root user at host path vcs percent
+
+zstyle ':prompt:grml:left:setup' items rc change-root user path vcs percent
+
 
 # keybindings
 source ~/.zkbd/$TERM 2>/dev/null || source ~/.zkbd/default

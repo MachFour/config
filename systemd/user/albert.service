@@ -1,10 +1,10 @@
+
 [Unit]
-Description=Compton compositor
+Description=Albert launcher compositor
 PartOf=graphical-session.target
 
 [Service]
-#ExecStart=/usr/bin/compton --config /dev/null --dbe
-ExecStart=/usr/bin/compton
+ExecStart=/usr/bin/albert
 Restart=on-success
 
 [Install]

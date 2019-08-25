@@ -92,7 +92,9 @@ cpu_block = i3bar_create_block({
 
 network_block = i3bar_create_block({
 	full_text = "${if_up wlp4s0}wl ${wireless_essid wlp4s0}${endif}" ..
-		"${if_up enp8s0}, eth connected${endif}" ..
+		"${if_up enp0s31f6}" ..
+		"${if_up wlp4s0}, ${endif}" ..
+		"eth connected${endif}" ..
 		"${if_up tun0}, VPN active${endif} ",
 		name = "network",
 		color = "#88ff88",

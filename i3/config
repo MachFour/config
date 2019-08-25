@@ -16,8 +16,8 @@ set $alt Mod1
 # is used in the bar {} block below.
 #font pango:monospace 8
 
-set $winfont "xft:Noto Mono Bold 10"
-set $barfont "xft:Noto Mono Bold 10"
+set $winfont "xft:Noto Sans Mono Bold 10"
+set $barfont "xft:Noto Sans Mono Bold 10"
 #font xft:Source Code Pro Bold 10
 font $winfont
 
@@ -30,7 +30,7 @@ font $winfont
 
 
 # kill focused window
-bindsym $mod+BackSpace kill
+bindsym $mod+Shift+BackSpace kill
 bindsym $mod+Shift+q kill
 
 # change focus
@@ -86,7 +86,7 @@ bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
 bindsym $mod+3 workspace "3: web"
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace "5: MATLAB"
+bindsym $mod+5 workspace "5: code"
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -99,7 +99,7 @@ bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
 bindsym $mod+Shift+3 move container to workspace "3: web"
 bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace "5: MATLAB"
+bindsym $mod+Shift+5 move container to workspace "5: code"
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -112,16 +112,18 @@ bindsym $mod+u border toggle
 for_window [class=".*"] border pixel 2
 
 ## PROGRAM HOTKEYS
-bindsym $mod+f exec browser
-bindsym $mod+t exec i3-sensible-terminal
-bindsym $mod+Return exec termite -t 'floaty'
+bindsym $mod+f exec --no-startup-id browser
+bindsym $mod+t exec --no-startup-id kitty
+bindsym $mod+Return exec --no-startup-id kitty --title 'floaty'
 for_window [class="Termite" title="floaty"] floating enable
+for_window [class="kitty" title="floaty"] floating enable
 
-bindsym $mod+y exec termite -t "System Update" sysupdate
+bindsym $mod+y exec --no-startup-id kitty --title "System Update" -o "remember_window_size=no" sysupdate
 for_window [class="Termite" title="System Update"] floating enable
+for_window [class="kitty" title="System Update"] floating enable resize set 900 700
 
-bindsym $mod+x exec pcmanfm
-bindsym $mod+g exec termite ranger
+bindsym $mod+x exec --no-startup-id pcmanfm
+bindsym $mod+g exec --no-startup-id kitty ranger
 # super + escape
 bindcode $mod+9 exec --no-startup-id i3-logout
 # super + shift + end = shutdown
@@ -129,15 +131,13 @@ bindcode $mod+Shift+115 exec --no-startup-id systemd-run --user systemd-logout-c
 # print screen
 bindsym Print exec --no-startup-id screenshot
 
-bindsym $mod+r exec --no-startup-id i3-dmenu-desktop --dmenu=dmenu-frecency
-
-
-#-> new container with termite running pacman -Syu?
+#bindsym $mod+r exec --no-startup-id i3-dmenu-desktop --dmenu=dmenu-frecency
+#bindsym $mod+r exec albert-init
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+i layout stacking
-bindsym $mod+o layout tabbed
-bindsym $mod+p layout toggle split
+bindsym $mod+Shift+i layout stacking
+bindsym $mod+Shift+o layout tabbed
+bindsym $mod+Shift+p layout toggle split
 # toggle split to be either in vertical or horizontal
 bindsym $mod+b splith
 bindsym $mod+v splitv
@@ -178,14 +178,14 @@ bindsym $mod+minus scratchpad show
 
 # reload the configuration file
 bindsym $mod+Shift+a reload
-bindsym $mod+Shift+c exec i3-edit-config
+bindsym $mod+Shift+c exec --no-startup-id i3-edit-config
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # fix matlab and other windows
-for_window [class="MATLAB R201[5-6]a" title="Figure.*"] floating enable
+for_window [class="MATLAB R201[5-8]a" title="Figure.*"] floating enable
 for_window [class="qjackctl"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
@@ -196,12 +196,24 @@ for_window [class="VBoxSDL" title=".* - Oracle VM VirtualBox"] resize set 900 70
 for_window [class="Dolphin-emu"] floating enable
 for_window [title="Android Emulator.*"] floating enable
 for_window [class="Gsimplecal"] floating enable resize set 250 120
+for_window [class="albert"] move position center
+
+for_window [class="CV_IMAGE"] floating enable move position center border normal
+assign [class="CV_IMAGE"] 9
 
 # put ff on own workspace on horizontal monitor
-assign [class="^Firefox$"] "3: web"
-assign [class="^Inox$"]    "3: web"
-assign [class="MATLAB"] "5: MATLAB"
-assign [class="jetbrains-studio"] "5: MATLAB"
+assign [class="^firefox.*"] "3: web"
+assign [class="MATLAB"] "5: code"
+assign [class="jetbrains-studio"] "5: code"
+assign [class="jetbrains-idea-ce"] "5: code"
+assign [class="jetbrains-clion"] "5: code"
+
+#Focus prevention
+#focus_on_window_activation none
+no_focus [class="jetbrains-clion"]
+no_focus [class="jetbrains-studio"]
+no_focus [class="jetbrains-idea-ce"]
+no_focus [class="MATLAB*"]
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -257,6 +269,8 @@ client.background       #ffffff
 bar {
 	output eDP1
 	output HDMI1
+	output DP2
+	output DP1
 	font $barfont
 	tray_output primary
 	status_command "i3status-conky"
@@ -267,15 +281,15 @@ bar {
 }
 
 #secondary bar for secondary monitor
-bar {
-	output DP2
-	font $barfont
-	tray_output primary
-
-	colors {
-		focused_workspace $border_colour $title_colour $text_colour
-	}
-}
+#bar {
+#	output DP2
+#	font $barfont
+#	tray_output primary
+#
+#	colors {
+#		focused_workspace $border_colour $title_colour $text_colour
+#	}
+#}
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -283,8 +297,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 2
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 2
+bindsym XF86MonBrightnessUp exec --no-startup-id light-adj inc
+bindsym XF86MonBrightnessDown exec --no-startup-id light-adj dec
 
 bindsym XF86Display exec --no-startup-id systemctl --user start xsetup@auto
 

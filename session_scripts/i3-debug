@@ -1,6 +1,0 @@
-#! /bin/sh
-
-outlogfile="/home/max/.cache/i3/$(date +%F-%T)-out.log"
-errlogfile="/home/max/.cache/i3/$(date +%F-%T)-err.log"
-
-exec /usr/bin/i3 -V > $outlogfile 2> $errlogfile

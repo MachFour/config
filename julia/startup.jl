@@ -1,4 +1,5 @@
 push!(LOAD_PATH, "/home/max/")
+push!(LOAD_PATH, pwd())
 
 # for macros calculation
 function energies(protein, fat, carbs)
@@ -16,4 +17,13 @@ end
 
 function calc_l(f, c)
 	l = 1/(2*pi*f*sqrt(c))^2
+end
+
+# use Revise automatically
+atreplinit() do repl
+    try
+        @eval using Revise
+        @async Revise.wait_steal_repl_backend()
+    catch
+    end
 end

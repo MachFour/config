@@ -1,11 +1,11 @@
 pkgname=configure-monitors
-pkgver=1
+pkgver=4
 pkgrel=1
 pkgdesc="Custom monitor configuration script"
 arch=('any')
 depends=('xorg-xrandr' 'xorg-xrdb')
 source=('configure_monitors.sh')
-md5sums=('8ec196446ffc24ac7236c91c4891b343')
+md5sums=('1bc6e5dee09fb80aac231282afb14803')
 
 package() {
 	install -m0755 -D $srcdir/configure_monitors.sh "$pkgdir/usr/bin/configure_monitors"

@@ -17,7 +17,12 @@ fi
 [ -f ~/.env ] && . ~/.env
 
 function build_ps1() {
-	local git='$(__git_ps1 " (%s)")'
+	if which __git_ps1 2>/dev/null; then
+		local git='$(__git_ps1 " (%s)")'
+	else
+		echo "Git repo/branch detection disabled: no prompt script found"
+		local git=''
+	fi
 
 	local reset=$(tput sgr0)
 
@@ -31,7 +36,6 @@ function build_ps1() {
 	local lgre=$(tput setaf 40)
 	local yell=$(tput setaf 11)
 	local blu2=$(tput setaf 33)
-	
 	PS1="[\[${orng}\]\u@\h:\[${grey}\]\w\[${reset}\]]\[${blu}\]${git} \[${reset}\]\$ "
 }
 build_ps1

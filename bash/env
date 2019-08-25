@@ -8,7 +8,7 @@ export PAGER=/usr/bin/less
 export MANPAGER=/usr/bin/less
 export PATH=/home/max/bin:${CONFIG_HOME}/session_scripts:"$PATH"
 export PYTHONSTARTUP="${CONFIG_HOME}/python/py3rc"
-export BROWSER=inox
+export BROWSER=firefox
 # for ls
 export QUOTING_STYLE=literal
 #export MATLAB_JAVA="/usr/lib/jvm/java-8-jdk/jre"
@@ -27,4 +27,13 @@ export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS --squeeze-blank-lines --quit-on-i
 # need these two together
 export SYSTEMD_LESS="$LESS --chop-long-lines --no-init --quit-if-one-screen"
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.opengl=true'
+_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+_JAVA_OPTIONS+=" -Dswing.aatext=true"
+#_JAVA_OPTIONS+=" -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+_JAVA_OPTIONS+=" -Dsun.java2d.opengl=false"
+export _JAVA_OPTIONS
+
+#input options
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx

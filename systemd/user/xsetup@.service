@@ -13,9 +13,9 @@ PartOf=graphical-session-pre.target
 Type=oneshot
 Environment=DISPLAY=:0
 ExecStart=/usr/bin/configure_monitors %i
-ExecStart=/usr/bin/xset r rate 250 25
+ExecStart=/usr/bin/xset r rate 225 35
 #ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/touchpad-configure.sh
-ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper
+ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper %i
 SuccessExitStatus=0
 
 [Install]

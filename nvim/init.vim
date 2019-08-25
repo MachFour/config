@@ -1,7 +1,9 @@
 
 " General options {{{
-syntax on
-colorscheme industry
+filetype plugin indent on
+
+" custom colourscheme which allows for transparent background
+colorscheme industry-max
 set tabstop=4
 set shiftwidth=4
 set scrolloff=4
@@ -30,7 +32,8 @@ set backupdir=./.vimtemp,~/.vimtemp,.
 set dir=.,./.vimtemp,~/.vimtemp
 
 " bell control
-set belloff=backspace,cursor,insertmode
+"set belloff=backspace,cursor,insertmode
+set belloff=all
 
 " mouse control except in insert mode
 if has("mouse")
@@ -48,8 +51,6 @@ set listchars=tab:→\ ,trail:·,nbsp:·
 set noequalalways
 
 set runtimepath+=/usr/share/vim/vimfiles
-
-filetype plugin indent on
 
 " }}}
 
@@ -74,8 +75,8 @@ nnoremap e E
 noremap H ^
 noremap L $
 "navigate among WORDS using ctrl-b, ctrl-e? -> or leader
-nnoremap <C-h> B
-nnoremap <C-l> E
+"nnoremap <C-h> B
+"nnoremap <C-l> E
 
 "up and down with ctrl-j, k
 nnoremap <C-j> <C-e>
@@ -91,6 +92,7 @@ nnoremap Y y$
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
 inoremap  <C-W>
+
 
 " save with WW
 nnoremap WW :w<CR>
@@ -138,8 +140,9 @@ let g:vimtex_enabled = 1
 
 "nvim remote
 let g:vimtex_latexmk_progname = 'nvr'
-let g:vimtex_view_general_viewer = 'zathura'
-"syntax hilighting within minted environment
+"let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = 'zathura'
+"syntax highlighting within minted environment
 " if the syntax file is named something else, you can specify it here
 " e.g. for python, it will look for 'syntax/python.vim'
 " defaults to the value of 'lang'
@@ -147,31 +150,95 @@ let g:vimtex_syntax_minted = [
 			\ {'lang': 'python', 'syntax' : 'python'},
 			\ {'lang': 'sh', 'syntax' : 'sh'}
 			\ ]
+let g:vimtex_indent_enabled = 0
 
-
-"let g:tex_flavor="latex"
 " stop filetype indent from adding an indent every time you type ( or } in an \align{...}
-let g:tex_indent_and = 0
+"let g:tex_indent_and = 0
+" let g:vimtex_indent_delims = {
+" 	  \ 'open' : ['{', '\\\@<!\\\['],
+" 	  \ 'close' : ['}', '\\\]'],
+" 	  \ 'include_modified_math' : 1,
+" 	  \}
+let g:vimtex_indent_delims = {
+	  \ 'open' : [],
+	  \ 'close' : [],
+	  \ 'include_modified_math' : 0,
+	  \}
+
+" stop overfull hbox warnings
+let g:vimtex_quickfix_latexlog = {
+	  \ 'overfull' : 0,
+	  \ 'underfull' : 0,
+	  \ 'packages' : {
+	  \   'default' : 0,
+	  \ },
+\}
+
 " enable compilation on saving
 
 
 " }}}
 
+function CodingInit(width)
+	setlocal expandtab tabstop=4 number linebreak
+	let &l:textwidth=a:width
+	" auto complete braces
+	" TODO push closing delimiter onto a stack, and whenever a closing
+	" delimeter is typed, ignore it if it's the one on the top
+	" clear the stack when exiting insert mode
+	"inoremap " ""<left>
+	"inoremap ( ()<left>
+	"inoremap [ []<left>
+	"inoremap { {}<left>
+	" make sure you can cancel out of it if presed by mistake
+	"inoremap "<BS> <nop>
+	"inoremap (<BS> <nop>
+	"inoremap [<BS> <nop>
+	"inoremap {<BS> <nop>
+	" or just insert the opening delimeter if you want to
+	"inoremap "<ESC> "
+	"inoremap (<ESC> (
+	"inoremap [<ESC> [
+	"inoremap {<ESC> {
+	" don't double insert the closing delimter
+	"inoremap "" ""
+	"inoremap () ()
+	"inoremap [] []
+	"inoremap {} {}
+	" some tricky newline tricks
+	inoremap {<CR> {<CR>}<ESC>O
+	inoremap {;<CR> {<CR>};<ESC>O
+endfunction
+
+function TextInit()
+	setlocal linebreak noet
+	inoremap `p •<space>
+	" pretty UTF-8 arrows
+	"inoremap -><space> →<space>
+	"inoremap <-<space> ←<space>
+endfunction
+
 
 " Filetype-specific settings and commands
 augroup ftspecific
 	autocmd! ftspecific
-	autocmd FileType python 	setlocal noexpandtab tabstop=4 textwidth=79 relativenumber
-	autocmd FileType matlab 	setlocal textwidth=83 colorcolumn=+2,+3 noexpandtab relativenumber
+	autocmd FileType julia  	call CodingInit(79)
+	autocmd FileType python 	call CodingInit(79)
+	" existing python scripts use tabs
+	"autocmd FileType python 	setlocal noet
+	autocmd FileType matlab 	call CodingInit(83)
+	autocmd FileType matlab 	setlocal colorcolumn=+2,+3
 	autocmd FileType tex 		call vimtex#init()
 	" wrap text using newline chars at textwidth; draw a red bar there.
-	autocmd FileType tex 		setlocal textwidth=79 colorcolumn=+0
-	autocmd FileType text 		setlocal linebreak
+	autocmd FileType tex 		setlocal colorcolumn=+0
+	autocmd FileType tex 		call CodingInit(80)
+	autocmd FileType text       call TextInit()
 	"autocmd Filetype tex runtime after/syntax/tex.vim
-	autocmd Filetype cpp 		setlocal textwidth=79 relativenumber
-	autocmd Filetype arduino 	setlocal textwidth=79 relativenumber
-	autocmd Filetype c 			setlocal textwidth=79 relativenumber
-	autocmd Filetype sql 		setlocal textwidth=79 relativenumber
+	autocmd Filetype cpp 		call CodingInit(79)
+	autocmd Filetype arduino 	call CodingInit(79)
+	autocmd Filetype c 			call CodingInit(79)
+	autocmd Filetype sql 		call CodingInit(85)
+	autocmd Filetype java 		call CodingInit(100)
 augroup END
 
 " statusline examples
@@ -243,8 +310,8 @@ let g:SuperTabNoCompleteAfter = ['^', '\s', '#', '"', '/', '%', ',', ';']
 
 " nvim-R options {{{
 let g:R_assign = 0
-let g:R_term = "termite"
-let g:R_term_cmd = "termite-R"
+let g:R_term = "kitty"
+let g:R_term_cmd = "kitty R"
 let g:R_in_buffer = 0
 " }}}
 
@@ -264,11 +331,11 @@ if g:highlight_whitespace
 	augroup END
 endif
 
+" change to (absolute path of) directory containing file
+" :help filename-modifiers
 autocmd BufEnter * silent lcd %:p:h
 
 " performance hack
-if version >= 702
-	au BufWinLeave * call clearmatches()
-endif
+au BufWinLeave * call clearmatches()
 
 " vim: foldmethod=marker:foldlevel=0
