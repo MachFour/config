@@ -275,7 +275,7 @@ function apply_setup {
 
 	case $1 in
 		(5 | uhd )
-			4K_setup	
+			uhd_setup	
 			;;
 		(4 | zurich)
 			zurich_setup
