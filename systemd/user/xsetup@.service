@@ -4,7 +4,7 @@
 [Unit]
 Description=X session scripts
 Requires=x11.target
-After=x11.target
+After=x11.target monitor-config.service
 # so that xrandr, environment etc. is set up
 Before=desktop.target desktop-manager.service
 PartOf=graphical-session-pre.target
@@ -12,7 +12,8 @@ PartOf=graphical-session-pre.target
 [Service]
 Type=oneshot
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/configure_monitors %i
+#ExecStart=/usr/bin/configure_monitors %i [now in monitor-config.service]
+ExecStart=/usr/bin/sleep 2
 ExecStart=/usr/bin/xset r rate 225 35
 #ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/touchpad-configure.sh
 ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper %i

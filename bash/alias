@@ -30,11 +30,19 @@ alias nv='nvim'
 alias i3cheatsheet="egrep '^bind' ~/config/i3/config | cut -d '\'' '\''  -f 2- | sed '\''s/ /\t/'\'' | column -ts $'\''\t'\''"
 
 alias vim='echo USE NVIM! #'
-alias foods='nvim /home/max/foods.txt'
-alias mpv='mpv --no-audio-display'
+#alias foods='nvim /home/max/foods.txt'
+alias mpv='mpv --no-audio-display --sub-font-size=30'
 
 # vim: ft=sh
 alias netctl='sudo netctl'
-alias ssss='systemctl --user start xsetup@single'
+alias ssss='systemctl --user start monitor-config@single xsetup@single'
+alias laptop='systemctl --user start monitor-config@laptop xsetup@laptop'
 alias python='python -B'
-alias pls='sudo'
+alias pls=sudo
+alias kbr=kbreset
+# make nnn open files with neovim inside terminal
+alias nnn='nnn -e'
+alias eval-timer='clock --timer 5:00'
+alias mount-vm='sudo mount /dev/nvme0n1p7 vm'
+alias weather='curl -s https://wttr.in/Sydney'
+alias bt-on='bluetoothctl power on'

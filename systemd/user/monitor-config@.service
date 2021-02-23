@@ -1,0 +1,20 @@
+
+# Sets some settings that are relevant to running an X session
+
+[Unit]
+Description=Monitor Config
+Requires=x11.target
+After=x11.target
+# so that xrandr, environment etc. is set up
+Before=desktop.target desktop-manager.service xsetup@.service
+PartOf=graphical-session-pre.target
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/configure_monitors %i
+SuccessExitStatus=0
+
+[Install]
+WantedBy=x11.target
+DefaultInstance=auto

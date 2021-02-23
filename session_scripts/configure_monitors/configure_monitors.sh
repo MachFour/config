@@ -3,12 +3,15 @@
 # uses Xrandr to configure monitor outputs to one of a number of preset configurations
 
 # when xf86-video-intel driver is used, there is no dash. When modesetting is used, there is a dash
-DASH=
+DASH=-
 
 # the following logic is used to figure out which (system-specific) display adapters are to be used
 # when configuring displays with xrandr. They should be a subset of what's found in /sys/class/drm/
 
 SYSTEM=$(cat /sys/devices/virtual/dmi/id/product_name)
+
+EXT_DPI=96
+UHD_DPI=140
 
 case $SYSTEM in
 	20HRCTO1WW)
@@ -20,7 +23,6 @@ case $SYSTEM in
 		EXT1=HDMI${DASH}1
 		EXT2=DP${DASH}2
 		EXT3=DP${DASH}1
-		EXT_DPI=96
 		;;
 	3354CTO)
 		# ThinkPad Edge E330
@@ -31,7 +33,6 @@ case $SYSTEM in
 		EXT2=VGA${DASH}1
 		# doesn't exist
 		EXT3=BLAHBLAH
-		EXT_DPI=96
 		;;
 	*)
 		echo "This script isn't configured for your computer!"
@@ -105,6 +106,21 @@ esac
 #|                                          |
 #|                   EXT1                   |
 #|                (1920x1080)               |
+#|                                          |
+#|                                          |
+#|                                          |
+#|                                          |
+#|                                          |
+#|==========================================|
+
+# UHD setup (index 5)
+# (laptop off)
+#|==========================================|
+#|                                          |
+#|                                          |
+#|                                          |
+#|                   EXT1                   |
+#|                (3840x2160)               |
 #|                                          |
 #|                                          |
 #|                                          |
@@ -206,6 +222,19 @@ function zurich_setup {
 	fi
 }
 
+function uhd_setup {
+	set_dpi ${UHD_DPI} && \
+	xrandr --verbose --output ${EXT1} --mode 3840x2160 --rotate normal --primary && \
+	xrandr --output ${LAPTOP} --off
+	if [[ $? -ne 0 ]]; then
+		failure_msg ${FUNCNAME[0]}
+		return 1
+	else
+		success_msg ${FUNCNAME[0]}
+		return 0
+	fi
+}
+
 #uses Xrandr to detect if display $1 is connected
 # this function should not print anything
 function is_connected {
@@ -221,11 +250,12 @@ function is_connected {
 # essentially returns the number of externally connected displays
 function auto_detect_setup () {
 	if is_connected ${EXT1} && is_connected ${EXT2}; then
-		echo 2
+		echo home_up
 	elif is_connected ${EXT1}; then
-		echo 3
+		#echo single
+		echo uhd
 	elif is_connected ${EXT2}; then
-		echo 1
+		echo uhd
 	else
 		echo 0
 	fi
@@ -244,6 +274,9 @@ function apply_setup {
 	ensure_installed xrdb
 
 	case $1 in
+		(5 | uhd )
+			4K_setup	
+			;;
 		(4 | zurich)
 			zurich_setup
 			;;

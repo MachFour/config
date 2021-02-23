@@ -5,6 +5,7 @@ PartOf=graphical-session.target
 
 [Service]
 ExecStart=/usr/bin/albert
+Environment=QT_LOGGING_RULES="*.debug=false;*.info=false"
 Restart=on-success
 
 [Install]

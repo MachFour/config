@@ -3,7 +3,7 @@
 #
 # ~/.xsession
 # sourced by display manager
-# after system xinit scripts are sources
+# after system xinit scripts are sourced
 
 function set_xdg_vars {
 	XDG_DATA_HOME="$HOME/.local/share"
@@ -54,36 +54,38 @@ set_xdg_vars
 # X session preferences
 #
 
-#xset r rate 275 25
-#configure_monitors
-#xrandr --output VGA-1 --primary
+#if [[ ! $(systemctl --user is-active desktop.target) ]]; then
 
-GLOBAL_PROFILE=/etc/profile
-ENV_FILE="$HOME"/.env
-STARTUP_FILE="$HOME"/.startup
+	#xset r rate 275 25
+	#configure_monitors
+	#xrandr --output VGA-1 --primary
 
-# get normal environment into systemd user session
-# import all system variables and some user variables
-[[ -f /etc/profile ]] && . /etc/profile
-systemctl --user import-environment
+	GLOBAL_PROFILE=/etc/profile
+	ENV_FILE="$HOME"/.env
+	STARTUP_FILE="$HOME"/.startup
 
-[[ -f "$ENV_FILE" ]] && . "$ENV_FILE"
-systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
+	# get normal environment into systemd user session
+	# import all system variables and some user variables
+	[[ -f /etc/profile ]] && . /etc/profile
+	systemctl --user import-environment
 
-systemctl --user start desktop.target
+	[[ -f "$ENV_FILE" ]] && . "$ENV_FILE"
+	systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
 
-# pulseaudio bell
-#pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav
-#pacmd load-module module-x11-bell display=:0 sample=bell-440
+	systemctl --user start desktop.target
 
-if [[ -f "$STARTUP_FILE" ]]; then
-	while read -r desktop_file; do
-		# skip 'commented' lines
-		[[ $desktop_file = \#* ]] && continue
-		# else
-		dex -v $desktop_file
-	done < "$STARTUP_FILE"
-fi
+	# pulseaudio bell
+	#pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav
+	#pacmd load-module module-x11-bell display=:0 sample=bell-440
 
+	if [[ -f "$STARTUP_FILE" ]]; then
+		while read -r desktop_file; do
+			# skip 'commented' lines
+			[[ $desktop_file = \#* ]] && continue
+			# else
+			dex -v $desktop_file
+		done < "$STARTUP_FILE"
+	fi
+#fi
 
 # vim : ft=sh

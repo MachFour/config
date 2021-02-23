@@ -106,5 +106,13 @@ function spawn {
 	nohup "$1" &> /dev/null &
 }
 
+
+function flutter {
+	JAVA_HOME=/usr/lib/jvm/java-8-openjdk/jre \
+		CHROME_EXECUTABLE=/usr/bin/chromium \
+		/usr/bin/flutter "$@"
+}
+
 # vim: ft=sh
+
 

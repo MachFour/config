@@ -3,7 +3,9 @@ Description=i3 window manager
 PartOf=graphical-session.target
 
 [Service]
+#ExecStart=/home/max/.config/session_scripts/i3-wrapper debug
 ExecStart=/home/max/.config/session_scripts/i3-wrapper
+Nice=-5
 ExecReload=/usr/bin/kill -HUP $MAINPID
 Restart=on-success
 

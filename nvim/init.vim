@@ -26,8 +26,18 @@ set incsearch
 
 " Don't backup files matching this pattern
 set backupskip=/tmp/*,*~
-" directory for backup file
-set backupdir=./.vimtemp,~/.vimtemp,.
+" Make copies of edited files when backing up, don't rename the original file
+" as the backup and write a new one. This preserves the creation time of the
+" file
+set backupcopy=yes
+
+" directory for backup file.
+" Warning: there is a bug in nvim as of 21/06/20 where if backupcopy=yes and
+" the first directory in backupdir does't exist, it will fail to write a backup
+" even if a subsequent one (lower precedence) in the backupdir list does
+" exist. So make sure the first directory exists!
+"
+set backupdir=~/.vimtemp,.
 " directory for swap file
 set dir=.,./.vimtemp,~/.vimtemp
 
@@ -130,6 +140,11 @@ if !exists(":DiffOrig")
 		\ | wincmd p | diffthis
 endif
 
+" Command to replace fancy digraph quotes (“ and ”) with simple double quotes
+if !exists(":Requote")
+	command Requote %s/“\|”/"/g
+endif
+
 " pgsql syntax default for SQL files
 let g:sql_type_default = 'pgsql'
 
@@ -140,8 +155,9 @@ let g:vimtex_enabled = 1
 
 "nvim remote
 let g:vimtex_latexmk_progname = 'nvr'
-"let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_view_method = 'zathura'
+"let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_method = 'general'
+let g:vimtex_view_general_viewer = 'evince'
 "syntax highlighting within minted environment
 " if the syntax file is named something else, you can specify it here
 " e.g. for python, it will look for 'syntax/python.vim'
@@ -218,20 +234,31 @@ function TextInit()
 	"inoremap <-<space> ←<space>
 endfunction
 
+function TexInit()
+	setlocal colorcolumn=+0
+	nnoremap \be i\begin{equation}<ESC>
+endfunction
+
+function DartInit()
+	setlocal shiftwidth=2 tabstop=2
+endfunction
+
 
 " Filetype-specific settings and commands
 augroup ftspecific
 	autocmd! ftspecific
 	autocmd FileType julia  	call CodingInit(79)
 	autocmd FileType python 	call CodingInit(79)
+	autocmd FileType dart   	call CodingInit(79)
+	autocmd FileType dart   	call DartInit()
 	" existing python scripts use tabs
 	"autocmd FileType python 	setlocal noet
 	autocmd FileType matlab 	call CodingInit(83)
 	autocmd FileType matlab 	setlocal colorcolumn=+2,+3
 	autocmd FileType tex 		call vimtex#init()
 	" wrap text using newline chars at textwidth; draw a red bar there.
-	autocmd FileType tex 		setlocal colorcolumn=+0
 	autocmd FileType tex 		call CodingInit(80)
+	autocmd FileType tex 		call TexInit()
 	autocmd FileType text       call TextInit()
 	"autocmd Filetype tex runtime after/syntax/tex.vim
 	autocmd Filetype cpp 		call CodingInit(79)

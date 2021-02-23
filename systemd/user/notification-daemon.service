@@ -1,0 +1,13 @@
+
+[Unit]
+Description=GNOME notification daemon (dex start)
+PartOf=graphical-session.target
+After=desktop-manager.service
+
+[Service]
+Type=oneshot
+
+ExecStart=/usr/bin/dex --verbose /usr/share/applications/notification-daemon.desktop
+
+[Install]
+WantedBy=graphical-session.target
