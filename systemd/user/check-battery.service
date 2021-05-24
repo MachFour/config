@@ -1,0 +1,10 @@
+[Unit]
+Description=Battery alert service
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/python /home/max/bin/check_battery.py
+Restart=on-success
+
+[Install]
+WantedBy=graphical-session.target

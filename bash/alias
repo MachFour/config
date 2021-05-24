@@ -37,6 +37,7 @@ alias mpv='mpv --no-audio-display --sub-font-size=30'
 alias netctl='sudo netctl'
 alias ssss='systemctl --user start monitor-config@single xsetup@single'
 alias laptop='systemctl --user start monitor-config@laptop xsetup@laptop'
+alias 4k='systemctl --user start monitor-config@4k xsetup@4k'
 alias python='python -B'
 alias pls=sudo
 alias kbr=kbreset

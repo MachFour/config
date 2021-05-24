@@ -6,7 +6,10 @@ PartOf=graphical-session.target
 [Service]
 ExecStart=/usr/bin/albert
 Environment=QT_LOGGING_RULES="*.debug=false;*.info=false"
-Restart=on-success
+#Restart=on-success
+Restart=always
+StandardOutput=append:/home/max/.local/share/albert/stdout.txt
+StandardError=append:/home/max/.local/share/albert/stderr.txt
 
 [Install]
 WantedBy=graphical-session.target

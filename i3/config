@@ -124,7 +124,7 @@ for_window [class="Termite" title="floaty"] floating enable
 for_window [class="kitty" title="floaty"] floating enable
 
 bindsym $mod+y exec --no-startup-id kitty --title "System Update" -o "remember_window_size=no" sysupdate
-for_window [class="kitty" title="System Update"] floating enable resize set 1000 700
+for_window [class="kitty" title="System Update"] floating enable resize set 1500 1000
 
 bindsym $mod+x exec --no-startup-id pcmanfm
 bindsym $mod+g exec --no-startup-id kitty ranger

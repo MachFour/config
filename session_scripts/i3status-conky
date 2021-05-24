@@ -1,5 +1,18 @@
 #! /bin/bash
 
+
+function pulseaudio_current_sink() {
+	pacmd list-sinks | awk '/* index/ { print $3 }'
+}
+
+function increase_volume() {
+	pactl set-sink-volume $(pulseaudio_current_sink) +2%
+}
+
+function decrease_volume() {
+	pactl set-sink-volume $(pulseaudio_current_sink) -2%
+}
+
 # output json version for i3bar
 echo '{ "version": 1, "click_events": true }'
 # output beginning of infinite array
@@ -15,8 +28,20 @@ while read line; do
 			gsimplecal &
 		elif echo "$line" | grep -q mem; then
 			lxtask &
+		elif echo "$line" | grep -q audio; then
+			pavucontrol &
 		elif echo "$line" | grep -q space; then
 			baobab &
+		fi
+	# check for scroll up
+	elif echo "$line" | grep -q '\"button\":4'; then
+		if echo "$line" | grep -q audio; then
+			increase_volume
+		fi
+	# check for scroll down
+	elif echo "$line" | grep -q '\"button\":5'; then
+		if echo "$line" | grep -q audio; then
+			decrease_volume
 		fi
 	fi
 done

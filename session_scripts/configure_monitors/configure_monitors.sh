@@ -223,8 +223,14 @@ function zurich_setup {
 }
 
 function uhd_setup {
-	set_dpi ${UHD_DPI} && \
-	xrandr --verbose --output ${EXT1} --mode 3840x2160 --rotate normal --primary && \
+	set_dpi ${UHD_DPI}
+	local ext
+	if is_uhd ${EXT2}; then
+		ext=${EXT2}
+	else
+		ext=${EXT3}
+	fi
+	xrandr --verbose --output ${ext} --mode 3840x2160 --rotate normal --primary && \
 	xrandr --output ${LAPTOP} --off
 	if [[ $? -ne 0 ]]; then
 		failure_msg ${FUNCNAME[0]}
@@ -235,11 +241,19 @@ function uhd_setup {
 	fi
 }
 
-#uses Xrandr to detect if display $1 is connected
 # this function should not print anything
 function is_connected {
-	#if [[ $(cat /sys/class/drm/card0-$1/status) == "connected" ]]; then
+    #if [[ $(cat /sys/class/drm/card0-$1/status) == "connected" ]]; then
 	if xrandr | grep -E -e "^$1 connected" &>/dev/null; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+# this function should not print anything
+function is_uhd {
+    if grep '3840x2160' "/sys/class/drm/card0-$1/modes" &>/dev/null; then
 		return 0
 	else
 		return 1
@@ -252,10 +266,23 @@ function auto_detect_setup () {
 	if is_connected ${EXT1} && is_connected ${EXT2}; then
 		echo home_up
 	elif is_connected ${EXT1}; then
-		#echo single
-		echo uhd
+		if is_uhd ${EXT1}; then
+			echo uhd
+		else
+			echo single
+		fi
 	elif is_connected ${EXT2}; then
-		echo uhd
+		if is_uhd ${EXT2}; then
+			echo uhd
+		else
+			echo single
+		fi
+	elif is_connected ${EXT3}; then
+		if is_uhd ${EXT3}; then
+			echo uhd
+		else
+			echo single
+		fi
 	else
 		echo 0
 	fi
@@ -274,7 +301,7 @@ function apply_setup {
 	ensure_installed xrdb
 
 	case $1 in
-		(5 | uhd )
+		(5 | uhd)
 			uhd_setup	
 			;;
 		(4 | zurich)

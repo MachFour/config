@@ -3,13 +3,13 @@
 conky.config = {
 	-- disable X11 integration
 	out_to_x = false,
-	cpu_avg_samples = 2,
-	net_avg_samples = 2,
+	cpu_avg_samples = 9,
+	net_avg_samples = 9,
 	if_up_strictness = "address",
 	out_to_console = true,
 	out_to_stderr = false,
 	--pad_percents = 2,
-	update_interval = 1,
+	update_interval = 0.3,
 	uppercase = false,
 	use_spacer = 'left',
 	format_human_readable = true,
@@ -77,9 +77,16 @@ uptime_block = i3bar_create_block({
 	})
 
 batt_block = i3bar_create_block({
-		full_text = " batt ${battery_percent}% ",
+		full_text = " batt ${battery_percent}% ac ${cat /sys/class/power_supply/AC/online} ",
 		name = "batt",
 		color = "#88ccff",
+		separator = true
+	})
+
+batt_alert_block = i3bar_create_block({
+		full_text = " ${cat /home/max/.battery_alert} ",
+		name = "batt_alert",
+		color = "#ff0000",
 		separator = true
 	})
 
@@ -91,13 +98,24 @@ cpu_block = i3bar_create_block({
 	})
 
 network_block = i3bar_create_block({
-	full_text = "${if_up wlp4s0}wl ${wireless_essid wlp4s0}${endif}" ..
+	full_text = " wl ${if_up wlp4s0}${wireless_essid wlp4s0}" ..
+		"${else}disconnected${endif}" ..
 		"${if_up enp0s31f6}" ..
 		"${if_up wlp4s0}, ${endif}" ..
 		"eth connected${endif}" ..
-		"${if_up tun0}, VPN active${endif} ",
+		"${if_up tun0}, VPN active${endif}" ..
+		"${if_up proton0}, ProtonVPN active${endif} ",
 		name = "network",
 		color = "#88ff88",
+		separator = true
+	})
+
+audio_block = i3bar_create_block({
+	full_text = " volume ${pa_sink_volume}%" .. 
+		-- "${pa_sink_volumebar}" ..
+		" ",
+		name = "audio",
+		color = "#ff88ff",
 		separator = true
 	})
 
@@ -128,12 +146,14 @@ end_block = i3bar_create_block({
 		})
 
 conky.text = i3bar_create_line({
+		batt_alert_block,
 		network_block,
 		cpu_block,
 		mem_block,
 		space_block,
 		uptime_block,
 		batt_block,
+		audio_block,
 		clock_block,
 		end_block
 	})
