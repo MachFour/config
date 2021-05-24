@@ -14,8 +14,17 @@ EXT_DPI=96
 UHD_DPI=140
 
 case $SYSTEM in
+	20XWCTO1WW)
+		# Thinkpad X1 Carbon 9th Gen
+		LAPTOP=eDP${DASH}1
+		LAPTOP_RES=1920x1200
+		LAPTOP_DPI=120
+		EXT1=HDMI${DASH}1
+		EXT2=DP${DASH}2
+		EXT3=DP${DASH}1
+		;;
 	20HRCTO1WW)
-		# ThinkPad X1 Carbon 5th
+		# ThinkPad X1 Carbon 5th Gen
 		# no non-dash support yet
 		LAPTOP=eDP${DASH}1
 		LAPTOP_RES=1920x1080
@@ -225,7 +234,9 @@ function zurich_setup {
 function uhd_setup {
 	set_dpi ${UHD_DPI}
 	local ext
-	if is_uhd ${EXT2}; then
+	if is_uhd HDMI-A-1; then
+		ext=${EXT1}
+	elif is_uhd ${EXT2}; then
 		ext=${EXT2}
 	else
 		ext=${EXT3}
