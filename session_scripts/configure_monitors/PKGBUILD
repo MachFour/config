@@ -1,5 +1,5 @@
 pkgname=configure-monitors
-pkgver=8
+pkgver=9
 pkgrel=1
 pkgdesc="Custom monitor configuration script"
 arch=('any')

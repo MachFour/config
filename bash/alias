@@ -1,7 +1,7 @@
 # User specific aliases and functions
 if [[ -x /usr/bin/trash ]]; then
 	# use XDG-compliant trash script (bashtrash)
-	alias rm='trash'
+	alias rm='trash-put'
 else
 	# fallback to sometimes interactive rm
 	echo "You should install some sort of trash tool so you don't rm things by accident"
@@ -47,3 +47,6 @@ alias eval-timer='clock --timer 5:00'
 alias mount-vm='sudo mount /dev/nvme0n1p7 vm'
 alias weather='curl -s https://wttr.in/Sydney'
 alias bt-on='bluetoothctl power on'
+alias pc='protonvpn-cli c --cc AU'
+alias pd='protonvpn-cli d'
+alias pr='protonvpn-cli d && protonvpn-cli c --cc AU'

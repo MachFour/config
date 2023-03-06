@@ -9,3 +9,5 @@
 	ui = auto
 [pull]
 	rebase = false
+[core]
+	autocrlf = input

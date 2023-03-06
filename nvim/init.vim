@@ -101,7 +101,7 @@ nnoremap <C-k> <C-y>
 nnoremap Y y$
 
 " Map Ctrl-Backspace to delete the previous word in insert mode.
-inoremap  <C-W>
+inoremap <C-BS> <C-W>
 
 
 " save with WW
@@ -154,7 +154,7 @@ let g:vimtex_enabled = 1
 
 
 "nvim remote
-let g:vimtex_latexmk_progname = 'nvr'
+let g:vimtex_compiler_progname = 'nvr'
 "let g:vimtex_view_method = 'zathura'
 let g:vimtex_view_method = 'general'
 let g:vimtex_view_general_viewer = 'evince'
@@ -182,13 +182,10 @@ let g:vimtex_indent_delims = {
 	  \}
 
 " stop overfull hbox warnings
-let g:vimtex_quickfix_latexlog = {
-	  \ 'overfull' : 0,
-	  \ 'underfull' : 0,
-	  \ 'packages' : {
-	  \   'default' : 0,
-	  \ },
-\}
+let g:vimtex_quickfix_ignore_filters = [
+	  \ 'overfull hbox',
+	  \ 'underfull hbox',
+	  \]
 
 " enable compilation on saving
 
@@ -247,9 +244,9 @@ endfunction
 " Filetype-specific settings and commands
 augroup ftspecific
 	autocmd! ftspecific
-	autocmd FileType julia  	call CodingInit(79)
-	autocmd FileType python 	call CodingInit(79)
-	autocmd FileType dart   	call CodingInit(79)
+	autocmd FileType julia  	call CodingInit(95)
+	autocmd FileType python 	call CodingInit(95)
+	autocmd FileType dart   	call CodingInit(95)
 	autocmd FileType dart   	call DartInit()
 	" existing python scripts use tabs
 	"autocmd FileType python 	setlocal noet
@@ -261,11 +258,11 @@ augroup ftspecific
 	autocmd FileType tex 		call TexInit()
 	autocmd FileType text       call TextInit()
 	"autocmd Filetype tex runtime after/syntax/tex.vim
-	autocmd Filetype cpp 		call CodingInit(79)
-	autocmd Filetype arduino 	call CodingInit(79)
-	autocmd Filetype c 			call CodingInit(79)
-	autocmd Filetype sql 		call CodingInit(85)
-	autocmd Filetype java 		call CodingInit(100)
+	autocmd Filetype cpp 		call CodingInit(95)
+	autocmd Filetype arduino 	call CodingInit(95)
+	autocmd Filetype c 			call CodingInit(95)
+	autocmd Filetype sql 		call CodingInit(95)
+	autocmd Filetype java 		call CodingInit(95)
 augroup END
 
 " statusline examples

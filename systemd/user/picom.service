@@ -3,7 +3,6 @@ Description=Compton compositor
 PartOf=graphical-session.target
 
 [Service]
-#ExecStart=/usr/bin/compton --config /dev/null --dbe
 ExecStart=/usr/bin/picom
 Restart=on-success
 

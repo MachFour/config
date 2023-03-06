@@ -1,8 +1,8 @@
 /dev/cdrom
-/home/max/music/rips
+/home/max/rips
 1
 1
-%N - %A - %T
+%N %T
 %A - %L
 %A - %L
 0
@@ -14,8 +14,8 @@
 6
 8
 unused
-695
-1171
+1132
+1051
 0
 1
 0
@@ -44,3 +44,4 @@ unused
 2
 0
 10
+/

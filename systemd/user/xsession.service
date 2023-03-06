@@ -4,7 +4,7 @@
 # DISPLAY=:0 is hardcoded
 
 [Unit]
-Description=xinitrc script
+Description=xsession script
 Requires=x11.target
 After=x11.target
 # so that xrandr, environment etc. is set up
@@ -14,5 +14,5 @@ PartOf=graphical-session-pre.target
 [Service]
 Type=oneshot
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/bash ${HOME}/.xinitrc-systemd
+ExecStart=/usr/bin/bash ${HOME}/.xsession
 SuccessExitStatus=0

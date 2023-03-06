@@ -129,6 +129,8 @@ for_window [class="kitty" title="System Update"] floating enable resize set 1500
 bindsym $mod+x exec --no-startup-id pcmanfm
 bindsym $mod+g exec --no-startup-id kitty ranger
 bindsym $mod+n exec --no-startup-id kitty nnn-wrapper
+bindsym $mod+p exec --no-startup-id pavucontrol
+bindsym $mod+Shift+b exec --no-startup-id kbreset
 
 # super + escape
 bindcode $mod+9 exec --no-startup-id i3-logout
@@ -203,10 +205,12 @@ for_window [class="Dolphin-emu"] floating enable
 for_window [class="VMPK-Virtual MIDI Piano Keyboard"] floating enable
 for_window [title="Android Emulator.*"] floating enable
 for_window [class="Gsimplecal"] floating enable resize set 250 120
+# for_window [class="Matplotlib"] floating enable
 for_window [class="albert"] move position center
 
 for_window [class="CV_IMAGE"] floating enable move position center border normal
 for_window [class="zoom"] floating enable
+for_window [class="MainKt"] floating enable
 
 # Android studio
 for_window [class="java-lang-Thread" title="win0"] floating enable
@@ -221,6 +225,7 @@ assign [class="jetbrains-clion"] "5: code"
 assign [class="jetbrains-idea"] "5: code"
 assign [class="jetbrains-idea-ce"] "5: code"
 assign [class="jetbrains-studio"] "5: code"
+assign [class="jetbrains-pycharm"] "5: code"
 
 #Focus prevention
 #focus_on_window_activation none
@@ -308,9 +313,15 @@ bar {
 #}
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume-adj inc
+bindsym XF86AudioLowerVolume exec --no-startup-id volume-adj dec
+bindsym XF86AudioMute exec --no-startup-id volume-adj mute
+
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id light-adj inc

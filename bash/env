@@ -27,11 +27,17 @@ export LESS="--LONG-PROMPT --RAW-CONTROL-CHARS --squeeze-blank-lines --quit-on-i
 # need these two together
 export SYSTEMD_LESS="$LESS --chop-long-lines --no-init --quit-if-one-screen"
 
-#_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+if [[ -z $_JAVA_OPTIONS ]]; then
+	_JAVA_OPTIONS=""
+fi
+#_JAVA_OPTIONS+=" -Dsun.java2d.uiscale=2"
+#_JAVA_OPTIONS+=" -Dawt.useSystemAAFontSettings=on"
 #_JAVA_OPTIONS+=" -Dswing.aatext=true"
 #_JAVA_OPTIONS+=" -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
 #_JAVA_OPTIONS+=" -Dsun.java2d.opengl=false"
-#export _JAVA_OPTIONS
+if [[ -n $_JAVA_OPTIONS ]]; then
+	export _JAVA_OPTIONS
+fi
 
 #export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
 
@@ -39,3 +45,6 @@ export SYSTEMD_LESS="$LESS --chop-long-lines --no-init --quit-if-one-screen"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+
+# enable video acceleration
+#export MOZ_DISABLE_RDD_SANDBOX=1

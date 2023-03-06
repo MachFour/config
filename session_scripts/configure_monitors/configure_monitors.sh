@@ -234,7 +234,7 @@ function zurich_setup {
 function uhd_setup {
 	set_dpi ${UHD_DPI}
 	local ext
-	if is_uhd HDMI-A-1; then
+	if is_uhd ${EXT1}; then
 		ext=${EXT1}
 	elif is_uhd ${EXT2}; then
 		ext=${EXT2}
@@ -266,6 +266,13 @@ function is_connected {
 function is_uhd {
     if grep '3840x2160' "/sys/class/drm/card0-$1/modes" &>/dev/null; then
 		return 0
+	fi
+	# HDMI-1 may need to be renamed to HDMI-A-1
+	suffix=${1##HDMI}
+	if [[ ${suffix:0:1} == "-" ]]; then
+		if grep '3840x2160' "/sys/class/drm/card0-HDMI-A${suffix}/modes" &>/dev/null; then
+			return 0
+		fi
 	else
 		return 1
 	fi
@@ -312,7 +319,7 @@ function apply_setup {
 	ensure_installed xrdb
 
 	case $1 in
-		(5 | uhd)
+		(5 | uhd | 4k)
 			uhd_setup	
 			;;
 		(4 | zurich)

@@ -13,6 +13,9 @@ PartOf=graphical-session-pre.target
 Type=oneshot
 Environment=DISPLAY=:0
 #ExecStart=/usr/bin/configure_monitors %i [now in monitor-config.service]
+
+# set up environment and other things for systemd-controlled X clients
+#ExecStart=/usr/bin/bash /home/max/.xsession
 ExecStart=/usr/bin/sleep 2
 ExecStart=/usr/bin/xset r rate 225 35
 #ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/touchpad-configure.sh

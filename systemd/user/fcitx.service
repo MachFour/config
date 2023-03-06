@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/fcitx -D
+ExecStart=/usr/bin/fcitx5 -D --keep
 
 [Install]
 WantedBy=graphical-session.target

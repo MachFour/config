@@ -14,7 +14,8 @@ export PATH
 # start X automatically, without display manager
 
 if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	echo "Not Starting X server on display :0..."
+	echo "(.zprofile) Not Starting X server on display :0..."
+	#echo "(.zprofile) Starting X server on display :0..."
 	#export DISPLAY=:0
 	#systemctl --user import-environment XDG_VTNR DISPLAY
 	#systemctl --user isolate desktop.target

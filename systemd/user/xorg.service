@@ -5,21 +5,19 @@
 [Unit]
 Description=Xorg X11 server
 Documentation=man:Xorg(1)
-Requires=environ-test.service
+#Requires=environ-test.service
 Before=x11.target exit.target
 # hopefully this will get xorg to exit before shutdown
-Conflicts=exit.target
+Conflicts=exit.target getty@tty1.service
 # we shouldn't activate this manually, it should be pulled in when starting X clients with systemd
-RefuseManualStart=true
+#RefuseManualStart=true
 
 
 [Service]
 Type=simple
-# have to set $DISPLAY=:0 properly beforehand for other processes
-Environment=DISPLAY=:0
-ExecStart=/usr/bin/Xorg ${DISPLAY} -nolisten tcp -noreset vt${XDG_VTNR} -keeptty -verbose 1 -logverbose 4
-# set up environment and other things for systemd-controlled X clients
-ExecStartPost=/usr/bin/bash ${HOME}/.xinitrc-systemd
+TTYPath=/dev/tty1
+# variables set using .zprofile
+ExecStart=/usr/bin/Xorg :0 vt1 -verbose 1 -logverbose 4 -keeptty
 #KillSignal=SIGTERM
 SendSIGHUP=no
 Restart=no
@@ -28,5 +26,5 @@ Restart=no
 [Install]
 #Alias=x11.service
 Also=x11.target
-#For auto activation/enabline
-#WantedBy=desktop.target
+#For auto activation/enabling
+WantedBy=desktop.target
