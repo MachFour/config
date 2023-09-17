@@ -19,7 +19,8 @@ Environment=DISPLAY=:0
 ExecStart=/usr/bin/sleep 2
 ExecStart=/usr/bin/xset r rate 225 35
 #ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/touchpad-configure.sh
-ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper %i
+#ExecStart=/usr/bin/bash ${HOME}/.config/session_scripts/set-wallpaper %i
+ExecStart=/usr/bin/nitrogen --restore
 SuccessExitStatus=0
 
 [Install]

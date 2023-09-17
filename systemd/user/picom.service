@@ -3,7 +3,8 @@ Description=Compton compositor
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/picom
+Type=forking
+ExecStart=/usr/bin/picom --daemon
 Restart=on-success
 
 [Install]

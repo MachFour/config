@@ -113,7 +113,7 @@ network_block = i3bar_create_block({
 	})
 
 audio_block = i3bar_create_block({
-	full_text = " vol ${pa_sink_volume}%" .. 
+	full_text = " vol ${pa_sink_volume}%" ..
 		-- "${pa_sink_volumebar}" ..
 		" ",
 		name = "audio",

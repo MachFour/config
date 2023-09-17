@@ -290,11 +290,12 @@ client.background       #ffffff
 bar {
 	output eDP-1
 	output HDMI-1
-	output DP-2
 	output DP-1
+	output DP-2
+	output DP-3
 	font $barfont
 	tray_output primary
-	status_command "i3status-conky"
+	status_command i3blocks
 
 	colors {
 		focused_workspace $border_colour $title_colour $text_colour
@@ -327,7 +328,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light-adj inc
 bindsym XF86MonBrightnessDown exec --no-startup-id light-adj dec
 
-bindsym XF86Display exec --no-startup-id systemctl --user start xsetup@auto
+bindsym XF86Display exec --no-startup-id autorandr --change
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
