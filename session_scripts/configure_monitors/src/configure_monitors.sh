@@ -1,1 +1,0 @@
-/home/max/.config/session_scripts/configure_monitors/configure_monitors.sh

@@ -11,7 +11,7 @@ function set_xdg_vars {
 	XDG_CONFIG_HOME="$HOME/.config"
 	XDG_CONFIG_DIRS="/etc/xdg"
 	XDG_CACHE_HOME="$HOME/.cache"
-	export XDG_CURRENT_DESKTOP=i3
+	export XDG_CURRENT_DESKTOP="i3"
 
 	export XDG_DATA_HOME
 	export XDG_DATA_DIRS
@@ -37,7 +37,6 @@ function set_xdg_vars {
 	fi
 	mkdir -p "$XDG_DESKTOP_DIR"
 
-
 	# get all of this environment into systemd
 	for envvar in DATA_HOME DATA_DIRS CONFIG_HOME CONFIG_DIRS CACHE_HOME CURRENT_DESKTOP; do
 		systemctl --user import-environment XDG_${envvar}
@@ -54,38 +53,21 @@ set_xdg_vars
 # X session preferences
 #
 
-#if [[ ! $(systemctl --user is-active desktop.target) ]]; then
+GLOBAL_PROFILE=/etc/profile
+ENV_FILE="$HOME"/.env
 
-	#xset r rate 275 25
-	#configure_monitors
-	#xrandr --output VGA-1 --primary
+# get normal environment into systemd user session
+# import all system variables and some user variables
+[[ -f /etc/profile ]] && . /etc/profile
+systemctl --user import-environment
 
-	GLOBAL_PROFILE=/etc/profile
-	ENV_FILE="$HOME"/.env
-	STARTUP_FILE="$HOME"/.startup
+[[ -f "$ENV_FILE" ]] && . "$ENV_FILE"
+systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
 
-	# get normal environment into systemd user session
-	# import all system variables and some user variables
-	[[ -f /etc/profile ]] && . /etc/profile
-	systemctl --user import-environment
+systemctl --user start desktop.target
 
-	[[ -f "$ENV_FILE" ]] && . "$ENV_FILE"
-	systemctl --user import-environment PATH EDITOR PAGER BROWSER SUDO_EDITOR XDG_SESSION_PATH XDG_SEAT
-
-	systemctl --user start desktop.target
-
-	# pulseaudio bell
-	#pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav
-	#pacmd load-module module-x11-bell display=:0 sample=bell-440
-
-	if [[ -f "$STARTUP_FILE" ]]; then
-		while read -r desktop_file; do
-			# skip 'commented' lines
-			[[ $desktop_file = \#* ]] && continue
-			# else
-			dex -v $desktop_file
-		done < "$STARTUP_FILE"
-	fi
-#fi
+# pulseaudio bell
+#pacmd load-sample bell-440 /home/max/.config/systemd/data/bell-440.wav
+#pacmd load-module module-x11-bell display=:0 sample=bell-440
 
 # vim : ft=sh

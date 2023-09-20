@@ -4,16 +4,15 @@
 [Unit]
 Description=Autorandr auto config
 Requires=x11.target
-After=x11.target
 # so that xrandr, environment etc. is set up
-Before=desktop.target desktop-manager.service xsetup@.service
-PartOf=graphical-session-pre.target
+After=x11.target
+Before=desktop.target
+PartOf=graphical-session.target
 
 [Service]
 Type=oneshot
-Environment=DISPLAY=:0
 ExecStart=/usr/bin/autorandr --change
 SuccessExitStatus=0
 
 [Install]
-WantedBy=x11.target
+WantedBy=graphical-session.target
