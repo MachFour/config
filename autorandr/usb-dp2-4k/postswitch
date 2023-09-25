@@ -1,0 +1,2 @@
+#! /bin/bash
+echo "Xft.dpi: 140" | xrdb -override
