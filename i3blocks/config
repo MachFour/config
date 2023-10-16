@@ -109,8 +109,13 @@ label=BAT
 #label=⚡
 interval=30
 
-# Date Time
+# Date and time
 #
+[uptime]
+label=UP 
+command=./uptime
+interval=1
+
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=1
