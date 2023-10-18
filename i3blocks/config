@@ -64,7 +64,7 @@ interval=30
 [disk]
 label=HOME 
 #DIR=/mnt/data
-interval=30
+interval=15
 
 # Network interface monitoring
 #
@@ -78,13 +78,13 @@ interval=10
 separator=false
 
 [wifi]
+command=./wifi
+label=wifi 
 INTERFACE=wlp0s20f3
-label=wifi:
 interval=10
-separator=false
 
 [bandwidth]
-#INTERFACE=eth0
+INTERFACE=wlp0s20f3
 interval=5
 
 # CPU usage
@@ -113,7 +113,7 @@ interval=30
 #
 [uptime]
 label=UP 
-command=./uptime
+command=./uptime/uptime
 interval=1
 
 [time]
