@@ -31,7 +31,7 @@ alias i3cheatsheet="egrep '^bind' ~/config/i3/config | cut -d '\'' '\''  -f 2- |
 
 alias vim='echo USE NVIM! #'
 #alias foods='nvim /home/max/foods.txt'
-alias mpv='mpv --no-audio-display --sub-font-size=30'
+alias mpv='mpv --no-audio-display --sub-font-size=30 --audio-pitch-correction=no'
 
 # vim: ft=sh
 alias netctl='sudo netctl'
