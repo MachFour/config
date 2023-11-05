@@ -1,0 +1,8 @@
+#! /bin/sh
+
+if [[ -n $button ]]; then
+	gsimplecal
+fi
+
+date '+%Y-%m-%d %H:%M:%S'
+

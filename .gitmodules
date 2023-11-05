@@ -16,3 +16,6 @@
 [submodule "nvim/pack/syntax/start/vimtex"]
 	path = nvim/pack/syntax/start/vimtex
 	url = https://github.com/lervag/vimtex.git
+[submodule "i3blocks/i3blocks-contrib"]
+	path = i3blocks/i3blocks-contrib
+	url = https://github.com/vivien/i3blocks-contrib
