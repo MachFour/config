@@ -29,36 +29,6 @@ command=/home/max/.config/i3blocks/i3blocks-contrib/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=25
 markup=none
 
-# Volume indicator
-#
-# The first parameter sets the step (and units to display)
-# The second parameter overrides the mixer selection
-# See the script for details.
-
-[volume-pipewire]
-#label=♪
-label=VOL 
-interval=persist
-SUBSCRIBE=1
-USE_DESCRIPTION=1
-#MIXER=default
-AUDIO_HIGH_SYMBOL=🔊
-AUDIO_MED_SYMBOL=🔉
-AUDIO_LOW_SYMBOL=🔈
-AUDIO_MUTED_SYMBOL=🔇
-
-#STEP=5%
-
-# Disk usage
-#
-# The directory defaults to $HOME if the instance is not specified.
-# The script may be called with a optional argument to set the alert
-# (defaults to 10 for 10%).
-[disk]
-label=HOME 
-#DIR=/mnt/data
-interval=15
-
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
@@ -66,13 +36,19 @@ interval=15
 [iface]
 label=inet
 #IFACE=wlan0
-color=#00FF00
 interval=10
 separator=false
+separator_block_width=13
+color=#88ff88
 
 [wifi]
 command=./wifi
 label=wifi 
+COLOR_GE80=#88ff88
+COLOR_GE60=#88ff88
+COLOR_GE40=#88ff88
+COLOR_LOWR=#88ff88
+COLOR_DOWN=#88ff88
 INTERFACE=wlp0s20f3
 interval=10
 
@@ -88,39 +64,88 @@ interval=5
 label=CPU 
 interval=10
 min_width=CPU 100.00%
+separator=false
+separator_block_width=13
+COLOR_NORMAL=#ff8888
+COLOR_WARN=#FFFC00
+COLOR_CRIT=#FF0000
+
+
+# Temperature
+#
+# Support multiple chips, though lm-sensors.
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+[temperature]
+interval=10
+color=#ff8888
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=MEM 
+label=mem 
 interval=10
+color=#ffcc88
 
 [load_average]
-label=LOAD 
+label=load 
 interval=10
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+[disk]
+#label=home 
+interval=15
+LABEL=home 
+DIR=/home
+ALERT_LOW=3
+color=#ffccff
+
+# Date and time
+#
+[uptime]
+label=up 
+command=./uptime/uptime
+interval=30
+color=#ccbbaa
+
+
+# Volume indicator
+[volume-pipewire]
+#label=♪
+label=vol 
+interval=persist
+SUBSCRIBE=1
+USE_DESCRIPTION=1
+#MIXER=default
+AUDIO_HIGH_SYMBOL=🔊
+AUDIO_MED_SYMBOL=🔉
+AUDIO_LOW_SYMBOL=🔈
+AUDIO_MUTED_SYMBOL=🔇
+color=#ff88ff
+
+#STEP=5%
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
-label=BAT 
+label=batt 
 #label=⚡
 interval=30
-
-# Date and time
-#
-[uptime]
-label=UP 
-command=./uptime/uptime
-interval=1
+color=#88ccff
 
 [time]
 command=./date
 interval=1
+color=#ffff00
 
 [end_sep]
-command=echo ''
+command=echo
 interval=once
 
 # Generic media player support
@@ -139,15 +164,6 @@ interval=once
 # Support multiple VPN, with colors.
 #[openvpn]
 #interval=20
-
-# Temperature
-#
-# Support multiple chips, though lm-sensors.
-# The script may be called with -w and -c switches to specify thresholds,
-# see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
 
 # Key indicators
 #
