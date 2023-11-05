@@ -302,9 +302,9 @@ set $archlinux_brighter_color #1cb3ff
 
 # light primary
 set $title_colour #006492
-set $highlight_colour #8bceff
-# dark secondary
-set $drag_colour #97f0ff
+# dark primary
+set $drag_colour #8bceff
+set $error_colour #93000a
 
 set $white #ffffff
 
@@ -312,7 +312,6 @@ set $white #ffffff
 set $dark_surface #1a1c1e
 set $light_surface #41474d
 set $surface_text #c1c7ce
-#dde3ea
 set $outline #72787e
 
 # class                 border          backgr.         text            indicator       child_border
@@ -320,7 +319,7 @@ set $outline #72787e
 client.focused          $title_colour   $title_colour   $white          $drag_colour    $title_colour
 client.focused_inactive $light_surface  $light_surface  $white          $outline        $light_surface
 client.unfocused        $dark_surface   $dark_surface   $surface_text   #292d2e         $dark_surface
-client.urgent           #2f343a         #900000         $white          #900000         #900000
+client.urgent           $error_colour   $error_colour   $white          $error_colour   $error_colour
 client.placeholder      #000000         #0c0c0c         $white          #000000         #0c0c0c
 
 client.background       #ffffff
