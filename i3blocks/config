@@ -49,13 +49,6 @@ AUDIO_MUTED_SYMBOL=🔇
 
 #STEP=5%
 
-# Memory usage
-#
-# The type defaults to "mem" if the instance is not specified.
-[memory]
-label=MEM 
-interval=30
-
 # Disk usage
 #
 # The directory defaults to $HOME if the instance is not specified.
@@ -95,7 +88,13 @@ interval=5
 label=CPU 
 interval=10
 min_width=CPU 100.00%
-#separator=false
+
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label=MEM 
+interval=10
 
 [load_average]
 label=LOAD 
@@ -117,7 +116,7 @@ command=./uptime/uptime
 interval=1
 
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=./date
 interval=1
 
 [end_sep]

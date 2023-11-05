@@ -1,0 +1,18 @@
+[submodule "nvim/pack/completion/start/supertab"]
+	path = nvim/pack/completion/start/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "nvim/pack/syntax/start/julia-vim"]
+	path = nvim/pack/syntax/start/julia-vim
+	url = https://github.com/JuliaEditorSupport/julia-vim.git
+[submodule "nvim/pack/syntax/start/kotlin-vim"]
+	path = nvim/pack/syntax/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
+[submodule "nvim/pack/syntax/start/syntastic"]
+	path = nvim/pack/syntax/start/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
+[submodule "nvim/pack/syntax/start/vim-systemd-syntax"]
+	path = nvim/pack/syntax/start/vim-systemd-syntax
+	url = https://github.com/wgwoods/vim-systemd-syntax.git
+[submodule "nvim/pack/syntax/start/vimtex"]
+	path = nvim/pack/syntax/start/vimtex
+	url = https://github.com/lervag/vimtex.git

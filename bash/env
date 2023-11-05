@@ -42,9 +42,12 @@ fi
 #export JAVA_HOME=/usr/lib/jvm/java-14-openjdk
 
 #input options
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE="fcitx"
+export QT_IM_MODULE="fcitx"
+export XMODIFIERS="@im=fcitx"
+
+# for kitty (fcitx ibus compatibility)
+export GLFW_IM_MODULE="ibus"
 
 # enable video acceleration
 #export MOZ_DISABLE_RDD_SANDBOX=1

@@ -1,0 +1,18 @@
+
+# sets up environment and other things for systemd-controlled services that
+# require an X server
+# DISPLAY=:0 is hardcoded
+
+[Unit]
+Description=xsession script
+Requires=x11.target
+After=x11.target
+# so that xrandr, environment etc. is set up
+Before=desktop.target
+PartOf=graphical-session-pre.target
+
+[Service]
+Type=oneshot
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/bash ${HOME}/.xsession
+SuccessExitStatus=0

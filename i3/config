@@ -266,24 +266,62 @@ bindsym $mod+m mode "resize"
 #exec --no-startup-id "/usr/bin/nitrogen --restore"
 #exec --no-startup-id "feh --bg-fill --no-xinerama pics/Saved\ Photos/Zurich2.jpg"
 
-# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-
-set $indicator_colour #0099cc
-set $border_colour #0044bb
-set $title_colour #0066cc
-set $text_colour #ffffff
-
-# Colours
-# border is the very edge of the titlebar (the 3D/'highlight' row of pixels)
-# backgr. is the actual window decoration colour
 #
-# class                 border  backgr. text    indicator child_border
-#client.focused         #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused          $border_colour $title_colour $text_colour $indicator_colour $title_colour
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# Colours
+#
+# https://i3wm.org/docs/userguide.html#client_colors
+#
+# Notes:
+# - 'background' is the actual window title background colour
+# - 'border' is like a 1 pixel edge of the titlebar (the 3D/'highlight' row of pixels),
+#    you can't actually see it if the window title isn't shown
+# - 'child_border' is the border of the whole window
+# - 'indicator' colour is used to indicate
+#    1. the destination of a window that is being dragged by the mouse
+#    2. changes to the layout direction of a container (vertical/horizontal)
+#    Probably only the client.focused colours are relevant in this case
+
+# - client.focused a window which currently has focus
+# - client.focused_inactive is the focused window in its container, but the container is not focused
+# - client.unfocused is any other window in its container
+# - client.urgent has the urgency hint activated
+# - client.placeholder is used when restoring layouts. Only background and text colour are used
+# - client.background is the default window background if unset by application
+#
+# Useful tool: https://thomashunter.name/i3-configurator/
+#
+set $archlinux_colour #1793d1
+set $archlinux_darker_color #116e9c
+set $archlinux_brighter_color #1cb3ff
+
+# Colours from
+# https://m3.material.io/theme-builder#/custom with inputs
+# #1793d1 - arch linux 'curious blue' colour
+# #333333 - arch linux 'mine shaft' colour
+# #ffffff - white
+
+# light primary
+set $title_colour #006492
+set $highlight_colour #8bceff
+# dark secondary
+set $drag_colour #97f0ff
+
+set $white #ffffff
+
+# dark background/surface
+set $dark_surface #1a1c1e
+set $light_surface #41474d
+set $surface_text #c1c7ce
+#dde3ea
+set $outline #72787e
+
+# class                 border          backgr.         text            indicator       child_border
+#client.focused         #4c7899         #285577         #ffffff         #2e9ef4         #285577
+client.focused          $title_colour   $title_colour   $white          $drag_colour    $title_colour
+client.focused_inactive $light_surface  $light_surface  $white          $outline        $light_surface
+client.unfocused        $dark_surface   $dark_surface   $surface_text   #292d2e         $dark_surface
+client.urgent           #2f343a         #900000         $white          #900000         #900000
+client.placeholder      #000000         #0c0c0c         $white          #000000         #0c0c0c
 
 client.background       #ffffff
 
@@ -298,7 +336,17 @@ bar {
 	status_command i3blocks
 
 	colors {
-		focused_workspace $border_colour $title_colour $text_colour
+		background $dark_surface
+		statusline #ffffff
+		separator #666666
+
+		# colours for workspace indicators
+		# workspace type      # border       # background     # text
+		focused_workspace     $title_colour  $title_colour    $white
+		active_workspace      $title_colour  $title_colour    $white
+		inactive_workspace    $light_surface $light_surface   $surface_text
+		urgent_workspace      #2f343a        #900000          $white
+		binding_mode          #2f343a        #900000          $white
 	}
 }
 
@@ -328,7 +376,9 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id light-adj inc
 bindsym XF86MonBrightnessDown exec --no-startup-id light-adj dec
 
+# Autorandr
 bindsym XF86Display exec --no-startup-id autorandr --change
+bindsym $mod+a exec --no-startup-id autorandr --debug --load clone-largest
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -340,4 +390,4 @@ bindsym XF86Display exec --no-startup-id autorandr --change
 #bindsym XF86AudioPrev exec playerctl previous
 
 
-# vim: ft=i3
+# vim: ft=i3config
