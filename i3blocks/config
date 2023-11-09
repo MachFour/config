@@ -54,6 +54,8 @@ interval=10
 
 [bandwidth]
 INTERFACE=wlp0s20f3
+INLABEL=in 
+OUTLABEL=out 
 interval=5
 
 # CPU usage
@@ -63,7 +65,7 @@ interval=5
 [cpu_usage]
 label=CPU 
 interval=10
-min_width=CPU 100.00%
+#min_width=CPU 100.00%
 separator=false
 separator_block_width=13
 COLOR_NORMAL=#ff8888
