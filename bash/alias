@@ -37,7 +37,7 @@ alias mpv='mpv --no-audio-display --sub-font-size=30 --audio-pitch-correction=no
 alias netctl='sudo netctl'
 alias ssss='systemctl --user start monitor-config@single xsetup@single'
 alias laptop='autorandr --load laptop'
-alias 4k='autorandr --load usb-dp3-4k'
+alias 4k='autorandr --load hdmi-1-4k'
 alias 4k2='autorandr --load usb-dp2-4k'
 alias python='python -B'
 alias pls=sudo
